@@ -13,7 +13,7 @@ const SIZES = {
 
 /** Renders an <a> when `href` is given, otherwise a <button>. */
 export default function Button({ href, variant = 'gold', size = 'md', className = '', children, ...rest }) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-wide transition-all duration-300 disabled:pointer-events-none disabled:opacity-70 ${VARIANTS[variant]} ${SIZES[size]} ${className}`
+  const classes = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold tracking-wide transition-all duration-300 disabled:pointer-events-none disabled:opacity-70 ${VARIANTS[variant]} ${SIZES[size]} ${className}`
 
   if (href) {
     return (

@@ -30,7 +30,7 @@ export default function Gallery({ data }) {
               type="button"
               aria-pressed={filter === c}
               onClick={() => setFilter(c)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ${
+              className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
                 filter === c ? 'bg-navy-900 text-white' : 'bg-white text-navy-800/75 ring-1 ring-navy-900/10 hover:text-navy-900 hover:ring-gold-300'
               }`}
             >

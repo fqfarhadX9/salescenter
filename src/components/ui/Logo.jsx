@@ -19,11 +19,11 @@ export default function Logo({ name, subtitle, logoSrc, tone = 'light', classNam
     return <img src={logoSrc} alt={name} className={`h-10 w-auto ${className}`} />
   }
   return (
-    <span className={`flex items-center gap-3 ${className}`}>
-      <LogoMark className="h-9 w-9 text-gold-400" />
+    <span className={`flex items-center gap-2.5 whitespace-nowrap sm:gap-3 ${className}`}>
+      <LogoMark className="h-8 w-8 flex-none text-gold-400 sm:h-9 sm:w-9" />
       <span className="leading-none">
-        <span className={`block font-display text-lg font-semibold uppercase tracking-[0.18em] ${textColor}`}>{name}</span>
-        {subtitle && <span className="mt-1 block text-[10px] font-medium uppercase tracking-[0.32em] text-gold-400">{subtitle}</span>}
+        <span className={`block font-display text-base font-semibold uppercase tracking-[0.12em] sm:text-lg sm:tracking-[0.18em] ${textColor}`}>{name}</span>
+        {subtitle && <span className="mt-1 block text-[9px] font-medium uppercase tracking-[0.28em] sm:text-[10px] sm:tracking-[0.32em] text-gold-400">{subtitle}</span>}
       </span>
     </span>
   )

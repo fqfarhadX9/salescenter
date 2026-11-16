@@ -17,7 +17,7 @@ export default function Hero({ hero, form }) {
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/90 via-navy-950/60 to-navy-950/20" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-navy-950/70 to-transparent" />
 
-      <div className="container-site grid items-center gap-10 pb-16 pt-32 sm:pt-36 lg:min-h-[min(100svh,880px)] lg:grid-cols-[1fr_400px] lg:gap-16 lg:pb-20 lg:pt-32 xl:grid-cols-[1fr_420px]">
+      <div className="container-site grid min-h-[min(100svh,760px)] items-center gap-10 pb-14 pt-28 sm:min-h-0 sm:pb-16 sm:pt-36 lg:min-h-[min(100svh,880px)] lg:grid-cols-[1fr_400px] lg:gap-16 lg:pb-20 lg:pt-32 xl:grid-cols-[1fr_420px]">
         <div className="max-w-2xl animate-fade-in">
           {/* <span className="mb-6 block h-px w-20 bg-gold-400" /> */}
           {/* <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-gold-300">{hero.eyebrow}</p> */}
@@ -30,12 +30,12 @@ export default function Hero({ hero, form }) {
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">{hero.subtitle}</p>
 
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Button href={hero.primaryCta.href} variant="light" size="lg" className="group">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-9 sm:flex sm:flex-wrap">
+            <Button href={hero.primaryCta.href} variant="light" size="lg" className="group !h-12 !px-4 text-[15px] sm:!h-14 sm:!px-8 sm:text-base">
               {hero.primaryCta.label}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 max-[379px]:hidden" aria-hidden="true" />
             </Button>
-            <Button href="#enquire" variant="outline" size="lg">
+            <Button href="#enquire" variant="outline" size="lg" className="!h-12 !px-4 text-[15px] sm:!h-14 sm:!px-8 sm:text-base">
               Enquire Now
             </Button>
           </div>

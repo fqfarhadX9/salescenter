@@ -33,7 +33,7 @@ export default function FloorPlans({ data }) {
           <SectionHeading id="floorplans-title" eyebrow={data.eyebrow} title={data.title} description={data.description} />
 
           <Reveal>
-            <div role="tablist" aria-label="Villa types" className="inline-flex rounded-full bg-cream-100 p-1.5 ring-1 ring-gold-100" onKeyDown={onKeyDown}>
+            <div role="tablist" aria-label="Villa types" className="flex w-full rounded-full bg-cream-100 p-1.5 ring-1 ring-gold-100 sm:inline-flex sm:w-auto" onKeyDown={onKeyDown}>
               {data.plans.map((p, i) => {
                 const selected = i === active
                 return (
@@ -46,7 +46,7 @@ export default function FloorPlans({ data }) {
                     aria-controls={`panel-${p.id}`}
                     tabIndex={selected ? 0 : -1}
                     onClick={() => setActive(i)}
-                    className={`whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-300 sm:px-6 ${
+                    className={`flex-1 whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-semibold transition-all duration-300 sm:px-6 ${
                       selected ? 'bg-navy-900 text-white shadow-soft' : 'text-navy-800/70 hover:text-navy-900'
                     }`}
                   >
@@ -64,9 +64,9 @@ export default function FloorPlans({ data }) {
           id={`panel-${plan.id}`}
           aria-labelledby={`tab-${plan.id}`}
           tabIndex={0}
-          className="mt-12 grid animate-zoom-in gap-8 rounded-card lg:grid-cols-[1fr_340px] lg:gap-10"
+          className="mt-12 grid animate-zoom-in grid-cols-1 gap-6 rounded-card sm:gap-8 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-10"
         >
-          <div className="rounded-card bg-cream-50 p-4 ring-1 ring-cream-200 sm:p-8">
+          <div className="min-w-0 rounded-card bg-cream-50 p-4 ring-1 ring-cream-200 sm:p-8">
             {plan.image ? (
               <SmartImage src={plan.image} alt={`${plan.label} villa floor plan`} className="aspect-[16/10] rounded-lg bg-white" imgClassName="!object-contain" />
             ) : (
@@ -78,7 +78,7 @@ export default function FloorPlans({ data }) {
             )}
           </div>
 
-          <aside className="flex flex-col rounded-card bg-navy-900 p-7 text-white sm:p-8">
+          <aside className="flex min-w-0 flex-col rounded-card bg-navy-900 p-7 text-white sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold-300">Villa Type</p>
             <h3 className="mt-2 text-3xl font-semibold">{plan.label} Villa</h3>
 
