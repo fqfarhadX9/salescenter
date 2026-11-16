@@ -19,11 +19,14 @@ export default function Hero({ hero, form }) {
 
       <div className="container-site grid items-center gap-10 pb-16 pt-32 sm:pt-36 lg:min-h-[min(100svh,880px)] lg:grid-cols-[1fr_400px] lg:gap-16 lg:pb-20 lg:pt-32 xl:grid-cols-[1fr_420px]">
         <div className="max-w-2xl animate-fade-in">
-          <span className="mb-6 block h-px w-20 bg-gold-400" />
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-gold-300">{hero.eyebrow}</p>
+          {/* <span className="mb-6 block h-px w-20 bg-gold-400" /> */}
+          {/* <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-gold-300">{hero.eyebrow}</p> */}
           <h1 id="hero-title" className="text-[42px] font-semibold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
-            {hero.titleLine1}
-            <span className="text-gold-gradient block">{hero.titleLine2}</span>
+            {/* {hero.titleLine1} */}
+            {/* <span className="text-gold-gradient block">{hero.titleLine2}</span> */}
+            <span>PAY LIKE FOUR</span>
+            <br/>
+            <span className="text-gold-gradient">LIVE IN FIVE</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">{hero.subtitle}</p>
 
@@ -48,12 +51,12 @@ export default function Hero({ hero, form }) {
           </dl>
         </div>
 
-        <div className="relative w-full rounded-card bg-white p-6 shadow-lift sm:p-8 lg:ml-auto">
+        {/* <div className="relative w-full rounded-card bg-white p-6 shadow-lift sm:p-8 lg:ml-auto">
           <span className="absolute inset-x-8 -top-px h-[3px] rounded-b bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300" />
           <h2 className="text-2xl font-semibold text-navy-900">{form.title}</h2>
           <p className="mb-6 mt-1.5 text-sm leading-relaxed text-ink/65">{form.subtitle}</p>
           <EnquiryForm config={form} source="hero-form" />
-        </div>
+        </div> */}
       </div>
     </section>
   )
