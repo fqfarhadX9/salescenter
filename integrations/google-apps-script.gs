@@ -10,7 +10,7 @@
  *    then rebuild/redeploy the site.
  * To update later: Deploy → Manage deployments → edit → Version: New version (URL stays the same).
  */
-const NOTIFY_EMAIL = 'mintaxmedia@gmail.com'; // comma-separate for more: 'a@x.com,b@y.com'
+const NOTIFY_EMAIL = 'mintaxmedia@gmail.com', 'fqqaunain@gmail.com'; // comma-separate for more: 'a@x.com,b@y.com'
 
 function doPost(e) {
   const data = JSON.parse(e.postData.contents);
