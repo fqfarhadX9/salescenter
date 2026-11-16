@@ -31,7 +31,9 @@ export async function submitLead(data, { source = 'landing-page' } = {}) {
 
   const res = await fetch(ENDPOINT, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    // text/plain avoids a CORS preflight, which Google Apps Script web apps
+    // don't support. The body is still JSON (parse it with JSON.parse).
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(payload),
   })
   if (!res.ok) throw new Error(`Lead submission failed (${res.status})`)

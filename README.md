@@ -49,6 +49,8 @@ Payload: `name, phone, email, propertyType, source (hero-form | final-cta-form),
 - **No endpoint in development:** the lead is logged to the browser console and the form shows success, so you can test the flow.
 - **No endpoint in production:** the form shows an error, so leads are never silently lost.
 
+**Google Sheets + Gmail:** [`integrations/google-apps-script.gs`](integrations/google-apps-script.gs) saves every lead to a Google Sheet and emails it to Gmail. Setup steps are at the top of that file. The body is sent as `text/plain` (still JSON) so Apps Script accepts it without a CORS preflight.
+
 The endpoint must accept CORS requests from the site's domain. Zapier and Make webhooks work, and so do most CRMs.
 
 ## Structure
