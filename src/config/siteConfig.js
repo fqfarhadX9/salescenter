@@ -17,7 +17,7 @@ const unsplash = (id, w = 1600) =>
 
 export const siteConfig = {
   brand: {
-    name: 'Palm Crest',
+    name: 'Offplan Sale',
     subtitle: 'Villas · Dubai',
     // Optional: path to a logo image. Leave empty to use the built-in mark.
     logoSrc: '',
