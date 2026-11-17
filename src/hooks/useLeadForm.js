@@ -20,7 +20,7 @@ export function validateLead(values) {
 }
 
 /** Form state, validation and submit lifecycle: idle → submitting → success | error. */
-export default function useLeadForm({ source }) {
+export default function useLeadForm({ source, project }) {
   const [values, setValues] = useState(INITIAL)
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState({})
@@ -60,7 +60,7 @@ export default function useLeadForm({ source }) {
           email: values.email.trim(),
           propertyType: values.propertyType,
         },
-        { source },
+        { source, project },
       )
       setStatus('success')
     } catch (err) {

@@ -3,7 +3,7 @@
  *
  * Setup:
  * 1. Create a Google Sheet. Row 1 headers:
- *    submittedAt | name | phone | email | propertyType | source | utm_source | utm_campaign | page
+ *    submittedAt | project | name | phone | email | propertyType | source | utm_source | utm_campaign | page
  * 2. Extensions → Apps Script → paste this file → Save.
  * 3. Deploy → New deployment → Web app. Execute as: Me, Who has access: Anyone.
  * 4. Copy the /exec URL into VITE_LEAD_ENDPOINT (.env or your host's env settings),
@@ -23,6 +23,7 @@ function doPost(e) {
   // 2. Email alert
   const esc = (v) => String(v || '—').replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' })[c]);
   const rows = [
+    ['Project', data.project],
     ['Name', data.name],
     ['Phone', data.phone],
     ['Email', data.email],
@@ -55,7 +56,7 @@ function doPost(e) {
 
   MailApp.sendEmail({
     to: NOTIFY_EMAIL,
-    subject: `New Lead: ${data.name} – ${data.propertyType}`,
+    subject: `New Lead [${data.project || 'website'}]: ${data.name} – ${data.propertyType}`,
     htmlBody: html,
     replyTo: data.email,
   });

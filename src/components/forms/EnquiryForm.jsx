@@ -44,10 +44,10 @@ const inputClass = (error) =>
  * layout="stacked" — single column (hero card)
  * layout="grid"    — two columns on sm+ (final CTA)
  */
-export default function EnquiryForm({ config, source, layout = 'stacked', className = '' }) {
+export default function EnquiryForm({ config, source, project, layout = 'stacked', className = '' }) {
   const uid = useId()
   const grid = layout === 'grid'
-  const { values, errors, status, submitError, onChange, onBlur, onSubmit, reset } = useLeadForm({ source })
+  const { values, errors, status, submitError, onChange, onBlur, onSubmit, reset } = useLeadForm({ source, project })
   const ids = {
     name: `${uid}-name`,
     phone: `${uid}-phone`,

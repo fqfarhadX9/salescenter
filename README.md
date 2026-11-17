@@ -25,9 +25,23 @@ npm run lint
 
 Also included: a sticky navbar with a mobile menu, a mobile bottom CTA bar, a footer, scroll-reveal animations (these respect `prefers-reduced-motion`) and a skip link.
 
+## Pages & adding projects
+
+| URL | Page |
+|---|---|
+| `/` | Home page: a card for every project |
+| `/damac-island` | DAMAC Islands landing page |
+| anything else | 404 page |
+
+**To add a project:** copy `src/config/projects/damac-island.js` to a new file (e.g. `emaar-south.js`), change its `slug`, `card` and content, then add it to the `projects` array in `src/config/projects/index.js`. It appears on the home page and lives at `/<slug>`.
+
+Site-wide settings (brand, contact, home page text) are in `src/config/site.js`.
+
+**Hosting:** because each project has its own URL, the server must send every path to `index.html`. `vercel.json` (Vercel) and `public/_redirects` (Netlify) already handle this. On other hosts, add an equivalent rewrite rule.
+
 ## Editing content
 
-**All copy, images and options live in [`src/config/siteConfig.js`](src/config/siteConfig.js).** Components don't hard-code any content, so to launch a new project you edit only that file:
+**Each project's copy, images and options live in its file in `src/config/projects/`.** Components don't hard-code any content:
 
 - `brand.logoSrc` / `developer.logoSrc`: point these at a logo image (for example `/images/logo.svg` in `/public`). If you leave them empty, the page uses the built-in mark.
 - Images: use any URL or a file under `/public`. If an image fails to load, the page shows a branded navy fallback instead of a broken image.
@@ -44,7 +58,7 @@ Forms validate name, phone, email and property type, and show loading, success a
 cp .env.example .env   # then set VITE_LEAD_ENDPOINT
 ```
 
-Payload: `name, phone, email, propertyType, source (hero-form | final-cta-form), page, submittedAt`, plus any `utm_*`, `fbclid` and `gclid` parameters from the URL.
+Payload: `project, name, phone, email, propertyType, source (e.g. damac-island-hero-form), page, submittedAt`, plus any `utm_*`, `fbclid` and `gclid` parameters from the URL.
 
 - **No endpoint in development:** the lead is logged to the browser console and the form shows success, so you can test the flow.
 - **No endpoint in production:** the form shows an error, so leads are never silently lost.

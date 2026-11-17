@@ -11,9 +11,10 @@
  */
 const ENDPOINT = import.meta.env.VITE_LEAD_ENDPOINT
 
-export async function submitLead(data, { source = 'landing-page' } = {}) {
+export async function submitLead(data, { source = 'landing-page', project = '' } = {}) {
   const payload = {
     ...data,
+    project,
     source,
     page: typeof window !== 'undefined' ? window.location.href : '',
     submittedAt: new Date().toISOString(),

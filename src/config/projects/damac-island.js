@@ -1,5 +1,5 @@
 /**
- * Landing page content configuration.
+ * DAMAC Islands — project landing page content (served at /damac-island).
  *
  * Everything a marketer would want to change per campaign lives here:
  * names, copy, images, highlights, amenities, floor plans, gallery and
@@ -15,7 +15,30 @@
 const unsplash = (id, w = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`
 
-export const siteConfig = {
+const damacIsland = {
+  // URL: offplansale.com/<slug>
+  slug: 'damac-island',
+
+  // Card shown on the home page project list
+  card: {
+    title: 'DAMAC Islands',
+    developer: 'DAMAC Properties',
+    location: 'Dubai',
+    image: 'https://v.fastcdn.co/u/a43967b2/66043466-0-di2-desktop-banner.webp',
+    tag: 'Off-Plan',
+    summary: 'Island-inspired villas and townhouses with resort-style amenities.',
+    facts: [
+      { label: 'Type', value: 'Villas & Townhouses' },
+      { label: 'Bedrooms', value: '3–5' },
+      { label: 'Payment', value: 'Flexible plan' },
+    ],
+  },
+
+  seo: {
+    title: 'DAMAC Islands | Luxury Villas for Sale in Dubai',
+    description: 'Explore DAMAC Islands villas — floor plans, amenities, gallery and payment plans. Request a call back today.',
+  },
+
   brand: {
     name: 'Offplan Sale',
     subtitle: 'Villas · Dubai',
@@ -40,9 +63,10 @@ export const siteConfig = {
   ],
 
   hero: {
-    eyebrow: 'Luxury 3, 4 & 5 Bedroom Villas',
-    titleLine1: 'Find Your Place',
-    titleLine2: 'in Dubai',
+    eyebrow: '', // small gold label above the headline (leave empty to hide)
+    titleLine1: 'PAY LIKE FOUR',
+    titleLine2: 'LIVE IN FIVE',
+    showForm: false, // set true to show the enquiry form inside the hero
     subtitle:
       'Exceptional villas designed around the way you want to live — private pools, landscaped gardens and resort-style amenities, minutes from the heart of the city.',
     primaryCta: { label: 'Explore Villas', href: '#highlights' },
@@ -214,3 +238,5 @@ export const siteConfig = {
       'All images are for illustrative purposes only. Specifications, prices and availability are subject to change without notice.',
   },
 }
+
+export default damacIsland

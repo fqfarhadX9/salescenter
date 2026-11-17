@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Menu, Phone, X } from 'lucide-react'
 import Logo from '../ui/Logo'
 import Button from '../ui/Button'
 
-export default function Navbar({ brand, nav, contact }) {
+export default function Navbar({ brand, nav = [], contact, ctaHref = '#enquire' }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -37,9 +38,9 @@ export default function Navbar({ brand, nav, contact }) {
         className={`container-site flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-[72px]' : 'h-20 lg:h-24'}`}
         aria-label="Main"
       >
-        <a href="#top" aria-label={`${brand.name} — back to top`} onClick={() => setOpen(false)}>
+        <Link to="/" aria-label={`${brand.name} — home`} onClick={() => setOpen(false)}>
           <Logo name={brand.name} subtitle={brand.subtitle} logoSrc={brand.logoSrc} />
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 lg:flex">
           {nav.map((item) => (
@@ -60,7 +61,7 @@ export default function Navbar({ brand, nav, contact }) {
             <Phone className="h-4 w-4 text-gold-400" aria-hidden="true" />
             {contact.phone}
           </a>
-          <Button href="#enquire" variant="light" size="sm" className={hasNav ? 'hidden sm:inline-flex' : 'inline-flex !px-4 sm:!px-5'}>
+          <Button href={ctaHref} variant="light" size="sm" className={hasNav ? 'hidden sm:inline-flex' : 'inline-flex !px-4 sm:!px-5'}>
             <Phone className="h-4 w-4" aria-hidden="true" />
             <span className="max-[359px]:sr-only">Contact Us</span>
           </Button>
@@ -101,7 +102,7 @@ export default function Navbar({ brand, nav, contact }) {
               </li>
             ))}
             <li className="grid gap-3 pt-4 sm:grid-cols-2">
-              <Button href="#enquire" variant="gold" onClick={() => setOpen(false)}>
+              <Button href={ctaHref} variant="gold" onClick={() => setOpen(false)}>
                 Enquire Now
               </Button>
               <Button href={contact.phoneHref} variant="outline">

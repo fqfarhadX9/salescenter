@@ -1,5 +1,18 @@
-import LandingPage from './pages/LandingPage'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ScrollToTop from './components/layout/ScrollToTop'
+import HomePage from './pages/HomePage'
+import ProjectPage from './pages/ProjectPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 export default function App() {
-  return <LandingPage />
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/:slug" element={<ProjectPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
