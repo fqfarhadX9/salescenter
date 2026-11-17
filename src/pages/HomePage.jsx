@@ -21,8 +21,8 @@ export default function HomePage() {
       <main id="main">
         {/* Intro banner */}
         <section className="relative isolate overflow-hidden bg-navy-950" aria-labelledby="home-title">
-          <SmartImage src={home.image} alt="Dubai skyline" priority className="!absolute inset-0 -z-10 h-full w-full" imgClassName="animate-slow-zoom" />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/90 via-navy-950/70 to-navy-950/40" />
+          {/* <SmartImage src={home.image} alt="Dubai skyline" priority className="!absolute inset-0 -z-10 h-full w-full" imgClassName="animate-slow-zoom" /> */}
+          {/* <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/90 via-navy-950/70 to-navy-950/40" />
           <div className="container-site flex min-h-[520px] flex-col justify-center pb-16 pt-32 sm:min-h-[600px] lg:pt-36">
             <div className="max-w-3xl animate-fade-in">
               <span className="mb-6 block h-px w-20 bg-gold-400" />
@@ -43,7 +43,7 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
 
         {/* Project cards */}
@@ -76,7 +76,7 @@ export default function HomePage() {
         </section>
 
         {/* Contact strip */}
-        <section id="contact" className="bg-navy-900 py-16" aria-labelledby="contact-title">
+        {/* <section id="contact" className="bg-navy-900 py-16" aria-labelledby="contact-title">
           <div className="container-site flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
             <div>
               <h2 id="contact-title" className="text-2xl font-semibold text-white sm:text-3xl">
@@ -95,7 +95,7 @@ export default function HomePage() {
               </Button>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer brand={site.brand} nav={[]} contact={contact} footer={site.footer} />
     </>
