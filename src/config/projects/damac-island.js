@@ -73,6 +73,7 @@ const damacIsland = {
     // Logo shown above the headline. Put the file in /public/images/ (PNG/SVG with transparent background).
     logo: { src: '/images/damac-islands-2-logo.png', alt: 'DAMAC Islands 2', height: 120 },
     overlay: false, // dark tint over the hero image (false = show image as-is)
+    textBackdrop: true, // soft dark glow only behind the text so it stays readable
     subtitle:
       'Exceptional villas designed around the way you want to live — private pools, landscaped gardens and resort-style amenities, minutes from the heart of the city.',
     primaryCta: { label: 'Explore Villas', href: '#highlights' },
