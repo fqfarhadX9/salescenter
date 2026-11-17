@@ -187,7 +187,7 @@ const damacIsland = {
         title: '5 Bedroom Townhouse',
         watermark: '5BR',
         image: '/images/floor-plans/5br-townhouse.jpg',
-        size: null, // e.g. { sqft: '2,950', sqm: '274.06' } — shows "On Request" until added
+        size: { sqft: '3,158.24', sqm: '293.41' }, 
       },
     ],
     disclaimer: 'Plans are indicative and not to scale. Final layouts and areas may vary.',
