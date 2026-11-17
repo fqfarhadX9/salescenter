@@ -200,10 +200,10 @@ const damacIsland = {
       { src: '/public/images/interior1.jpg', alt: 'Bright double-height living room', category: 'Interior' },
       { src: '/public/images/exterior2.jpg', alt: 'Villa facade with landscaped front garden', category: 'Exterior' },
       { src: '/public/images/interior2.jpg', alt: 'Open-plan living and dining area', category: 'Interior' },
-      { src: '/public/images/Lifestyle.jpg', alt: 'Pool deck with loungers', category: 'Lifestyle' },
+      { src: '/public/images/lifestyle 11.webp', alt: 'Pool deck with loungers', category: 'Lifestyle' },
       { src: '/public/images/interior3.jpg', alt: 'Modern kitchen with island', category: 'Interior' },
       { src: '/public/images/Landscape image.jpg', alt: 'Villa with private pool', category: 'Landscape' },
-      { src: '/public/images/Lifestyle2.jpg', alt: 'Resort-style pool among palms', category: 'Lifestyle' },
+      { src: '/public/images/lifestyle22.webp', alt: 'Resort-style pool among palms', category: 'Lifestyle' },
     ],
   },
 
