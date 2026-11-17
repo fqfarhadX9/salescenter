@@ -1,0 +1,51 @@
+# Builds the site and uploads it to Hostinger on every push to main.
+#
+# One-time setup (GitHub repo → Settings → Secrets and variables → Actions → New repository secret):
+#   FTP_SERVER     e.g. ftp.offplansale.com  (Hostinger hPanel → Files → FTP Accounts → "FTP IP / Hostname")
+#   FTP_USERNAME   e.g. u123456789.offplansale.com
+#   FTP_PASSWORD   your FTP password
+#   VITE_LEAD_ENDPOINT   (optional) your Google Apps Script /exec URL for the enquiry forms
+#
+# You can also run it manually: GitHub → Actions → "Deploy to Hostinger" → Run workflow.
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build (includes image check)
+        run: npm run build
+        env:
+          VITE_LEAD_ENDPOINT: ${{ secrets.VITE_LEAD_ENDPOINT }}
+
+      - name: Upload to Hostinger (public_html)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./dist/
+          server-dir: ./public_html/
+          dangerous-clean-slate: false
