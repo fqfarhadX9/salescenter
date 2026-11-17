@@ -34,27 +34,6 @@ export default function FinalCta({ data, form, contact, project }) {
               </li>
             ))}
           </ul>
-
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/10 pt-8">
-            <a href={contact.phoneHref} className="group flex items-center gap-3 text-white transition-colors hover:text-gold-200">
-              <span className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-white/25 transition-colors group-hover:bg-gold-500 group-hover:ring-gold-500">
-                <Phone className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <span>
-                <span className="block text-xs text-white/55">Call us</span>
-                <span className="font-semibold">{contact.phone}</span>
-              </span>
-            </a>
-            <a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-white transition-colors hover:text-gold-200">
-              <span className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-white/25 transition-colors group-hover:bg-gold-500 group-hover:ring-gold-500">
-                <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <span>
-                <span className="block text-xs text-white/55">Chat with us</span>
-                <span className="font-semibold">WhatsApp</span>
-              </span>
-            </a>
-          </div>
         </Reveal>
 
         <Reveal delay={120} className="rounded-card bg-white p-6 shadow-lift sm:p-9">
