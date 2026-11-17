@@ -26,9 +26,20 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-navy-950/70 to-transparent" />
         </>
       )}
+      {/* Soft spotlight only behind the text: image stays bright, text stays readable (hero.textBackdrop: false to remove) */}
+      {!overlay && hero.textBackdrop !== false && (
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-0 -z-10 ${
+            centered
+              ? 'bg-[radial-gradient(ellipse_62%_68%_at_50%_52%,rgba(7,15,31,0.62)_0%,rgba(7,15,31,0.4)_50%,rgba(7,15,31,0)_80%)] max-sm:bg-[radial-gradient(ellipse_95%_60%_at_50%_50%,rgba(7,15,31,0.66)_0%,rgba(7,15,31,0.4)_55%,rgba(7,15,31,0.08)_100%)]'
+              : 'bg-[radial-gradient(ellipse_60%_70%_at_25%_50%,rgba(7,15,31,0.62)_0%,rgba(7,15,31,0)_80%)]'
+          }`}
+        />
+      )}
 
       <div
-        className={`container-site grid min-h-[min(100svh,760px)] items-center gap-10 ${hideNavSpace ? 'py-16 sm:min-h-[min(100svh,760px)] sm:py-20' : 'pb-14 pt-28 sm:min-h-0 sm:pb-16 sm:pt-36 lg:pt-32'} lg:min-h-[min(100svh,880px)] lg:gap-16 lg:pb-20 ${centered && !showForm ? 'justify-items-center' : ''} ${showForm ? 'lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_420px]' : ''}`}
+        className={`container-site grid min-h-[min(100svh,760px)] items-center gap-10 ${hideNavSpace ? '!min-h-[100svh] content-center py-12 sm:py-16' : 'pb-14 pt-28 sm:min-h-0 sm:pb-16 sm:pt-36 lg:min-h-[min(100svh,880px)] lg:pb-20 lg:pt-32'} lg:gap-16 ${centered && !showForm ? 'justify-items-center' : ''} ${showForm ? 'lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_420px]' : ''}`}
       >
         <div className={`max-w-2xl animate-fade-in ${centered ? 'mx-auto text-center' : ''} ${shadow}`}>
           {hero.logo?.src && <HeroLogo logo={hero.logo} centered={centered} />}
@@ -38,12 +49,17 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-gold-300">{hero.eyebrow}</p>
             </>
           )}
-          <h1 id="hero-title" className="text-[42px] font-semibold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+          <h1
+            id="hero-title"
+            className={`font-semibold leading-[1.05] text-white ${centered ? 'text-[40px] sm:text-6xl lg:text-[76px]' : 'text-[42px] sm:text-6xl lg:text-7xl'}`}
+          >
             {hero.titleLine1}
-            <span className={`text-gold-gradient block ${overlay ? '' : '[text-shadow:none] drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]'}`}>{hero.titleLine2}</span>
+            <span className={`text-gold-gradient block ${overlay ? '' : '[text-shadow:none] drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]'}`}>
+              {hero.titleLine2}
+            </span>
           </h1>
           <p
-            className={`mt-6 max-w-xl text-base leading-relaxed sm:text-lg ${overlay ? 'text-white/85' : 'text-white'} ${centered ? 'mx-auto' : ''}`}
+            className={`mt-5 max-w-xl text-base leading-relaxed sm:mt-6 sm:text-lg ${overlay ? 'text-white/85' : 'text-white'} ${centered ? 'mx-auto' : ''}`}
           >
             {hero.subtitle}
           </p>
@@ -64,7 +80,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           </div>
 
           <dl
-            className={`mt-12 grid max-w-lg grid-cols-3 divide-x border-t pt-6 ${overlay ? 'divide-white/15 border-white/15' : 'divide-white/40 border-white/40'} ${centered ? 'mx-auto' : ''}`}
+            className={`mt-10 grid max-w-lg grid-cols-3 divide-x border-t pt-6 sm:mt-12 ${overlay ? 'divide-white/15 border-white/15' : 'divide-white/40 border-white/40'} ${centered ? 'mx-auto' : ''}`}
           >
             {hero.stats.map((s) => (
               <div key={s.label} className={centered ? 'px-4' : 'px-4 first:pl-0'}>
@@ -98,8 +114,8 @@ function HeroLogo({ logo, centered }) {
       src={logo.src}
       alt={logo.alt || ''}
       onError={() => setFailed(true)}
-      className={`mb-8 h-auto w-auto max-w-[70%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] ${centered ? 'mx-auto' : ''}`}
-      style={{ maxHeight: logo.height || 120 }}
+      className={`mb-6 h-auto max-h-[var(--logo-h-sm)] w-auto max-w-[75%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] sm:mb-8 sm:max-h-[var(--logo-h)] ${centered ? 'mx-auto' : ''}`}
+      style={{ '--logo-h': `${logo.height || 120}px`, '--logo-h-sm': `${Math.round((logo.height || 120) * 0.7)}px` }}
       fetchPriority="high"
     />
   )
