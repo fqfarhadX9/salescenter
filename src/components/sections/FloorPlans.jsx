@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { ArrowRight, Home, Maximize2 } from 'lucide-react'
+import { ArrowRight, Home } from 'lucide-react'
 import Button from '../ui/Button'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
@@ -100,10 +100,6 @@ export default function FloorPlans({ data }) {
                     aria-hidden="true"
                     className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.35)_0%,rgba(255,255,255,0.08)_60%,rgba(255,255,255,0)_100%)]"
                   />
-                  <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-navy-900/85 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur">
-                    <Maximize2 className="h-3 w-3 text-gold-300" aria-hidden="true" />
-                    Preview
-                  </span>
                 </>
               )}
             </div>

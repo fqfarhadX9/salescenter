@@ -262,6 +262,7 @@ const damacIsland = {
   },
 
   footer: {
+    showBrand: false, // hide logo + phone/email row; keep disclaimer and copyright
     disclaimer:
       'All images are for illustrative purposes only. Specifications, prices and availability are subject to change without notice.',
   },
