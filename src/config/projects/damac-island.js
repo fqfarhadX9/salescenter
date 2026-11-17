@@ -76,8 +76,9 @@ const damacIsland = {
 >>>>>>> 5f557a9f81da8916dda47183eda76eb7fed1aa24
     showForm: false, // set true to show the enquiry form inside the hero
     align: 'center', // 'left' or 'center'
+    position: 'top', // 'top' keeps content in the upper part of the image; 'center' = vertically centred
     // Logo shown above the headline. Put the file in /public/images/ (PNG/SVG with transparent background).
-    logo: { src: '/images/damac-islands-2-logo.png', alt: 'DAMAC Islands 2', height: 120 },
+    logo: { src: '/images/damac-islands-2-logo.png', alt: 'DAMAC Islands 2', height: 90 },
     overlay: false, // dark tint over the hero image (false = show image as-is)
     textBackdrop: true, // soft dark glow only behind the text so it stays readable
 <<<<<<< HEAD
