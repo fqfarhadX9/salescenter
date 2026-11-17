@@ -34,6 +34,8 @@ const damacIsland = {
     ],
   },
 
+  showNavbar: false, // top navigation bar on this page
+
   seo: {
     title: 'DAMAC Islands | Luxury Villas for Sale in Dubai',
     description: 'Explore DAMAC Islands villas — floor plans, amenities, gallery and payment plans. Request a call back today.',
@@ -67,6 +69,8 @@ const damacIsland = {
     titleLine1: 'PAY LIKE FOUR',
     titleLine2: 'LIVE IN FIVE',
     showForm: false, // set true to show the enquiry form inside the hero
+    align: 'center', // 'left' or 'center'
+    overlay: false, // dark tint over the hero image (false = show image as-is)
     subtitle:
       'Exceptional villas designed around the way you want to live — private pools, landscaped gardens and resort-style amenities, minutes from the heart of the city.',
     primaryCta: { label: 'Explore Villas', href: '#highlights' },

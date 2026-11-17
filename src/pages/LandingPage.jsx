@@ -17,9 +17,9 @@ export default function LandingPage({ config }) {
       <a href="#main" className="sr-only z-[60] rounded bg-white px-4 py-2 text-navy-900 focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
         Skip to content
       </a>
-      <Navbar brand={config.brand} nav={config.nav} contact={config.contact} />
+      {config.showNavbar !== false && <Navbar brand={config.brand} nav={config.nav} contact={config.contact} />}
       <main id="main">
-        <Hero hero={config.hero} form={config.form} project={config.slug} />
+        <Hero hero={config.hero} form={config.form} project={config.slug} hideNavSpace={config.showNavbar === false} />
         <Highlights data={config.highlights} />
         <Amenities data={config.amenities} />
         <FloorPlans data={config.floorPlans} />
