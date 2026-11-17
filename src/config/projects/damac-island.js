@@ -124,6 +124,11 @@ const damacIsland = {
       { icon: 'Waves', title: 'Crystal Lagoons & Private Beach Lifestyle' },
       { icon: 'MapPin', title: 'Minutes Away from Burj Khalifa & Dubai Marina' },
     ],
+    // Buttons under the list (first = gold, second = outline). Remove to hide.
+    ctas: [
+      { label: 'Enquire Now', href: '#enquire' },
+      { label: 'Download Brochure', href: '#enquire' },
+    ],
   },
 
   amenities: {

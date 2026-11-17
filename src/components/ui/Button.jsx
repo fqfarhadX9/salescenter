@@ -3,6 +3,7 @@ const VARIANTS = {
   light: 'bg-gold-100 text-navy-900 hover:bg-gold-200 hover:-translate-y-0.5',
   outline: 'border border-white/40 text-white hover:border-gold-300 hover:text-gold-200',
   navy: 'bg-navy-900 text-white hover:bg-navy-800 hover:-translate-y-0.5',
+  outlineDark: 'border border-navy-900/25 text-navy-900 hover:border-gold-500 hover:text-gold-600',
 }
 
 const SIZES = {
