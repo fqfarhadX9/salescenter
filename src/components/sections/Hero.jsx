@@ -75,7 +75,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 max-[379px]:hidden" aria-hidden="true" />
             </Button>
             <Button href="#enquire" variant="outline" size="lg" className="!h-12 !px-4 text-[15px] sm:!h-14 sm:!px-8 sm:text-base">
-              Enquire Now
+              Get the Borchure
             </Button>
           </div>
 

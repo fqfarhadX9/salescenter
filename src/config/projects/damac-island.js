@@ -68,6 +68,7 @@ const damacIsland = {
     eyebrow: '', // small gold label above the headline (leave empty to hide)
     titleLine1: 'PAY LIKE FOUR',
     titleLine2: 'LIVE IN FIVE',
+    titleline: 'Waterfront Villas in the',
     showForm: false, // set true to show the enquiry form inside the hero
     align: 'center', // 'left' or 'center'
     // Logo shown above the headline. Put the file in /public/images/ (PNG/SVG with transparent background).
@@ -76,7 +77,7 @@ const damacIsland = {
     textBackdrop: true, // soft dark glow only behind the text so it stays readable
     subtitle:
       'Exceptional villas designed around the way you want to live — private pools, landscaped gardens and resort-style amenities, minutes from the heart of the city.',
-    primaryCta: { label: 'Explore Villas', href: '#highlights' },
+    primaryCta: { label: 'Learn More', href: '#highlights' },
     secondaryCta: { label: 'Download Brochure', href: '#enquire' },
     // image: unsplash('photo-1613490493576-7fde63acd811', 2200),
     image: 'https://v.fastcdn.co/u/a43967b2/66043466-0-di2-desktop-banner.webp',
