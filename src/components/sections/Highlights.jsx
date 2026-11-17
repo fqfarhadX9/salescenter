@@ -23,12 +23,12 @@ export default function Highlights({ data }) {
 
         <div>
           <SectionHeading id="highlights-title" eyebrow={data.eyebrow} title={data.title} description={data.description} />
-          <ul className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+          <ul className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
             {data.items.map((item, i) => (
-              <Reveal as="li" key={item.title} delay={i * 70} className="flex gap-4 border-t border-gold-200/70 pt-5">
-                <Icon name={item.icon} strokeWidth={1.25} className="mt-0.5 h-7 w-7 flex-none text-gold-500" />
+              <Reveal as="li" key={item.title} delay={i * 70} className="flex items-center gap-4">
+                <Icon name={item.icon} strokeWidth={1.4} className="h-6 w-6 flex-none text-gold-500 sm:h-7 sm:w-7" />
                 <div>
-                  <h3 className="text-base font-semibold text-navy-900">{item.title}</h3>
+                  <h3 className="text-base font-semibold text-navy-900 sm:text-lg">{item.title}</h3>
                   {item.text && <p className="mt-1 text-sm leading-relaxed text-ink/65">{item.text}</p>}
                 </div>
               </Reveal>
