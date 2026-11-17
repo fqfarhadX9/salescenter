@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import assetUrl from '../../utils/assetUrl'
 
 /**
  * Image with lazy loading, a soft shimmer while loading and an elegant
@@ -20,7 +21,7 @@ export default function SmartImage({
     <div className={`relative overflow-hidden bg-navy-800 ${className}`}>
       {status !== 'error' && (
         <img
-          src={src}
+          src={assetUrl(src)}
           alt={alt}
           sizes={sizes}
           loading={priority ? 'eager' : 'lazy'}

@@ -1,3 +1,5 @@
+import assetUrl from '../../utils/assetUrl'
+
 /** Brand mark: renders a supplied logo image, or the built-in skyline mark. */
 export function LogoMark({ className = 'h-9 w-9' }) {
   return (
@@ -16,7 +18,7 @@ export function LogoMark({ className = 'h-9 w-9' }) {
 export default function Logo({ name, subtitle, logoSrc, tone = 'light', className = '' }) {
   const textColor = tone === 'light' ? 'text-white' : 'text-navy-900'
   if (logoSrc) {
-    return <img src={logoSrc} alt={name} className={`h-10 w-auto ${className}`} />
+    return <img src={assetUrl(logoSrc)} alt={name} className={`h-10 w-auto ${className}`} />
   }
   return (
     <span className={`flex items-center gap-2.5 whitespace-nowrap sm:gap-3 ${className}`}>

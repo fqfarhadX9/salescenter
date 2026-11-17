@@ -1,4 +1,5 @@
 import Icon from '../ui/Icon'
+import assetUrl from '../../utils/assetUrl'
 import { LogoMark } from '../ui/Logo'
 import Reveal from '../ui/Reveal'
 
@@ -10,7 +11,7 @@ export default function Developer({ data }) {
         <div className="grid items-center gap-10 lg:grid-cols-[320px_1fr] lg:gap-16">
           <Reveal className="flex flex-col items-center justify-center rounded-card bg-navy-900 px-8 py-10 text-center shadow-soft sm:py-12">
             {data.logoSrc ? (
-              <img src={data.logoSrc} alt={`${data.name} logo`} className="h-auto max-h-24 w-auto max-w-full" loading="lazy" />
+              <img src={assetUrl(data.logoSrc)} alt={`${data.name} logo`} className="h-auto max-h-24 w-auto max-w-full" loading="lazy" />
             ) : (
               <LogoMark className="h-20 w-20 text-gold-400" />
             )}
