@@ -1,0 +1,11 @@
+# Single-page app routing for Apache / LiteSpeed (Hostinger, cPanel, etc.)
+# Serves index.html for any URL that isn't a real file, so links like
+# /damac-island work when opened directly or refreshed.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

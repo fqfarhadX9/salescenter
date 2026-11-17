@@ -37,7 +37,7 @@ Also included: a sticky navbar with a mobile menu, a mobile bottom CTA bar, a fo
 
 Site-wide settings (brand, contact, home page text) are in `src/config/site.js`.
 
-**Hosting:** because each project has its own URL, the server must send every path to `index.html`. `vercel.json` (Vercel) and `public/_redirects` (Netlify) already handle this. On other hosts, add an equivalent rewrite rule.
+**Hosting:** because each project has its own URL, the server must send every path to `index.html`. `vercel.json` (Vercel), `public/_redirects` (Netlify) and `public/.htaccess` (Hostinger / cPanel / Apache / LiteSpeed) already handle this. When uploading `dist/` manually, make sure the hidden `.htaccess` file is included.
 
 ## Editing content
 
