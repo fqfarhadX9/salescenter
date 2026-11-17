@@ -25,7 +25,7 @@ export default function Highlights({ data }) {
 
         <div>
           <SectionHeading id="highlights-title" eyebrow={data.eyebrow} title={data.title} description={data.description} />
-          <ul className="mt-8 space-y-[18px] sm:mt-9 sm:space-y-5">
+          <ul className="mt-8 space-y-[18px] sm:mt-6 sm:space-y-2">
             {data.items.map((item, i) => (
               <Reveal as="li" key={item.title} delay={i * 70} className="flex items-center gap-4 sm:gap-5">
                 <Icon name={item.icon} strokeWidth={1.4} className="h-6 w-6 flex-none text-gold-500 sm:h-7 sm:w-7" />
@@ -38,7 +38,7 @@ export default function Highlights({ data }) {
           </ul>
 
           {data.ctas?.length > 0 && (
-            <Reveal delay={data.items.length * 70} className="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:gap-4">
+            <Reveal delay={data.items.length * 70} className="mt-10 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
               {data.ctas.map((cta, i) => (
                 <Button
                   key={cta.label}
