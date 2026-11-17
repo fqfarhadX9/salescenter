@@ -1,7 +1,9 @@
 import {
   Award,
+  BadgePercent,
   Baby,
   Building2,
+  CalendarCheck,
   Dumbbell,
   Gem,
   Globe2,
@@ -13,6 +15,7 @@ import {
   Plane,
   ShieldCheck,
   Sun,
+  Tag,
   TrainFront,
   Trees,
   TrendingUp,
@@ -26,8 +29,10 @@ import {
  */
 const ICONS = {
   Award,
+  BadgePercent,
   Baby,
   Building2,
+  CalendarCheck,
   Dumbbell,
   Gem,
   Globe2,
@@ -39,6 +44,7 @@ const ICONS = {
   Plane,
   ShieldCheck,
   Sun,
+  Tag,
   TrainFront,
   Trees,
   TrendingUp,

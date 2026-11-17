@@ -23,15 +23,13 @@ export default function Highlights({ data }) {
 
         <div>
           <SectionHeading id="highlights-title" eyebrow={data.eyebrow} title={data.title} description={data.description} />
-          <ul className="mt-10 grid gap-x-8 gap-y-7 sm:grid-cols-2">
+          <ul className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-2">
             {data.items.map((item, i) => (
-              <Reveal as="li" key={item.title} delay={i * 70} className="group flex gap-4">
-                <span className="grid h-14 w-14 flex-none place-items-center rounded-full bg-cream-100 text-gold-500 ring-1 ring-gold-200 transition-all duration-300 group-hover:bg-navy-900 group-hover:text-gold-300 group-hover:ring-navy-900">
-                  <Icon name={item.icon} className="h-6 w-6" />
-                </span>
+              <Reveal as="li" key={item.title} delay={i * 70} className="flex gap-4 border-t border-gold-200/70 pt-5">
+                <Icon name={item.icon} strokeWidth={1.25} className="mt-0.5 h-7 w-7 flex-none text-gold-500" />
                 <div>
                   <h3 className="text-base font-semibold text-navy-900">{item.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-ink/65">{item.text}</p>
+                  {item.text && <p className="mt-1 text-sm leading-relaxed text-ink/65">{item.text}</p>}
                 </div>
               </Reveal>
             ))}
