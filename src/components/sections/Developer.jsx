@@ -12,7 +12,7 @@ export default function Developer({ data }) {
               <img src={data.logoSrc} alt={`${data.name} logo`} className="h-20 w-auto" />
             ) : (
               <>
-                <LogoMark className="h-20 w-20 text-gold-500" />
+                {/* <LogoMark className="h-20 w-20 text-gold-500" /> */}
                 <p className="mt-4 font-display text-sm font-semibold uppercase tracking-[0.35em] text-navy-900">{data.name}</p>
               </>
             )}
