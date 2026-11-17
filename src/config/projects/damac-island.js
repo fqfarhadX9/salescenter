@@ -87,7 +87,7 @@ const damacIsland = {
     secondaryCta: { label: 'Download Brochure', href: '#enquire' },
     // image: unsplash('photo-1613490493576-7fde63acd811', 2200),
     // image: 'https://v.fastcdn.co/u/a43967b2/66043466-0-di2-desktop-banner.webp',
-    image: "/public/images/damac-island-cover.jpeg",
+    image: "/images/damac-island-cover.jpeg",
     stats: [
       { value: 'Flexible', label: 'Payment plans' },
       { value: 'Freehold', label: '100% Ownership' },
@@ -113,16 +113,16 @@ const damacIsland = {
     // description:
     //   'A gated community of contemporary villas where generous space, considered design and everyday convenience come together.',
     // image: unsplash('photo-1600596542815-ffad4c1539a9', 1600),
-    image: "/public/images/damac-islands-2-highlights.jpg",
+    image: "/images/damac-islands-2-highlights.jpg",
     imageBadge: { value: 'Handover', label: 'in June 2030' },
     items: [
-      { icon: 'Home', title: '4 & 5 BR Waterfront Townhouses & Villas',  },
-      { icon: 'MapPin', title: 'Starting From AED 2.99M', },
-      { icon: 'LayoutGrid', title: '10% to Book',  },
-      { icon: 'Gem', title: '4% DLD Fee Waiver',  },
-      { icon: 'ShieldCheck', title: '75/25 Payment Plan',  },
-      { icon: 'Wallet', title: '-Crystal Lagoons & Private Beach Lifestyle',  },
-      { icon: 'Wallet', title: 'Minutes Away from Burj Khalifa & Dubai Marina', },
+      { icon: 'Home', title: '4 & 5 BR Waterfront Townhouses & Villas' },
+      { icon: 'Tag', title: 'Starting From AED 2.99M' },
+      { icon: 'Wallet', title: '10% to Book' },
+      { icon: 'BadgePercent', title: '4% DLD Fee Waiver' },
+      { icon: 'CalendarCheck', title: '75/25 Payment Plan' },
+      { icon: 'Waves', title: 'Crystal Lagoons & Private Beach Lifestyle' },
+      { icon: 'MapPin', title: 'Minutes Away from Burj Khalifa & Dubai Marina' },
     ],
   },
 
