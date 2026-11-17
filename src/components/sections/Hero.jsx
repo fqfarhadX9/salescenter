@@ -65,6 +65,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
             </span>
           </h1>
           <HeroSubtitle text={hero.subtitle} centered={centered} overlay={overlay} compact={atTop} />
+          <HeroBadges badges={hero.badges} centered={centered} />
 
           {/* <div
             className={`grid grid-cols-2 gap-3 sm:flex sm:flex-wrap ${atTop ? 'mt-7' : 'mt-8 sm:mt-9'} ${centered ? 'sm:justify-center' : ''}`}
@@ -149,25 +150,65 @@ function HeroSubtitle({ text, centered, overlay, compact }) {
   )
 }
 
-/** Key facts row. `panel` = frosted strip for placing over bright parts of the image. */
+/** Key facts row. `panel` = facts pinned over the image (no background box, strong text shadow). */
+const COLS = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3', 4: 'grid-cols-2 sm:grid-cols-4', 5: 'grid-cols-3 sm:grid-cols-5' }
+
 function HeroStats({ stats, centered, overlay, atTop, panel = false }) {
   if (!stats?.length) return null
   const line = overlay ? 'divide-white/15 border-white/15' : 'divide-white/40 border-white/40'
+  const cols = COLS[stats.length] ?? 'grid-cols-2 sm:grid-cols-4'
   return (
     <dl
       className={
         panel
-          ? 'grid w-full max-w-xl animate-fade-in grid-cols-3 divide-x divide-white/25 rounded-2xl bg-navy-950/45 px-2 py-4 text-center ring-1 ring-white/15 backdrop-blur-md [text-shadow:0_1px_8px_rgba(0,0,0,0.35)] sm:px-4 sm:py-5'
-          : `grid max-w-lg grid-cols-3 divide-x border-t ${atTop ? 'mt-8 pt-5' : 'mt-10 pt-6 sm:mt-12'} ${line} ${centered ? 'mx-auto' : ''}`
+          ? `grid w-full max-w-4xl animate-fade-in gap-y-5 text-center [text-shadow:0_2px_10px_rgba(0,0,0,0.75),0_0_3px_rgba(0,0,0,0.6)] ${cols}`
+          : `grid max-w-lg divide-x border-t ${cols} ${atTop ? 'mt-8 pt-5' : 'mt-10 pt-6 sm:mt-12'} ${line} ${centered ? 'mx-auto' : ''}`
       }
     >
-      {stats.map((s) => (
-        <div key={s.label} className={panel || centered ? 'px-3 sm:px-5' : 'px-4 first:pl-0'}>
+      {stats.map((s, i) => (
+        <div
+          key={s.label}
+          className={
+            panel
+              ? `px-3 sm:px-6 ${i > 0 ? 'sm:border-l sm:border-white/60' : ''} ${i % 2 === 1 ? 'max-sm:border-l max-sm:border-white/60' : ''}`
+              : centered
+                ? 'px-3 sm:px-5'
+                : 'px-4 first:pl-0'
+          }
+        >
           <dt className="sr-only">{s.label}</dt>
-          <dd className="font-display text-lg font-semibold leading-tight text-white sm:text-2xl">{s.value}</dd>
-          <dd className={`mt-1 text-xs sm:text-sm ${overlay && !panel ? 'text-white/65' : 'text-white/90'}`}>{s.label}</dd>
+          <dd className="font-display text-xl font-semibold leading-tight text-white sm:text-[26px]">{s.value}</dd>
+          <dd className={`mt-1 text-sm font-medium sm:text-base ${overlay && !panel ? 'text-white/65' : 'text-white'}`}>{s.label}</dd>
         </div>
       ))}
     </dl>
+  )
+}
+
+/** Highlight boxes under the headline (e.g. offer + starting price). */
+function HeroBadges({ badges, centered }) {
+  if (!badges?.length) return null
+  return (
+    <ul className={`mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4 ${centered ? 'justify-center' : ''}`}>
+      {badges.map((b) => (
+        <li
+          key={`${b.eyebrow}${b.value}${b.text}`}
+          className="flex min-w-[150px] flex-1 flex-col items-center justify-center rounded-xl bg-navy-950/45 px-4 py-3 text-center ring-1 ring-gold-300/50 backdrop-blur-md sm:min-w-[230px] sm:flex-none sm:px-7 sm:py-4"
+        >
+          {b.eyebrow && (
+            <span className="mb-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80 sm:text-xs">{b.eyebrow}</span>
+          )}
+          <span className="font-display leading-tight">
+            {b.value && (
+              <span className="block text-2xl font-semibold text-gold-300 [text-shadow:none] drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)] sm:inline sm:text-[26px]">
+                {b.value}
+              </span>
+            )}
+            {b.value && b.text && <span className="hidden sm:inline"> </span>}
+            {b.text && <span className="block text-sm font-medium text-white sm:inline sm:text-lg">{b.text}</span>}
+          </span>
+        </li>
+      ))}
+    </ul>
   )
 }
