@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import assetUrl from '../../utils/assetUrl'
 
 /** Accessible image lightbox: Esc to close, arrows to navigate, swipe on touch. */
 export default function Lightbox({ images, index, onClose, onNavigate }) {
@@ -32,7 +33,7 @@ export default function Lightbox({ images, index, onClose, onNavigate }) {
   useEffect(() => {
     ;[1, -1].forEach((d) => {
       const n = images[(index + d + images.length) % images.length]
-      if (n) new Image().src = n.src
+      if (n) new Image().src = assetUrl(n.src)
     })
   }, [index, images])
 
@@ -65,7 +66,7 @@ export default function Lightbox({ images, index, onClose, onNavigate }) {
       </button>
 
       <figure key={image.src} className="flex max-h-full max-w-6xl animate-zoom-in flex-col items-center">
-        <img src={image.src} alt={image.alt} className="max-h-[78vh] w-auto rounded-lg object-contain shadow-lift" />
+        <img src={assetUrl(image.src)} alt={image.alt} className="max-h-[78vh] w-auto rounded-lg object-contain shadow-lift" />
         <figcaption className="mt-4 flex items-center gap-3 text-sm text-white/80">
           <span className="rounded-full bg-gold-500/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gold-200">{image.category}</span>
           {image.alt}

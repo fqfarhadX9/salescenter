@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import assetUrl from '../../utils/assetUrl'
 import { ArrowRight } from 'lucide-react'
 import Button from '../ui/Button'
 import SmartImage from '../ui/SmartImage'
@@ -112,7 +113,7 @@ function HeroLogo({ logo, centered, compact }) {
   if (failed) return null
   return (
     <img
-      src={logo.src}
+      src={assetUrl(logo.src)}
       alt={logo.alt || ''}
       onError={() => setFailed(true)}
       className={`h-auto max-h-[var(--logo-h-sm)] w-auto max-w-[65%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] sm:max-h-[var(--logo-h)] ${compact ? 'mb-7 sm:mb-8' : 'mb-8 sm:mb-12'} ${centered ? 'mx-auto' : ''}`}
