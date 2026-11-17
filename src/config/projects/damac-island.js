@@ -67,7 +67,7 @@ const damacIsland = {
   hero: {
     eyebrow: '', // small gold label above the headline (leave empty to hide)
     titleline: 'Waterfront Villas in the',
-    titleLine1: '4&5 Waterfront Villas',
+    titleLine1: '4&5 BR Waterfront Villas',
     titleLine2: 'in the Middle of Dubai',
     showForm: false, // set true to show the enquiry form inside the hero
     align: 'center', // 'left' or 'center'
@@ -86,7 +86,8 @@ const damacIsland = {
     primaryCta: { label: ' Learn More', href: '#highlights' },
     secondaryCta: { label: 'Download Brochure', href: '#enquire' },
     // image: unsplash('photo-1613490493576-7fde63acd811', 2200),
-    image: 'https://v.fastcdn.co/u/a43967b2/66043466-0-di2-desktop-banner.webp',
+    // image: 'https://v.fastcdn.co/u/a43967b2/66043466-0-di2-desktop-banner.webp',
+    image: "/public/images/damac-island-cover.jpeg",
     stats: [
       { value: 'Flexible', label: 'Payment plans' },
       { value: 'Freehold', label: '100% Ownership' },
@@ -109,17 +110,19 @@ const damacIsland = {
   highlights: {
     eyebrow: 'The Collection',
     title: 'Key Highlights',
-    description:
-      'A gated community of contemporary villas where generous space, considered design and everyday convenience come together.',
-    image: unsplash('photo-1600596542815-ffad4c1539a9', 1600),
-    imageBadge: { value: 'Ready', label: 'Handover options' },
+    // description:
+    //   'A gated community of contemporary villas where generous space, considered design and everyday convenience come together.',
+    // image: unsplash('photo-1600596542815-ffad4c1539a9', 1600),
+    image: "/public/images/damac-islands-2-highlights.jpg",
+    imageBadge: { value: 'Handover', label: 'in June 2030' },
     items: [
-      { icon: 'Home', title: 'Spacious Villa Living', text: 'Double-height living areas, private gardens and pools.' },
-      { icon: 'MapPin', title: 'Prime Dubai Location', text: 'Quick access to major highways, schools and malls.' },
-      { icon: 'LayoutGrid', title: 'Thoughtful Floor Plans', text: 'Open layouts with maid’s rooms and en-suite bedrooms.' },
-      { icon: 'Gem', title: 'Lifestyle Amenities', text: 'Clubhouse, parks, fitness and leisure on your doorstep.' },
-      { icon: 'ShieldCheck', title: 'Gated & Secure', text: '24/7 security and controlled community access.' },
-      { icon: 'Wallet', title: 'Flexible Payment Plan', text: 'Attractive plans with post-handover options.' },
+      { icon: 'Home', title: '4 & 5 BR Waterfront Townhouses & Villas',  },
+      { icon: 'MapPin', title: 'Starting From AED 2.99M', },
+      { icon: 'LayoutGrid', title: '10% to Book',  },
+      { icon: 'Gem', title: '4% DLD Fee Waiver',  },
+      { icon: 'ShieldCheck', title: '75/25 Payment Plan',  },
+      { icon: 'Wallet', title: '-Crystal Lagoons & Private Beach Lifestyle',  },
+      { icon: 'Wallet', title: 'Minutes Away from Burj Khalifa & Dubai Marina', },
     ],
   },
 

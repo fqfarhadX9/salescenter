@@ -31,8 +31,8 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
       {/* Soft spotlight only behind the text: image stays bright, text stays readable (hero.textBackdrop: false to remove) */}
       {!overlay && hero.textBackdrop !== false && (
         <div
-          aria-hidden="true"
-          className={`pointer-events-none absolute inset-0 -z-10 ${
+          aria-hidden=""
+          className={`${
             centered
               ? atTop
                 ? 'bg-[radial-gradient(ellipse_60%_55%_at_50%_34%,rgba(7,15,31,0.6)_0%,rgba(7,15,31,0.36)_50%,rgba(7,15,31,0)_82%)] max-sm:bg-[radial-gradient(ellipse_100%_55%_at_50%_38%,rgba(7,15,31,0.66)_0%,rgba(7,15,31,0.4)_55%,rgba(7,15,31,0.06)_100%)]'
@@ -46,14 +46,14 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
         className={`container-site grid min-h-[min(100svh,760px)] items-center gap-10 ${hideNavSpace ? (atTop ? '!min-h-[100svh] !items-start content-start pb-12 pt-[6svh] sm:pt-[5svh]' : '!min-h-[100svh] content-center py-12 sm:py-16') : 'pb-14 pt-28 sm:min-h-0 sm:pb-16 sm:pt-36 lg:min-h-[min(100svh,880px)] lg:pb-20 lg:pt-32'} lg:gap-16 ${centered && !showForm ? 'justify-items-center' : ''} ${showForm ? 'lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_420px]' : ''}`}
       >
         <div className={`animate-fade-in ${centered ? 'mx-auto max-w-6xl text-center' : 'max-w-2xl'} ${shadow}`}>
-          {hero.logo?.src && <HeroLogo logo={hero.logo} centered={centered} compact={atTop} />}
+          {/* {hero.logo?.src && <HeroLogo logo={hero.logo} centered={centered} compact={atTop} />} */}
           {hero.eyebrow && (
             <>
               <span className={`mb-6 block h-px w-20 bg-gold-400 ${centered ? 'mx-auto' : ''}`} />
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-gold-300">{hero.eyebrow}</p>
             </>
           )}
-          <h1
+          {/* <h1
             id="hero-title"
             className={`font-semibold text-white [text-wrap:balance] ${centered ? 'text-[30px] leading-[1.15] sm:text-[42px] lg:text-[48px] xl:whitespace-nowrap xl:text-[50px] xl:leading-[0.4]' : 'text-[42px] leading-[1.05] sm:text-6xl lg:text-7xl'}`}
           >
@@ -63,9 +63,9 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
             >
               {hero.titleLine2}
             </span>
-          </h1>
-          <HeroSubtitle text={hero.subtitle} centered={centered} overlay={overlay} compact={atTop} />
-          <HeroBadges badges={hero.badges} centered={centered} />
+          </h1> */}
+          {/* <HeroSubtitle text={hero.subtitle} centered={centered} overlay={overlay} compact={atTop} /> */}
+          {/* <HeroBadges badges={hero.badges} centered={centered} /> */}
 
           {/* <div
             className={`grid grid-cols-2 gap-3 sm:flex sm:flex-wrap ${atTop ? 'mt-7' : 'mt-8 sm:mt-9'} ${centered ? 'sm:justify-center' : ''}`}
@@ -84,7 +84,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
             </Button>
           </div> */}
 
-          {!statsAtBottom && <HeroStats stats={hero.stats} centered={centered} overlay={overlay} atTop={atTop} />}
+          {/* {!statsAtBottom && <HeroStats stats={hero.stats} centered={centered} overlay={overlay} atTop={atTop} />} */}
         </div>
 
         {showForm && (
@@ -96,11 +96,12 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           </div>
         )}
       </div>
-      {statsAtBottom && hero.stats?.length > 0 && (
+      {/* {statsAtBottom && hero.stats?.length > 0 && (
         <div className="absolute inset-x-0 bottom-[4svh] z-10 flex justify-center px-4 sm:bottom-[5svh]">
           <HeroStats stats={hero.stats} centered overlay={overlay} panel />
         </div>
-      )}
+      )} */}
+      
     </section>
   )
 }
