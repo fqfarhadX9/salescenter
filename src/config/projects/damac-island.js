@@ -29,7 +29,7 @@ const damacIsland = {
     summary: 'Island-inspired villas and townhouses with resort-style amenities.',
     facts: [
       { label: 'Type', value: 'Villas & Townhouses' },
-      { label: 'Bedrooms', value: '3–5' },
+      { label: 'Bedrooms', value: '4 & 5' },
       { label: 'Payment', value: 'Flexible plan' },
     ],
   },
@@ -66,22 +66,22 @@ const damacIsland = {
 
   hero: {
     eyebrow: '', // small gold label above the headline (leave empty to hide)
-    titleLine1: 'PAY LIKE FOUR',
-    titleLine2: 'LIVE IN FIVE',
+    titleLine1: 'Waterfront Villas',
+    titleLine2: 'in the Middle of Dubai',
     showForm: false, // set true to show the enquiry form inside the hero
     align: 'center', // 'left' or 'center'
     // Logo shown above the headline. Put the file in /public/images/ (PNG/SVG with transparent background).
     logo: { src: '/images/damac-islands-2-logo.png', alt: 'DAMAC Islands 2', height: 120 },
     overlay: false, // dark tint over the hero image (false = show image as-is)
     textBackdrop: true, // soft dark glow only behind the text so it stays readable
-    subtitle:
-      'Exceptional villas designed around the way you want to live — private pools, landscaped gardens and resort-style amenities, minutes from the heart of the city.',
+    // Use " | " to split into separate highlight items
+    subtitle: '4 & 5-Bed Spacious Villas | 4% DLD Fee Waiver | Starting from USD 814K (AED 2.99M)',
     primaryCta: { label: 'Explore Villas', href: '#highlights' },
     secondaryCta: { label: 'Download Brochure', href: '#enquire' },
     // image: unsplash('photo-1613490493576-7fde63acd811', 2200),
     image: 'https://v.fastcdn.co/u/a43967b2/66043466-0-di2-desktop-banner.webp',
     stats: [
-      { value: '3–5', label: 'Bedroom villas' },
+      { value: '4 & 5', label: 'Bedroom villas' },
       { value: 'Flexible', label: 'Payment plans' },
       { value: 'Freehold', label: 'Ownership' },
     ],
