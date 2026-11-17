@@ -101,7 +101,7 @@ const damacIsland = {
     title: 'Get in Touch',
     subtitle: 'Leave your details and our property consultant will call you back.',
     submitLabel: 'Request a Call Back',
-    propertyTypes: ['3 Bedroom Villa', '4 Bedroom Villa', '5 Bedroom Villa', 'Townhouse', 'Not sure yet'],
+    propertyTypes: ['4 BR Townhouse', '5 BR Townhouse', 'Not sure yet'],
     consentText: 'By submitting, you agree to be contacted about this project.',
     successTitle: 'Thank you!',
     successMessage: 'Your request has been received. A consultant will call you shortly.',
@@ -168,50 +168,28 @@ const damacIsland = {
   floorPlans: {
     eyebrow: 'Layouts',
     title: 'Floor Plans',
-    description: 'Spacious layouts for modern family living. Select a villa type to view its plan.',
-    // `image` is optional — when empty, a generated illustrative plan is shown.
+    description: 'Thoughtfully designed waterfront townhouses for modern family living. Select a unit type to preview its layout.',
+    lockPlans: true, // blur plans behind an "unlock" card that leads to the enquiry form
+    sizeLabel: 'Total Saleable Area',
     plans: [
       {
-        id: '3br',
-        label: '3 Bedroom',
-        image: '',
-        variant: 3,
-        details: [
-          { label: 'Built-up area', value: 'From 2,800 sq.ft' },
-          { label: 'Plot size', value: 'From 3,500 sq.ft' },
-          { label: 'Bathrooms', value: '4' },
-          { label: 'Parking', value: '2 cars' },
-        ],
-        features: ['Maid’s room', 'Private garden', 'Family lounge'],
+        id: '4br-townhouse',
+        label: '4 BR Townhouse',
+        title: '4 Bedroom Townhouse',
+        watermark: '4BR',
+        image: '/images/floor-plans/4br-townhouse.jpg',
+        size: { sqft: '2,185.50', sqm: '203.04' },
       },
       {
-        id: '4br',
-        label: '4 Bedroom',
-        image: '',
-        variant: 4,
-        details: [
-          { label: 'Built-up area', value: 'From 3,600 sq.ft' },
-          { label: 'Plot size', value: 'From 4,500 sq.ft' },
-          { label: 'Bathrooms', value: '5' },
-          { label: 'Parking', value: '2 cars' },
-        ],
-        features: ['Maid’s room', 'Private pool option', 'Study'],
-      },
-      {
-        id: '5br',
-        label: '5 Bedroom',
-        image: '',
-        variant: 5,
-        details: [
-          { label: 'Built-up area', value: 'From 4,800 sq.ft' },
-          { label: 'Plot size', value: 'From 6,000 sq.ft' },
-          { label: 'Bathrooms', value: '6' },
-          { label: 'Parking', value: '3 cars' },
-        ],
-        features: ['Private pool', 'Majlis', 'Driver’s room'],
+        id: '5br-townhouse',
+        label: '5 BR Townhouse',
+        title: '5 Bedroom Townhouse',
+        watermark: '5BR',
+        image: '/images/floor-plans/5br-townhouse.jpg',
+        size: null, // e.g. { sqft: '2,950', sqm: '274.06' } — shows "On Request" until added
       },
     ],
-    disclaimer: 'Plans are illustrative and not to scale. Final layouts may vary.',
+    disclaimer: 'Plans are indicative and not to scale. Final layouts and areas may vary.',
   },
 
   gallery: {
