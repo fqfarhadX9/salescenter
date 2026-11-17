@@ -108,7 +108,7 @@ const damacIsland = {
   },
 
   highlights: {
-    eyebrow: 'The Collection',
+    eyebrow: 'Damac Island 2',
     title: 'Key Highlights',
     // description:
     //   'A gated community of contemporary villas where generous space, considered design and everyday convenience come together.',
