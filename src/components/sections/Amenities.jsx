@@ -16,7 +16,7 @@ export default function Amenities({ data }) {
                 <SmartImage
                   src={item.image}
                   alt={item.title}
-                  className="absolute inset-0 h-full w-full"
+                  className="!absolute inset-0 h-full w-full"
                   imgClassName="transition-transform duration-[1.2s] ease-out group-hover:scale-110"
                   sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
                 />

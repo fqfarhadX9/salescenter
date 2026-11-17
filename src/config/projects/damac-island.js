@@ -133,12 +133,12 @@ const damacIsland = {
     title: 'Amenities',
     description: 'Experience 45+ Resort-Style Amenities — From Healing Pools and Tropical Waterfalls to Sky Ziplines, Luxury Wellness Retreats and Nature-Inspired Living',
     items: [
-      { icon: 'Waves', title: 'Saltwater & Healing Pools', text: 'Relaxing saltwater pools with herbal tea and aromatherapy experiences.', image: "/public/images/Saltwater & Healing Pools.png" },
-      { icon: 'Trees', title: 'Waterfalls & Tranquil Lakes', text: 'Peaceful lakes, cascading waterfalls and nature-inspired relaxation spaces.', image: "/public/images/Waterfalls & Tranquil Lakes.png" },
-      { icon: 'Dumbbell', title: 'Sky Zipline & Canopy Walk', text: 'Elevated canopy walks, treehouse adventures and exciting zipline experiences.', image: "/public/images/Sky Zipline & Canopy Walk.jpg" },
-      { icon: 'Baby', title: "Luxury Spa & Wellness", text: 'Rejuvenating spa experiences with healing herbs, crystals and wellness facilities.', image: "/public/images/Luxury Spa & Wellness.png" },
-      { icon: 'Building2', title: 'Eco-Friendly Gym', text: 'Green fitness spaces with eco-friendly gym facilities and biodynamic training.', image: "/public/images/Eco-Friendly Gym.jpg" },
-      { icon: 'Sun', title: '45+ Lifestyle Amenities', text: 'Over 45 world-class amenities for wellness, adventure, nature and social living.', image: "/public/images/45+ Lifestyle Amenities.png" },
+      { icon: 'Waves', title: 'Saltwater & Healing Pools', text: 'Relaxing saltwater pools with herbal tea and aromatherapy experiences.', image: '/images/amenities/saltwater-healing-pools.jpg' },
+      { icon: 'Droplets', title: 'Waterfalls & Tranquil Lakes', text: 'Peaceful lakes, cascading waterfalls and nature-inspired relaxation spaces.', image: '/images/amenities/waterfalls-tranquil-lakes.jpg' },
+      { icon: 'TentTree', title: 'Sky Zipline & Canopy Walk', text: 'Elevated canopy walks, treehouse adventures and exciting zipline experiences.', image: '/images/amenities/sky-zipline-canopy-walk.jpg' },
+      { icon: 'Flower2', title: 'Luxury Spa & Wellness', text: 'Rejuvenating spa experiences with healing herbs, crystals and wellness facilities.', image: '/images/amenities/luxury-spa-wellness.jpg' },
+      { icon: 'Dumbbell', title: 'Eco-Friendly Gym', text: 'Green fitness spaces with eco-friendly gym facilities and biodynamic training.', image: '/images/amenities/eco-friendly-gym.jpg' },
+      { icon: 'Sparkles', title: '45+ Lifestyle Amenities', text: 'Over 45 world-class amenities for wellness, adventure, nature and social living.', image: '/images/amenities/lifestyle-amenities.jpg' },
     ],
   },
 
