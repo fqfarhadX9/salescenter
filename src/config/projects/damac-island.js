@@ -78,6 +78,11 @@ const damacIsland = {
     textBackdrop: true, // soft dark glow only behind the text so it stays readable
     // Use " | " to split into separate highlight items
     // subtitle: '4 & 5-Bed Spacious Villas | 4% DLD Fee Waiver | Starting from USD 814K (AED 2.99M)',
+    // Highlight boxes under the headline. `value` shows in gold, `text` in white, `eyebrow` is a small line on top.
+    badges: [
+      { value: '4%', text: 'DLD Fee Waiver' },
+      { eyebrow: 'Starting from', value: 'USD 814K', text: '(AED 2.99M)' },
+    ],
     primaryCta: { label: ' Learn More', href: '#highlights' },
     secondaryCta: { label: 'Download Brochure', href: '#enquire' },
     // image: unsplash('photo-1613490493576-7fde63acd811', 2200),

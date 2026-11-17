@@ -65,6 +65,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
             </span>
           </h1>
           <HeroSubtitle text={hero.subtitle} centered={centered} overlay={overlay} compact={atTop} />
+          <HeroBadges badges={hero.badges} centered={centered} />
 
           {/* <div
             className={`grid grid-cols-2 gap-3 sm:flex sm:flex-wrap ${atTop ? 'mt-7' : 'mt-8 sm:mt-9'} ${centered ? 'sm:justify-center' : ''}`}
@@ -169,5 +170,33 @@ function HeroStats({ stats, centered, overlay, atTop, panel = false }) {
         </div>
       ))}
     </dl>
+  )
+}
+
+/** Highlight boxes under the headline (e.g. offer + starting price). */
+function HeroBadges({ badges, centered }) {
+  if (!badges?.length) return null
+  return (
+    <ul className={`mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4 ${centered ? 'justify-center' : ''}`}>
+      {badges.map((b) => (
+        <li
+          key={`${b.eyebrow}${b.value}${b.text}`}
+          className="flex min-w-[150px] flex-1 flex-col items-center justify-center rounded-xl bg-navy-950/45 px-4 py-3 text-center ring-1 ring-gold-300/50 backdrop-blur-md sm:min-w-[230px] sm:flex-none sm:px-7 sm:py-4"
+        >
+          {b.eyebrow && (
+            <span className="mb-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80 sm:text-xs">{b.eyebrow}</span>
+          )}
+          <span className="font-display leading-tight">
+            {b.value && (
+              <span className="block text-2xl font-semibold text-gold-300 [text-shadow:none] drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)] sm:inline sm:text-[26px]">
+                {b.value}
+              </span>
+            )}
+            {b.value && b.text && <span className="hidden sm:inline"> </span>}
+            {b.text && <span className="block text-sm font-medium text-white sm:inline sm:text-lg">{b.text}</span>}
+          </span>
+        </li>
+      ))}
+    </ul>
   )
 }
