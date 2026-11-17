@@ -226,10 +226,12 @@ const damacIsland = {
     name: 'DAMAC Properties',
     // Logo shown top-left on a navy panel (use a white/light logo). Leave empty to use the built-in mark.
     logoSrc: '/images/damac-islands-2-logo.png',
-    intro:
-      'A trusted name in UAE real estate, known for delivering high-quality communities and exceptional living experiences across Dubai.',
-    body:
-      'With a portfolio spanning villas, townhouses and landmark residences, the developer pairs refined architecture with meticulous construction standards — creating homes that hold their value and communities residents are proud to call home.',
+    // intro:
+    //   'A trusted name in UAE real estate, known for delivering high-quality communities and exceptional living experiences across Dubai.',
+    intro: 'WHY DAMAC PROPERTIES?',
+    // body:
+    //   'With a portfolio spanning villas, townhouses and landmark residences, the developer pairs refined architecture with meticulous construction standards — creating homes that hold their value and communities residents are proud to call home.',
+    body: 'Renowned for iconic developments and exceptional craftsmanship, DAMAC Properties blends elegance, innovation, and world-class amenities. With a presence in the UAE, Saudi Arabia, Qatar, and beyond, its portfolio of luxury residential, commercial, and leisure properties sets a global standard for excellence.',
     stats: [
       { icon: 'House', value: '50,000+', label: 'Homes delivered*' },
       { icon: 'Building', value: '54,000+', label: 'In planning and progress*' },
