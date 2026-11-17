@@ -129,7 +129,7 @@ const damacIsland = {
   amenities: {
     eyebrow: 'Resort-Style Living',
     title: 'Amenities',
-    description: 'Everything your family needs to unwind, play and stay active — all within the community.',
+    description: 'Experience 45+ Resort-Style Amenities — From Healing Pools and Tropical Waterfalls to Sky Ziplines, Luxury Wellness Retreats and Nature-Inspired Living',
     items: [
       { icon: 'Waves', title: 'Swimming Pool', text: 'Temperature-controlled lagoon-style pools.', image: "https://pangeadubai.com/wp-content/uploads/2024/12/Damac-Islands-Pools-1024x630.webp" },
       { icon: 'Trees', title: 'Landscaped Gardens', text: 'Shaded walkways and lush green parks.', image: unsplash('photo-1585320806297-9794b3e4eeae', 900) },
@@ -192,7 +192,7 @@ const damacIsland = {
   gallery: {
     eyebrow: 'Visual Tour',
     title: 'Gallery',
-    description: 'A closer look at the architecture, interiors and lifestyle that await.',
+    description: "Explore the architecture, interiors, lagoons and lifestyle that define Dubai's newest waterfront destination.",
     images: [
       { src: unsplash('photo-1600585154340-be6161a56a0c', 1600), alt: 'Contemporary villa exterior at dusk', category: 'Exterior' },
       { src: unsplash('photo-1600210492486-724fe5c67fb0', 1600), alt: 'Bright double-height living room', category: 'Interior' },
