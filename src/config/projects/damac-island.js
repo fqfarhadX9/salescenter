@@ -237,11 +237,7 @@ const damacIsland = {
       { icon: 'Globe2', value: '9', label: 'Countries' },
     ],
     statsNote: '* Figures as published by DAMAC Properties.',
-    pillars: [
-      { icon: 'ShieldCheck', title: 'Quality Construction', text: 'Premium materials and rigorous standards.' },
-      { icon: 'Handshake', title: 'Trusted Partnership', text: 'Transparent processes from booking to handover.' },
-      { icon: 'Award', title: 'Excellence in Design', text: 'Award-winning architecture and interiors.' },
-    ],
+    pillars: [], // trust points under the figures (empty = hidden)
   },
 
   finalCta: {
