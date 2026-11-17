@@ -146,7 +146,8 @@ const damacIsland = {
   destinations: {
     titleBold: 'Eight Destinations,',
     titleLight: 'One Seamless Paradise',
-    background: '/images/destinations/islands-map-bg.jpg',
+    background: '/images/destinations/islands-bg.jpg',
+    map: '/images/destinations/islands-map.png', // island map graphic (left side, desktop)
     items: [
       { name: 'Bahamas', icon: '/images/destinations/bahamas.png' },
       { name: 'Tahiti', icon: '/images/destinations/tahiti.png' },
