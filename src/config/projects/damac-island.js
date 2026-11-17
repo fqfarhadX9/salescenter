@@ -84,9 +84,10 @@ const damacIsland = {
     image: 'https://v.fastcdn.co/u/a43967b2/66043466-0-di2-desktop-banner.webp',
     stats: [
       { value: '4 & 5', label: 'Bedroom villas' },
-      { value: 'Flexible Payment Plan ', label: 'Freehold 100% Ownership ' },
+      { value: 'Flexible', label: 'Payment plans' },
       { value: 'Freehold', label: 'Ownership' },
     ],
+    statsPosition: 'bottom', // 'bottom' pins the facts to the bottom of the hero; 'inline' = under the heading
   },
 
   form: {

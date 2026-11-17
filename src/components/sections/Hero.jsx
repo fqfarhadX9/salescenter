@@ -8,6 +8,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
   const showForm = hero.showForm !== false
   const centered = hero.align === 'center'
   const overlay = hero.overlay !== false
+  const statsAtBottom = hero.statsPosition === 'bottom'
   const atTop = hero.position === 'top' // content sits in the upper part, leaving the image's lower half clear
   // Without the dark overlay, a soft shadow keeps text readable on bright images
   const shadow = overlay ? '' : '[text-shadow:0_2px_18px_rgba(0,0,0,0.55)]'
@@ -54,7 +55,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           )}
           <h1
             id="hero-title"
-            className={`font-semibold text-white [text-wrap:balance] ${centered ? 'text-[30px] leading-[0.4] sm:text-[42px] lg:text-[48px] xl:whitespace-nowrap xl:text-[50px]' : 'text-[42px] leading-[1.05] sm:text-6xl lg:text-7xl'}`}
+            className={`font-semibold text-white [text-wrap:balance] ${centered ? 'text-[30px] leading-[1.15] sm:text-[42px] lg:text-[48px] xl:whitespace-nowrap xl:text-[50px] xl:leading-[0.4]' : 'text-[42px] leading-[1.05] sm:text-6xl lg:text-7xl'}`}
           >
             {hero.titleLine1}{' '}
             <span
@@ -82,17 +83,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
             </Button>
           </div> */}
 
-          <dl
-            className={`grid max-w-lg grid-cols-3 divide-x border-t ${atTop ? 'mt-8 pt-5' : 'mt-10 pt-6 sm:mt-12'} ${overlay ? 'divide-white/15 border-white/15' : 'divide-white/40 border-white/40'} ${centered ? 'mx-auto' : ''}`}
-          >
-            {hero.stats.map((s) => (
-              <div key={s.label} className={centered ? 'px-4' : 'px-4 first:pl-0'}>
-                <dt className="sr-only">{s.label}</dt>
-                <dd className="font-display text-xl font-semibold text-white sm:text-2xl">{s.value}</dd>
-                <dd className={`mt-1 text-xs sm:text-sm ${overlay ? 'text-white/65' : 'text-white/90'}`}>{s.label}</dd>
-              </div>
-            ))}
-          </dl>
+          {!statsAtBottom && <HeroStats stats={hero.stats} centered={centered} overlay={overlay} atTop={atTop} />}
         </div>
 
         {showForm && (
@@ -104,6 +95,11 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           </div>
         )}
       </div>
+      {statsAtBottom && hero.stats?.length > 0 && (
+        <div className="absolute inset-x-0 bottom-[4svh] z-10 flex justify-center px-4 sm:bottom-[5svh]">
+          <HeroStats stats={hero.stats} centered overlay={overlay} panel />
+        </div>
+      )}
     </section>
   )
 }
@@ -150,5 +146,28 @@ function HeroSubtitle({ text, centered, overlay, compact }) {
         </li>
       ))}
     </ul>
+  )
+}
+
+/** Key facts row. `panel` = frosted strip for placing over bright parts of the image. */
+function HeroStats({ stats, centered, overlay, atTop, panel = false }) {
+  if (!stats?.length) return null
+  const line = overlay ? 'divide-white/15 border-white/15' : 'divide-white/40 border-white/40'
+  return (
+    <dl
+      className={
+        panel
+          ? 'grid w-full max-w-xl animate-fade-in grid-cols-3 divide-x divide-white/25 rounded-2xl bg-navy-950/45 px-2 py-4 text-center ring-1 ring-white/15 backdrop-blur-md [text-shadow:0_1px_8px_rgba(0,0,0,0.35)] sm:px-4 sm:py-5'
+          : `grid max-w-lg grid-cols-3 divide-x border-t ${atTop ? 'mt-8 pt-5' : 'mt-10 pt-6 sm:mt-12'} ${line} ${centered ? 'mx-auto' : ''}`
+      }
+    >
+      {stats.map((s) => (
+        <div key={s.label} className={panel || centered ? 'px-3 sm:px-5' : 'px-4 first:pl-0'}>
+          <dt className="sr-only">{s.label}</dt>
+          <dd className="font-display text-lg font-semibold leading-tight text-white sm:text-2xl">{s.value}</dd>
+          <dd className={`mt-1 text-xs sm:text-sm ${overlay && !panel ? 'text-white/65' : 'text-white/90'}`}>{s.label}</dd>
+        </div>
+      ))}
+    </dl>
   )
 }
