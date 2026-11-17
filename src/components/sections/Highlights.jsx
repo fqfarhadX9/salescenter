@@ -1,3 +1,5 @@
+import { ArrowRight } from 'lucide-react'
+import Button from '../ui/Button'
 import Icon from '../ui/Icon'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
@@ -34,6 +36,23 @@ export default function Highlights({ data }) {
               </Reveal>
             ))}
           </ul>
+
+          {data.ctas?.length > 0 && (
+            <Reveal delay={data.items.length * 70} className="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:gap-4">
+              {data.ctas.map((cta, i) => (
+                <Button
+                  key={cta.label}
+                  href={cta.href}
+                  variant={i === 0 ? 'gold' : 'outlineDark'}
+                  size="md"
+                  className={`group w-full sm:w-auto sm:min-w-[200px] ${i === 0 ? '' : 'bg-white'}`}
+                >
+                  {cta.label}
+                  {i === 0 && <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />}
+                </Button>
+              ))}
+            </Reveal>
+          )}
         </div>
       </div>
     </section>
