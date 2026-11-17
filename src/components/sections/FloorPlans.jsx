@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { ArrowRight, Home, Lock, Maximize2 } from 'lucide-react'
+import { ArrowRight, Home, Maximize2 } from 'lucide-react'
 import Button from '../ui/Button'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
@@ -100,24 +100,6 @@ export default function FloorPlans({ data }) {
                     aria-hidden="true"
                     className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.35)_0%,rgba(255,255,255,0.08)_60%,rgba(255,255,255,0)_100%)]"
                   />
-                  <div className="absolute inset-x-0 bottom-0 flex justify-center p-3 sm:inset-0 sm:items-center sm:p-4">
-                    <div className="flex w-full items-center gap-3 rounded-2xl bg-white/90 p-3 text-left shadow-lift ring-1 ring-navy-900/5 backdrop-blur-md sm:block sm:max-w-xs sm:p-6 sm:text-center">
-                      <span className="grid h-10 w-10 flex-none place-items-center rounded-full bg-navy-900 text-gold-300 shadow-soft sm:mx-auto sm:h-12 sm:w-12">
-                        <Lock className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
-                      </span>
-                      <h3 className="flex-1 text-sm font-semibold leading-snug text-navy-900 sm:mt-3 sm:text-xl">
-                        Unlock the Full Floor Plan
-                      </h3>
-                      <p className="mt-1.5 hidden text-sm leading-relaxed text-ink/65 sm:block">
-                        {data.unlockText || 'Get the detailed layout, room dimensions and latest price list sent to you instantly.'}
-                      </p>
-                      <Button href="#enquire" variant="gold" size="sm" className="group flex-none sm:mt-4 sm:h-11 sm:w-full">
-                        <span className="sm:hidden">Unlock</span>
-                        <span className="hidden sm:inline">Get {plan.label} Plan</span>
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                      </Button>
-                    </div>
-                  </div>
                   <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-navy-900/85 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur">
                     <Maximize2 className="h-3 w-3 text-gold-300" aria-hidden="true" />
                     Preview
@@ -146,7 +128,7 @@ export default function FloorPlans({ data }) {
             {plan.subtitle && <p className="mt-1 text-sm text-white/60">{plan.subtitle}</p>}
 
             <div className="mt-8 border-t border-white/10 pt-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/55">{data.sizeLabel || 'Saleable Area'}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/55">{data.sizeLabel || 'Size'}</p>
               {plan.size?.sqft ? (
                 <>
                   <p className="mt-3 flex flex-wrap items-baseline gap-x-2 font-display">
