@@ -8,6 +8,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
   const showForm = hero.showForm !== false
   const centered = hero.align === 'center'
   const overlay = hero.overlay !== false
+  const atTop = hero.position === 'top' // content sits in the upper part, leaving the image's lower half clear
   // Without the dark overlay, a soft shadow keeps text readable on bright images
   const shadow = overlay ? '' : '[text-shadow:0_2px_18px_rgba(0,0,0,0.55)]'
   return (
@@ -32,17 +33,19 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           aria-hidden="true"
           className={`pointer-events-none absolute inset-0 -z-10 ${
             centered
-              ? 'bg-[radial-gradient(ellipse_62%_68%_at_50%_52%,rgba(7,15,31,0.62)_0%,rgba(7,15,31,0.4)_50%,rgba(7,15,31,0)_80%)] max-sm:bg-[radial-gradient(ellipse_95%_60%_at_50%_50%,rgba(7,15,31,0.66)_0%,rgba(7,15,31,0.4)_55%,rgba(7,15,31,0.08)_100%)]'
+              ? atTop
+                ? 'bg-[radial-gradient(ellipse_60%_55%_at_50%_34%,rgba(7,15,31,0.6)_0%,rgba(7,15,31,0.36)_50%,rgba(7,15,31,0)_82%)] max-sm:bg-[radial-gradient(ellipse_100%_55%_at_50%_38%,rgba(7,15,31,0.66)_0%,rgba(7,15,31,0.4)_55%,rgba(7,15,31,0.06)_100%)]'
+                : 'bg-[radial-gradient(ellipse_62%_68%_at_50%_52%,rgba(7,15,31,0.62)_0%,rgba(7,15,31,0.4)_50%,rgba(7,15,31,0)_80%)] max-sm:bg-[radial-gradient(ellipse_95%_60%_at_50%_50%,rgba(7,15,31,0.66)_0%,rgba(7,15,31,0.4)_55%,rgba(7,15,31,0.08)_100%)]'
               : 'bg-[radial-gradient(ellipse_60%_70%_at_25%_50%,rgba(7,15,31,0.62)_0%,rgba(7,15,31,0)_80%)]'
           }`}
         />
       )}
 
       <div
-        className={`container-site grid min-h-[min(100svh,760px)] items-center gap-10 ${hideNavSpace ? '!min-h-[100svh] content-center py-12 sm:py-16' : 'pb-14 pt-28 sm:min-h-0 sm:pb-16 sm:pt-36 lg:min-h-[min(100svh,880px)] lg:pb-20 lg:pt-32'} lg:gap-16 ${centered && !showForm ? 'justify-items-center' : ''} ${showForm ? 'lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_420px]' : ''}`}
+        className={`container-site grid min-h-[min(100svh,760px)] items-center gap-10 ${hideNavSpace ? (atTop ? '!min-h-[100svh] !items-start content-start pb-12 pt-[6svh] sm:pt-[5svh]' : '!min-h-[100svh] content-center py-12 sm:py-16') : 'pb-14 pt-28 sm:min-h-0 sm:pb-16 sm:pt-36 lg:min-h-[min(100svh,880px)] lg:pb-20 lg:pt-32'} lg:gap-16 ${centered && !showForm ? 'justify-items-center' : ''} ${showForm ? 'lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_420px]' : ''}`}
       >
         <div className={`animate-fade-in ${centered ? 'mx-auto max-w-6xl text-center' : 'max-w-2xl'} ${shadow}`}>
-          {hero.logo?.src && <HeroLogo logo={hero.logo} centered={centered} />}
+          {hero.logo?.src && <HeroLogo logo={hero.logo} centered={centered} compact={atTop} />}
           {hero.eyebrow && (
             <>
               <span className={`mb-6 block h-px w-20 bg-gold-400 ${centered ? 'mx-auto' : ''}`} />
@@ -60,9 +63,11 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
               {hero.titleLine2}
             </span>
           </h1>
-          <HeroSubtitle text={hero.subtitle} centered={centered} overlay={overlay} />
+          <HeroSubtitle text={hero.subtitle} centered={centered} overlay={overlay} compact={atTop} />
 
-          <div className={`mt-8 grid grid-cols-2 gap-3 sm:mt-9 sm:flex sm:flex-wrap ${centered ? 'sm:justify-center' : ''}`}>
+          <div
+            className={`grid grid-cols-2 gap-3 sm:flex sm:flex-wrap ${atTop ? 'mt-7' : 'mt-8 sm:mt-9'} ${centered ? 'sm:justify-center' : ''}`}
+          >
             <Button
               href={hero.primaryCta.href}
               variant="light"
@@ -78,7 +83,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           </div>
 
           <dl
-            className={`mt-10 grid max-w-lg grid-cols-3 divide-x border-t pt-6 sm:mt-12 ${overlay ? 'divide-white/15 border-white/15' : 'divide-white/40 border-white/40'} ${centered ? 'mx-auto' : ''}`}
+            className={`grid max-w-lg grid-cols-3 divide-x border-t ${atTop ? 'mt-8 pt-5' : 'mt-10 pt-6 sm:mt-12'} ${overlay ? 'divide-white/15 border-white/15' : 'divide-white/40 border-white/40'} ${centered ? 'mx-auto' : ''}`}
           >
             {hero.stats.map((s) => (
               <div key={s.label} className={centered ? 'px-4' : 'px-4 first:pl-0'}>
@@ -104,7 +109,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
 }
 
 /** Project logo above the headline. Hides itself if the file is missing. */
-function HeroLogo({ logo, centered }) {
+function HeroLogo({ logo, centered, compact }) {
   const [failed, setFailed] = useState(false)
   if (failed) return null
   return (
@@ -112,7 +117,7 @@ function HeroLogo({ logo, centered }) {
       src={logo.src}
       alt={logo.alt || ''}
       onError={() => setFailed(true)}
-      className={`mb-8 h-auto max-h-[var(--logo-h-sm)] w-auto max-w-[65%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] sm:mb-12 sm:max-h-[var(--logo-h)] ${centered ? 'mx-auto' : ''}`}
+      className={`h-auto max-h-[var(--logo-h-sm)] w-auto max-w-[65%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] sm:max-h-[var(--logo-h)] ${compact ? 'mb-7 sm:mb-8' : 'mb-8 sm:mb-12'} ${centered ? 'mx-auto' : ''}`}
       style={{ '--logo-h': `${logo.height || 120}px`, '--logo-h-sm': `${Math.round((logo.height || 120) * 0.7)}px` }}
       fetchPriority="high"
     />
@@ -120,7 +125,7 @@ function HeroLogo({ logo, centered }) {
 }
 
 /** Subtitle. Text containing " | " is shown as separate highlight items with gold dividers. */
-function HeroSubtitle({ text, centered, overlay }) {
+function HeroSubtitle({ text, centered, overlay, compact }) {
   if (!text) return null
   const color = overlay ? 'text-white/85' : 'text-white'
   const items = text
@@ -134,7 +139,7 @@ function HeroSubtitle({ text, centered, overlay }) {
 
   return (
     <ul
-      className={`mt-5 flex flex-col gap-2 text-base font-medium sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-0 sm:gap-y-2 sm:text-lg ${color} ${
+      className={`mt-5 flex flex-col gap-2 text-base font-medium ${compact ? 'sm:mt-5' : 'sm:mt-7'} sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-0 sm:gap-y-2 sm:text-lg ${color} ${
         centered ? 'items-center sm:justify-center' : ''
       }`}
     >

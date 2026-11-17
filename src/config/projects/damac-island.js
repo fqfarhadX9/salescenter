@@ -70,6 +70,7 @@ const damacIsland = {
     titleLine2: 'in the Middle of Dubai',
     showForm: false, // set true to show the enquiry form inside the hero
     align: 'center', // 'left' or 'center'
+    position: 'top', // 'top' keeps content in the upper part of the image; 'center' = vertically centred
     // Logo shown above the headline. Put the file in /public/images/ (PNG/SVG with transparent background).
     logo: { src: '/images/damac-islands-2-logo.png', alt: 'DAMAC Islands 2', height: 90 },
     overlay: false, // dark tint over the hero image (false = show image as-is)
