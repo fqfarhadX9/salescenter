@@ -87,7 +87,12 @@ const damacIsland = {
     secondaryCta: { label: 'Download Brochure', href: '#enquire' },
     // image: unsplash('photo-1613490493576-7fde63acd811', 2200),
     // image: 'https://v.fastcdn.co/u/a43967b2/66043466-0-di2-desktop-banner.webp',
-    image: "/images/damac-island-cover.jpg",
+    image: '/images/damac-island-cover-2560.jpg',
+    // Responsive versions: phones load the 1280px file, desktops / retina the 2560px file
+    imageSrcSet: [
+      ['/images/damac-island-cover-1280.jpg', 1280],
+      ['/images/damac-island-cover-2560.jpg', 2560],
+    ],
     stats: [
       { value: 'Flexible', label: 'Payment plans' },
       { value: 'Freehold', label: '100% Ownership' },

@@ -17,7 +17,9 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
     <section id="top" className="relative isolate overflow-hidden bg-navy-950" aria-labelledby="hero-title">
       <SmartImage
         src={hero.image}
-        alt="Luxury Dubai villa with private pool at dusk"
+        srcSet={hero.imageSrcSet}
+        sizes="100vw"
+        alt={hero.imageAlt || 'Luxury waterfront villas at DAMAC Islands 2, Dubai'}
         priority
         className="!absolute inset-0 -z-10 h-full w-full"
         imgClassName="animate-slow-zoom"

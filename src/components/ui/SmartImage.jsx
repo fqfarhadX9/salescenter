@@ -13,6 +13,7 @@ export default function SmartImage({
   imgClassName = '',
   priority = false,
   sizes,
+  srcSet,
   ...rest
 }) {
   const [status, setStatus] = useState(src ? 'loading' : 'error')
@@ -24,6 +25,7 @@ export default function SmartImage({
           src={assetUrl(src)}
           alt={alt}
           sizes={sizes}
+          srcSet={srcSet ? srcSet.map(([u, w]) => `${assetUrl(u)} ${w}w`).join(', ') : undefined}
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : 'auto'}
           decoding="async"
