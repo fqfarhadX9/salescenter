@@ -125,10 +125,7 @@ const damacIsland = {
       { icon: 'MapPin', title: 'Minutes Away from Burj Khalifa & Dubai Marina' },
     ],
     // Buttons under the list (first = gold, second = outline). Remove to hide.
-    ctas: [
-      { label: 'Enquire Now', href: '#enquire' },
-      { label: 'Download Brochure', href: '#enquire' },
-    ],
+    ctas: [{ label: 'Book a Free Consultation', href: '#enquire' }],
   },
 
   amenities: {
