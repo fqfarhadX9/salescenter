@@ -54,7 +54,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           )}
           <h1
             id="hero-title"
-            className={`font-semibold text-white [text-wrap:balance] ${centered ? 'text-[30px] leading-[1.15] sm:text-[42px] lg:text-[48px] xl:whitespace-nowrap xl:text-[50px]' : 'text-[42px] leading-[1.05] sm:text-6xl lg:text-7xl'}`}
+            className={`font-semibold text-white [text-wrap:balance] ${centered ? 'text-[30px] leading-[0.4] sm:text-[42px] lg:text-[48px] xl:whitespace-nowrap xl:text-[50px]' : 'text-[42px] leading-[1.05] sm:text-6xl lg:text-7xl'}`}
           >
             {hero.titleLine1}{' '}
             <span
@@ -65,7 +65,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           </h1>
           <HeroSubtitle text={hero.subtitle} centered={centered} overlay={overlay} compact={atTop} />
 
-          <div
+          {/* <div
             className={`grid grid-cols-2 gap-3 sm:flex sm:flex-wrap ${atTop ? 'mt-7' : 'mt-8 sm:mt-9'} ${centered ? 'sm:justify-center' : ''}`}
           >
             <Button
@@ -80,7 +80,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
             <Button href="#enquire" variant="outline" size="lg" className="!h-12 !px-4 text-[15px] sm:!h-14 sm:!px-8 sm:text-base">
               Get the Borchure
             </Button>
-          </div>
+          </div> */}
 
           <dl
             className={`grid max-w-lg grid-cols-3 divide-x border-t ${atTop ? 'mt-8 pt-5' : 'mt-10 pt-6 sm:mt-12'} ${overlay ? 'divide-white/15 border-white/15' : 'divide-white/40 border-white/40'} ${centered ? 'mx-auto' : ''}`}

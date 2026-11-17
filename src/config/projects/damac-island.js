@@ -66,14 +66,9 @@ const damacIsland = {
 
   hero: {
     eyebrow: '', // small gold label above the headline (leave empty to hide)
-<<<<<<< HEAD
-    titleLine1: 'PAY LIKE FOUR',
-    titleLine2: 'LIVE IN FIVE',
     titleline: 'Waterfront Villas in the',
-=======
-    titleLine1: 'Waterfront Villas',
+    titleLine1: '4&5 Waterfront Villas',
     titleLine2: 'in the Middle of Dubai',
->>>>>>> 5f557a9f81da8916dda47183eda76eb7fed1aa24
     showForm: false, // set true to show the enquiry form inside the hero
     align: 'center', // 'left' or 'center'
     position: 'top', // 'top' keeps content in the upper part of the image; 'center' = vertically centred
@@ -81,21 +76,15 @@ const damacIsland = {
     logo: { src: '/images/damac-islands-2-logo.png', alt: 'DAMAC Islands 2', height: 90 },
     overlay: false, // dark tint over the hero image (false = show image as-is)
     textBackdrop: true, // soft dark glow only behind the text so it stays readable
-<<<<<<< HEAD
-    subtitle:
-      'Exceptional villas designed around the way you want to live — private pools, landscaped gardens and resort-style amenities, minutes from the heart of the city.',
-    primaryCta: { label: 'Learn More', href: '#highlights' },
-=======
     // Use " | " to split into separate highlight items
-    subtitle: '4 & 5-Bed Spacious Villas | 4% DLD Fee Waiver | Starting from USD 814K (AED 2.99M)',
-    primaryCta: { label: 'Explore Villas', href: '#highlights' },
->>>>>>> 5f557a9f81da8916dda47183eda76eb7fed1aa24
+    // subtitle: '4 & 5-Bed Spacious Villas | 4% DLD Fee Waiver | Starting from USD 814K (AED 2.99M)',
+    primaryCta: { label: ' Learn More', href: '#highlights' },
     secondaryCta: { label: 'Download Brochure', href: '#enquire' },
     // image: unsplash('photo-1613490493576-7fde63acd811', 2200),
     image: 'https://v.fastcdn.co/u/a43967b2/66043466-0-di2-desktop-banner.webp',
     stats: [
       { value: '4 & 5', label: 'Bedroom villas' },
-      { value: 'Flexible', label: 'Payment plans' },
+      { value: 'Flexible Payment Plan ', label: 'Freehold 100% Ownership ' },
       { value: 'Freehold', label: 'Ownership' },
     ],
   },
