@@ -142,6 +142,28 @@ const damacIsland = {
     ],
   },
 
+  // "Eight destinations" section shown after Amenities (remove to hide)
+  destinations: {
+    titleBold: 'Eight Destinations,',
+    titleLight: 'One Seamless Paradise',
+    background: '/images/destinations/islands-map-bg.jpg',
+    items: [
+      { name: 'Bahamas', icon: '/images/destinations/bahamas.png' },
+      { name: 'Tahiti', icon: '/images/destinations/tahiti.png' },
+      { name: 'Bermuda', icon: '/images/destinations/bermuda.png' },
+      { name: 'Barbados', icon: '/images/destinations/barbados.png' },
+      { name: 'Cuba', icon: '/images/destinations/cuba.png' },
+      { name: 'Maui', icon: '/images/destinations/maui.png' },
+      { name: 'Mauritius', icon: '/images/destinations/mauritius.png' },
+      { name: 'Antigua', icon: '/images/destinations/antigua.png' },
+    ],
+    paragraphs: [
+      'From the rhythm of Bahamas to the serenity of Tahiti, from the tropical vibrancy of Barbados to the mystique of Mauritius, DAMAC Islands 2 brings together the world’s most captivating island landscapes in one extraordinary community.',
+      'This is where island dreams come alive, inviting you to live the island state of mind, every single day.',
+    ],
+    cta: { label: 'Know More', href: '#enquire' },
+  },
+
   floorPlans: {
     eyebrow: 'Layouts',
     title: 'Floor Plans',

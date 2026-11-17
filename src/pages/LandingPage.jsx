@@ -4,6 +4,7 @@ import MobileCtaBar from '../components/layout/MobileCtaBar'
 import Hero from '../components/sections/Hero'
 import Highlights from '../components/sections/Highlights'
 import Amenities from '../components/sections/Amenities'
+import Destinations from '../components/sections/Destinations'
 import FloorPlans from '../components/sections/FloorPlans'
 import Gallery from '../components/sections/Gallery'
 import WhyDubai from '../components/sections/WhyDubai'
@@ -22,6 +23,7 @@ export default function LandingPage({ config }) {
         <Hero hero={config.hero} form={config.form} project={config.slug} hideNavSpace={config.showNavbar === false} />
         <Highlights data={config.highlights} />
         <Amenities data={config.amenities} />
+        <Destinations data={config.destinations} />
         <FloorPlans data={config.floorPlans} />
         <Gallery data={config.gallery} />
         <WhyDubai data={config.whyDubai} />
