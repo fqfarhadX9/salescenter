@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import Button from '../ui/Button'
 import SmartImage from '../ui/SmartImage'
@@ -30,6 +31,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
         className={`container-site grid min-h-[min(100svh,760px)] items-center gap-10 ${hideNavSpace ? 'py-16 sm:min-h-[min(100svh,760px)] sm:py-20' : 'pb-14 pt-28 sm:min-h-0 sm:pb-16 sm:pt-36 lg:pt-32'} lg:min-h-[min(100svh,880px)] lg:gap-16 lg:pb-20 ${centered && !showForm ? 'justify-items-center' : ''} ${showForm ? 'lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_420px]' : ''}`}
       >
         <div className={`max-w-2xl animate-fade-in ${centered ? 'mx-auto text-center' : ''} ${shadow}`}>
+          {hero.logo?.src && <HeroLogo logo={hero.logo} centered={centered} />}
           {hero.eyebrow && (
             <>
               <span className={`mb-6 block h-px w-20 bg-gold-400 ${centered ? 'mx-auto' : ''}`} />
@@ -84,5 +86,21 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
         )}
       </div>
     </section>
+  )
+}
+
+/** Project logo above the headline. Hides itself if the file is missing. */
+function HeroLogo({ logo, centered }) {
+  const [failed, setFailed] = useState(false)
+  if (failed) return null
+  return (
+    <img
+      src={logo.src}
+      alt={logo.alt || ''}
+      onError={() => setFailed(true)}
+      className={`mb-8 h-auto w-auto max-w-[70%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] ${centered ? 'mx-auto' : ''}`}
+      style={{ maxHeight: logo.height || 120 }}
+      fetchPriority="high"
+    />
   )
 }

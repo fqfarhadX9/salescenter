@@ -70,6 +70,8 @@ const damacIsland = {
     titleLine2: 'LIVE IN FIVE',
     showForm: false, // set true to show the enquiry form inside the hero
     align: 'center', // 'left' or 'center'
+    // Logo shown above the headline. Put the file in /public/images/ (PNG/SVG with transparent background).
+    logo: { src: '/images/damac-islands-2-logo.png', alt: 'DAMAC Islands 2', height: 120 },
     overlay: false, // dark tint over the hero image (false = show image as-is)
     subtitle:
       'Exceptional villas designed around the way you want to live — private pools, landscaped gardens and resort-style amenities, minutes from the heart of the city.',
