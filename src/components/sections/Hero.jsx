@@ -41,7 +41,7 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
       <div
         className={`container-site grid min-h-[min(100svh,760px)] items-center gap-10 ${hideNavSpace ? '!min-h-[100svh] content-center py-12 sm:py-16' : 'pb-14 pt-28 sm:min-h-0 sm:pb-16 sm:pt-36 lg:min-h-[min(100svh,880px)] lg:pb-20 lg:pt-32'} lg:gap-16 ${centered && !showForm ? 'justify-items-center' : ''} ${showForm ? 'lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_420px]' : ''}`}
       >
-        <div className={`animate-fade-in ${centered ? 'mx-auto max-w-4xl text-center' : 'max-w-2xl'} ${shadow}`}>
+        <div className={`animate-fade-in ${centered ? 'mx-auto max-w-6xl text-center' : 'max-w-2xl'} ${shadow}`}>
           {hero.logo?.src && <HeroLogo logo={hero.logo} centered={centered} />}
           {hero.eyebrow && (
             <>
@@ -51,10 +51,12 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           )}
           <h1
             id="hero-title"
-            className={`font-semibold leading-[1.05] text-white [text-wrap:balance] ${centered ? 'text-[36px] sm:text-[52px] lg:text-[68px]' : 'text-[42px] sm:text-6xl lg:text-7xl'}`}
+            className={`font-semibold text-white [text-wrap:balance] ${centered ? 'text-[30px] leading-[1.15] sm:text-[42px] lg:text-[48px] xl:whitespace-nowrap xl:text-[50px]' : 'text-[42px] leading-[1.05] sm:text-6xl lg:text-7xl'}`}
           >
-            {hero.titleLine1}
-            <span className={`text-gold-gradient block ${overlay ? '' : '[text-shadow:none] drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]'}`}>
+            {hero.titleLine1}{' '}
+            <span
+              className={`text-gold-gradient ${centered ? 'block xl:inline' : 'block'} ${overlay ? '' : '[text-shadow:none] drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]'}`}
+            >
               {hero.titleLine2}
             </span>
           </h1>
@@ -110,7 +112,7 @@ function HeroLogo({ logo, centered }) {
       src={logo.src}
       alt={logo.alt || ''}
       onError={() => setFailed(true)}
-      className={`mb-6 h-auto max-h-[var(--logo-h-sm)] w-auto max-w-[75%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] sm:mb-8 sm:max-h-[var(--logo-h)] ${centered ? 'mx-auto' : ''}`}
+      className={`mb-8 h-auto max-h-[var(--logo-h-sm)] w-auto max-w-[65%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] sm:mb-12 sm:max-h-[var(--logo-h)] ${centered ? 'mx-auto' : ''}`}
       style={{ '--logo-h': `${logo.height || 120}px`, '--logo-h-sm': `${Math.round((logo.height || 120) * 0.7)}px` }}
       fetchPriority="high"
     />
