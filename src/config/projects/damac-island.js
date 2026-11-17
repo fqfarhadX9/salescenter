@@ -133,12 +133,12 @@ const damacIsland = {
     title: 'Amenities',
     description: 'Experience 45+ Resort-Style Amenities — From Healing Pools and Tropical Waterfalls to Sky Ziplines, Luxury Wellness Retreats and Nature-Inspired Living',
     items: [
-      { icon: 'Waves', title: 'Swimming Pool', text: 'Temperature-controlled lagoon-style pools.', image: "https://pangeadubai.com/wp-content/uploads/2024/12/Damac-Islands-Pools-1024x630.webp" },
-      { icon: 'Trees', title: 'Landscaped Gardens', text: 'Shaded walkways and lush green parks.', image: unsplash('photo-1585320806297-9794b3e4eeae', 900) },
-      { icon: 'Dumbbell', title: 'Fitness Centre', text: 'Fully equipped indoor and outdoor gyms.', image: unsplash('photo-1534438327276-14e5300c3a48', 900) },
-      { icon: 'Baby', title: "Children's Play Area", text: 'Safe, imaginative play zones for kids.', image: "https://images.ctfassets.net/zoq5l15g49wj/5idX10CneXJaqJqDyIhwn0/12fa33c8b04f96b3fe65ce9c7cb6156c/Damac_Lagoons_Morocco-Amenities-01-Kids-Play-Area-4x3.jpg" },
-      { icon: 'Building2', title: 'Clubhouse', text: 'Lounge, café and residents-only events.', image: unsplash('photo-1566073771259-6a8506099945', 900) },
-      { icon: 'Sun', title: 'Leisure Spaces', text: 'Sun decks, BBQ areas and cabanas.', image: unsplash('photo-1571896349842-33c89424de2d', 900) },
+      { icon: 'Waves', title: 'Saltwater & Healing Pools', text: 'Relaxing saltwater pools with herbal tea and aromatherapy experiences.', image: "/public/images/Saltwater & Healing Pools.png" },
+      { icon: 'Trees', title: 'Waterfalls & Tranquil Lakes', text: 'Peaceful lakes, cascading waterfalls and nature-inspired relaxation spaces.', image: "/public/images/Waterfalls & Tranquil Lakes.png" },
+      { icon: 'Dumbbell', title: 'Sky Zipline & Canopy Walk', text: 'Elevated canopy walks, treehouse adventures and exciting zipline experiences.', image: "/public/images/Sky Zipline & Canopy Walk.jpg" },
+      { icon: 'Baby', title: "Luxury Spa & Wellness", text: 'Rejuvenating spa experiences with healing herbs, crystals and wellness facilities.', image: "/public/images/Luxury Spa & Wellness.png" },
+      { icon: 'Building2', title: 'Eco-Friendly Gym', text: 'Green fitness spaces with eco-friendly gym facilities and biodynamic training.', image: "/public/images/Eco-Friendly Gym.jpg" },
+      { icon: 'Sun', title: '45+ Lifestyle Amenities', text: 'Over 45 world-class amenities for wellness, adventure, nature and social living.', image: "/public/images/45+ Lifestyle Amenities.png" },
     ],
   },
 
