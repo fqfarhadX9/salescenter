@@ -3,14 +3,15 @@
  *
  * Setup:
  * 1. Create a Google Sheet. Row 1 headers:
- *    submittedAt | project | name | phone | email | propertyType | source | utm_source | utm_campaign | page
+ *    submittedAt | project | name | phone | email | purpose | source | utm_source | utm_campaign | page
  * 2. Extensions → Apps Script → paste this file → Save.
  * 3. Deploy → New deployment → Web app. Execute as: Me, Who has access: Anyone.
  * 4. Copy the /exec URL into VITE_LEAD_ENDPOINT (.env or your host's env settings),
  *    then rebuild/redeploy the site.
  * To update later: Deploy → Manage deployments → edit → Version: New version (URL stays the same).
  */
-const NOTIFY_EMAIL = 'mintaxmedia@gmail.com', 'fqqaunain@gmail.com'; // comma-separate for more: 'a@x.com,b@y.com'
+// All addresses go inside ONE pair of quotes, separated by commas
+const NOTIFY_EMAIL = 'mintaxmedia@gmail.com,fqqaunain@gmail.com';
 
 function doPost(e) {
   const data = JSON.parse(e.postData.contents);
@@ -27,7 +28,7 @@ function doPost(e) {
     ['Name', data.name],
     ['Phone', data.phone],
     ['Email', data.email],
-    ['Property Type', data.propertyType],
+    ['Purpose', data.purpose],
     ['Form', data.source],
     ['Campaign', [data.utm_source, data.utm_campaign].filter(Boolean).join(' / ')],
     ['Submitted', new Date(data.submittedAt).toLocaleString('en-GB', { timeZone: 'Asia/Dubai' })],
@@ -56,7 +57,7 @@ function doPost(e) {
 
   MailApp.sendEmail({
     to: NOTIFY_EMAIL,
-    subject: `New Lead [${data.project || 'website'}]: ${data.name} – ${data.propertyType}`,
+    subject: `New Lead [${data.project || 'website'}]: ${data.name} – ${data.purpose}`,
     htmlBody: html,
     replyTo: data.email,
   });

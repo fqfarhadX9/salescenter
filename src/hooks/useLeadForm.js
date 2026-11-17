@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { submitLead } from '../services/leadService'
 
-const INITIAL = { name: '', phone: '', email: '', propertyType: '' }
+const INITIAL = { name: '', phone: '', email: '', purpose: '' }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 const PHONE_RE = /^\+?[0-9\s\-()]{7,20}$/
@@ -15,7 +15,7 @@ export function validateLead(values) {
     errors.phone = 'Please enter a valid phone number.'
   if (!values.email.trim()) errors.email = 'Please enter your email address.'
   else if (!EMAIL_RE.test(values.email.trim())) errors.email = 'Please enter a valid email address.'
-  if (!values.propertyType) errors.propertyType = 'Please choose a property type.'
+  if (!values.purpose) errors.purpose = 'Please choose your purpose.'
   return errors
 }
 
@@ -44,7 +44,7 @@ export default function useLeadForm({ source, project }) {
     e.preventDefault()
     const found = validateLead(values)
     setErrors(found)
-    setTouched({ name: true, phone: true, email: true, propertyType: true })
+    setTouched({ name: true, phone: true, email: true, purpose: true })
     if (Object.keys(found).length) {
       const first = e.currentTarget.querySelector(`[name="${Object.keys(found)[0]}"]`)
       first?.focus()
@@ -58,7 +58,7 @@ export default function useLeadForm({ source, project }) {
           name: values.name.trim(),
           phone: values.phone.trim(),
           email: values.email.trim(),
-          propertyType: values.propertyType,
+          purpose: values.purpose,
         },
         { source, project },
       )

@@ -87,7 +87,7 @@ const damacIsland = {
     secondaryCta: { label: 'Download Brochure', href: '#enquire' },
     // image: unsplash('photo-1613490493576-7fde63acd811', 2200),
     // image: 'https://v.fastcdn.co/u/a43967b2/66043466-0-di2-desktop-banner.webp',
-    image: "/images/damac-island-cover.jpeg",
+    image: "/images/damac-island-cover.jpg",
     stats: [
       { value: 'Flexible', label: 'Payment plans' },
       { value: 'Freehold', label: '100% Ownership' },
@@ -101,7 +101,8 @@ const damacIsland = {
     title: 'Get in Touch',
     subtitle: 'Leave your details and our property consultant will call you back.',
     submitLabel: 'Request a Call Back',
-    propertyTypes: ['4 BR Townhouse', '5 BR Townhouse', 'Not sure yet'],
+    // "Purpose" dropdown in the enquiry forms
+    purposeOptions: ['For Investment', 'For Personal Use', 'Both'],
     consentText: 'By submitting, you agree to be contacted about this project.',
     successTitle: 'Thank you!',
     successMessage: 'Your request has been received. A consultant will call you shortly.',

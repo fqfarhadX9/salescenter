@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import { ChevronDown, CircleAlert, CircleCheck, Home, LoaderCircle, Mail, Phone, User } from 'lucide-react'
+import { ChevronDown, CircleAlert, CircleCheck, LoaderCircle, Mail, Phone, Target, User } from 'lucide-react'
 import useLeadForm from '../../hooks/useLeadForm'
 import Button from '../ui/Button'
 
@@ -52,7 +52,7 @@ export default function EnquiryForm({ config, source, project, layout = 'stacked
     name: `${uid}-name`,
     phone: `${uid}-phone`,
     email: `${uid}-email`,
-    propertyType: `${uid}-type`,
+    purpose: `${uid}-purpose`,
   }
   const a11y = (key) => ({
     id: ids[key],
@@ -90,16 +90,16 @@ export default function EnquiryForm({ config, source, project, layout = 'stacked
         <Field id={ids.email} label="Email address" icon={Mail} error={errors.email}>
           <input type="email" autoComplete="email" placeholder="Email Address" value={values.email} className={inputClass(errors.email)} {...a11y('email')} />
         </Field>
-        <Field id={ids.propertyType} label="Preferred property type" icon={Home} error={errors.propertyType}>
+        <Field id={ids.purpose} label="Purpose" icon={Target} error={errors.purpose}>
           <select
-            value={values.propertyType}
-            className={`${inputClass(errors.propertyType)} cursor-pointer appearance-none pr-10 ${values.propertyType ? '' : 'text-ink/45'}`}
-            {...a11y('propertyType')}
+            value={values.purpose}
+            className={`${inputClass(errors.purpose)} cursor-pointer appearance-none pr-10 ${values.purpose ? '' : 'text-ink/45'}`}
+            {...a11y('purpose')}
           >
             <option value="" disabled>
-              {grid ? 'Property Type' : 'Preferred Property Type'}
+              Purpose
             </option>
-            {config.propertyTypes.map((t) => (
+            {(config.purposeOptions || ['For Investment', 'For Personal Use', 'Both']).map((t) => (
               <option key={t} value={t} className="text-ink">
                 {t}
               </option>
