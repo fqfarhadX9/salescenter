@@ -17,7 +17,7 @@ const unsplash = (id, w = 1600) =>
 
 const damacIsland = {
   // URL: offplansale.com/<slug>
-  slug: 'damac-island',
+  slug: 'damac-islands-2',
 
   // Card shown on the home page project list
   card: {
