@@ -56,11 +56,11 @@ export default function FloorPlans({ data }) {
                     aria-controls={`panel-${p.id}`}
                     tabIndex={selected ? 0 : -1}
                     onClick={() => setActive(i)}
-                    className={`flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full px-4 py-3 text-sm font-semibold transition-all duration-300 sm:px-6 ${
+                    className={`flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-3 text-[13px] font-semibold sm:gap-2 sm:px-6 sm:text-sm transition-all duration-300 ${
                       selected ? 'bg-navy-900 text-white shadow-soft' : 'text-navy-800/70 hover:text-navy-900'
                     }`}
                   >
-                    <Home className={`h-4 w-4 ${selected ? 'text-gold-300' : 'text-gold-500'}`} aria-hidden="true" />
+                    <Home className={`h-4 w-4 flex-none max-[374px]:hidden ${selected ? 'text-gold-300' : 'text-gold-500'}`} aria-hidden="true" />
                     {p.label}
                   </button>
                 )

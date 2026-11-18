@@ -69,6 +69,12 @@ const damacIsland = {
     titleline: 'Waterfront Villas in the',
     titleLine1: '4&5 BR Waterfront Villas',
     titleLine2: 'in the Middle of Dubai',
+    // 'image' = show the hero creative as-is (it already contains logo + headline + offer),
+    // always fully visible on every screen. Remove this line to use the text hero instead.
+    mode: 'image',
+    imageWidth: 2560,
+    imageHeight: 1136,
+    // imageMobile: '/images/damac-island-cover-mobile.jpg', // optional portrait creative for phones
     showForm: false, // set true to show the enquiry form inside the hero
     align: 'center', // 'left' or 'center'
     position: 'top', // 'top' keeps content in the upper part of the image; 'center' = vertically centred

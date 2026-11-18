@@ -6,6 +6,7 @@ import SmartImage from '../ui/SmartImage'
 import EnquiryForm from '../forms/EnquiryForm'
 
 export default function Hero({ hero, form, project, hideNavSpace = false }) {
+  if (hero.mode === 'image') return <HeroImageOnly hero={hero} />
   const showForm = hero.showForm !== false
   const centered = hero.align === 'center'
   const overlay = hero.overlay !== false
@@ -104,7 +105,6 @@ export default function Hero({ hero, form, project, hideNavSpace = false }) {
           <HeroStats stats={hero.stats} centered overlay={overlay} panel />
         </div>
       )} */}
-      
     </section>
   )
 }
@@ -214,5 +214,38 @@ function HeroBadges({ badges, centered }) {
         </li>
       ))}
     </ul>
+  )
+}
+
+/**
+ * Image-only hero for finished creatives that already contain the logo, headline and
+ * offer text. The section takes the image's own shape, so nothing is ever cropped on
+ * any screen. Optional `imageMobile` (portrait creative) is used on phones.
+ */
+function HeroImageOnly({ hero }) {
+  const srcSet = hero.imageSrcSet?.map(([u, w]) => `${assetUrl(u)} ${w}w`).join(', ')
+  const alt = hero.imageAlt || 'DAMAC Islands 2 waterfront villas in Dubai'
+  return (
+    <section id="top" className="relative bg-navy-950" aria-labelledby="hero-title">
+      {/* Headline for search engines and screen readers (the text is part of the image) */}
+      <h1 id="hero-title" className="sr-only">
+        {[hero.titleLine1, hero.titleLine2].filter(Boolean).join(' ')}
+      </h1>
+      <picture>
+        {hero.imageMobile && <source media="(max-width: 639px)" srcSet={assetUrl(hero.imageMobile)} />}
+        <img
+          src={assetUrl(hero.image)}
+          srcSet={srcSet}
+          sizes="100vw"
+          alt={alt}
+          width={hero.imageWidth || 2560}
+          height={hero.imageHeight || 1136}
+          fetchPriority="high"
+          decoding="async"
+          className="block h-auto w-full animate-fade-in select-none"
+          draggable="false"
+        />
+      </picture>
+    </section>
   )
 }
