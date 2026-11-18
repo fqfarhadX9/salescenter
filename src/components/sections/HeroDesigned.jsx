@@ -13,12 +13,16 @@ export default function HeroDesigned({ hero }) {
   const offer = hero.offer || {}
 
   return (
-    <section id="top" className="hero-designed relative isolate overflow-hidden bg-[#1b6fc4]" aria-labelledby="hero-title">
+    <section
+      id="top"
+      className="hero-designed relative isolate overflow-hidden bg-[#1b6fc4]"
+      aria-labelledby="hero-title"
+      style={{ '--hero-sky-top': bg.skyTop, '--hero-sky-bottom': bg.skyBottom }}
+    >
       {/* Background photo: portrait crop for phones / upright tablets, wide image elsewhere */}
       <picture>
-        {/* Phones use the separate photo at the bottom instead (1px placeholder avoids a wasted download) */}
-        {bg.mobile && <source media="(max-width: 639px) and (orientation: portrait)" srcSet={PIXEL} />}
-        {bg.portrait && <source media="(orientation: portrait)" srcSet={assetUrl(bg.portrait)} />}
+        {/* Phones / upright tablets use the separate photo at the bottom instead (1px placeholder avoids a wasted download) */}
+        {bg.mobile && <source media="(orientation: portrait) and (max-width: 1100px)" srcSet={PIXEL} />}
         <img
           src={assetUrl(bg.image)}
           srcSet={desktopSet}
@@ -73,10 +77,10 @@ export default function HeroDesigned({ hero }) {
         )}
       </div>
 
-      {/* Phones: villa + couple photo at the bottom, fading into the blue gradient */}
+      {/* Phones + upright tablets: whole villa + couple photo at the bottom, fading into the blue gradient */}
       {bg.mobile && (
         <div className="hero-designed__mobile-photo" aria-hidden="true">
-          <img src={assetUrl(bg.mobile)} alt="" width="1080" height="1073" decoding="async" />
+          <img src={assetUrl(bg.mobile)} alt="" width={bg.mobileWidth || 1080} height={bg.mobileHeight || 1190} decoding="async" fetchPriority="high" />
         </div>
       )}
     </section>

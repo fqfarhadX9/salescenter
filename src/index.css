@@ -94,21 +94,22 @@
 }
 
 /* ===== Designed hero (matches the campaign creative) =====
-   Phone (portrait)   : stacked offer pill, portrait photo, text in the sky area
-   Tablet (portrait)  : larger type, single-row pill
-   Laptop / desktop   : full-screen, creative proportions; sizes scale with width AND height
+   Landscape (laptops, desktops, iPad landscape, phones sideways):
+     full-screen photo; text sits in the sky band and ends above the villa (≈40% height)
+   Portrait (phones, upright tablets):
+     blue gradient with text on top, portrait crop with the WHOLE villa + couple anchored at the bottom
 */
 .hero-designed {
   min-height: 100vh;
   min-height: 100svh;
 }
 .hero-designed__bg {
-  object-position: 50% 100%; /* keep villas + couple at the bottom */
+  object-position: 50% 45%; /* keeps villa visible under the text and the couple's feet in frame */
 }
 .hero-designed__content {
   max-width: 1720px;
-  padding-top: max(28px, 4.5svh);
-  padding-bottom: 40px;
+  padding-top: max(24px, 4svh);
+  padding-bottom: 32px;
 }
 .hero-designed__amp {
   font-family: Georgia, 'Times New Roman', serif;
@@ -118,7 +119,7 @@
   vertical-align: 0.04em;
 }
 .hero-designed__logo {
-  height: clamp(54px, min(7.6vw, 9.5svh), 112px);
+  height: clamp(50px, min(7vw, 8.4svh), 110px);
 }
 .hero-designed__rule {
   display: block;
@@ -130,16 +131,16 @@
   margin: 0 clamp(14px, 2vw, 32px);
 }
 .hero-designed__title {
-  margin-top: clamp(10px, 1.6svh, 22px);
-  font-size: clamp(30px, min(4.35vw, 8.2svh), 92px);
+  margin-top: clamp(8px, 1.3svh, 20px);
+  font-size: clamp(28px, min(4.25vw, 7.2svh), 92px);
   line-height: 1.08;
   letter-spacing: -0.005em;
   text-shadow: 0 2px 18px rgba(0, 35, 90, 0.28);
   text-wrap: balance;
 }
 .hero-designed__subtitle {
-  margin-top: clamp(4px, 0.8svh, 12px);
-  font-size: clamp(24px, min(3.2vw, 6svh), 66px);
+  margin-top: clamp(2px, 0.6svh, 10px);
+  font-size: clamp(22px, min(3.1vw, 5.3svh), 66px);
   line-height: 1.15;
 }
 .hero-designed__gold {
@@ -157,13 +158,13 @@
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 70%, rgba(255, 255, 255, 0));
 }
 .hero-designed__pill {
-  margin-top: clamp(16px, 2.6svh, 34px);
+  margin-top: clamp(12px, 2.2svh, 30px);
   display: flex;
   align-items: stretch;
   overflow: hidden;
   border-radius: 9999px;
   box-shadow: 0 14px 34px -12px rgba(0, 35, 90, 0.45);
-  font-size: clamp(14px, min(1.9vw, 3.6svh), 36px);
+  font-size: clamp(13px, min(1.85vw, 3.2svh), 36px);
   line-height: 1.1;
   color: #0b2a5a;
 }
@@ -186,84 +187,77 @@
 .hero-designed__pill-right .font-display {
   font-size: 1.32em;
 }
-
-/* Mobile photo is only used on phones in portrait */
 .hero-designed__mobile-photo {
   display: none;
 }
-@media (max-width: 639px) and (orientation: portrait) {
+
+/* ---------- Portrait: phones + upright tablets ---------- */
+@media (orientation: portrait) and (max-width: 1100px) {
   .hero-designed {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(180deg, #08347f 0%, #0a4fa6 38%, #0b6bc8 68%, #0c7cdb 100%);
+    height: 100vh;
+    height: 100svh;
+    min-height: 560px;
+    background: linear-gradient(180deg, var(--hero-sky-top, #0a4a9e) 0%, var(--hero-sky-bottom, #2f8fe0) 100%);
   }
   .hero-designed__bg,
   .hero-designed__shade {
     display: none;
   }
-  .hero-designed {
-    height: 100vh;
-    height: 100svh;
-    min-height: 520px;
-  }
-  /* Photo fills all space below the text (bigger couple on tall phones, fits short phones) */
+  /* Whole villa + couple, full width, anchored to the bottom; its sky fades into the gradient */
   .hero-designed__mobile-photo {
     display: block;
-    position: relative;
-    flex: 1 1 auto;
-    min-height: 64vw;
-    margin-top: 6px;
-    overflow: hidden;
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: -1;
   }
   .hero-designed__mobile-photo img {
-    position: absolute;
-    inset: 0;
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 100%;
-    /* blend the photo's sky into the gradient */
-    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%);
-    mask-image: linear-gradient(180deg, transparent 0%, #000 30%);
+    height: auto;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
+  }
+  /* Text block is centred in the sky above the villa:
+     bottom padding reserves the photo height from its bottom up to the villa roofline (~58.5% of the photo) */
+  .hero-designed {
+    display: flex;
+    flex-direction: column;
   }
   .hero-designed__content {
     position: relative;
     z-index: 1;
-    padding-bottom: 0;
+    flex: 1 1 auto;
+    justify-content: center;
+    padding-top: max(22px, 3svh);
+    padding-bottom: calc(100vw * 1177 / 1080 * 0.585 + 14px);
   }
 }
 
-/* Phones (portrait): stacked pill, portrait-friendly sizes */
-@media (max-width: 639px) {
-  .hero-designed__bg {
-    object-position: 60% 100%;
-  }
-  .hero-designed__content {
-    padding-top: max(24px, 5svh);
-  }
+/* Phones (portrait) */
+@media (orientation: portrait) and (max-width: 639px) {
   .hero-designed__logo {
-    height: clamp(50px, 15vw, 68px);
+    height: clamp(48px, 14.5vw, 66px);
   }
   .hero-designed__logo .hero-designed__rule {
-    width: clamp(28px, 11vw, 60px);
+    width: clamp(26px, 10vw, 56px);
     margin: 0 12px;
   }
   .hero-designed__title {
-    font-size: clamp(28px, 8.6vw, 38px);
-    margin-top: 14px;
+    font-size: clamp(26px, 8.4vw, 37px);
+    margin-top: 12px;
   }
   .hero-designed__subtitle {
-    font-size: clamp(22px, 6.6vw, 30px);
+    font-size: clamp(21px, 6.4vw, 29px);
   }
   .hero-designed__rule--gold {
-    flex-basis: 34px;
+    flex-basis: 32px;
   }
   .hero-designed__pill {
     flex-direction: column;
     border-radius: 18px;
     width: min(100%, 340px);
     font-size: clamp(12.5px, 4.1vw, 15px);
-    margin-top: 22px;
+    margin-top: 18px;
   }
   .hero-designed__pill-left,
   .hero-designed__pill-right {
@@ -271,46 +265,62 @@
   }
 }
 
-/* Tablets (portrait): bigger type, single-row pill */
-@media (min-width: 640px) and (orientation: portrait) {
-  .hero-designed__bg {
-    object-position: 58% 100%;
-  }
+/* Tablets (portrait) */
+@media (orientation: portrait) and (min-width: 640px) and (max-width: 1100px) {
   .hero-designed__content {
-    padding-top: 6svh;
+    padding-top: 5svh;
   }
   .hero-designed__logo {
-    height: clamp(70px, 11vw, 110px);
+    height: clamp(70px, 10.5vw, 108px);
   }
   .hero-designed__title {
-    font-size: clamp(40px, 6.6vw, 72px);
+    font-size: clamp(40px, 6.4vw, 70px);
   }
   .hero-designed__subtitle {
-    font-size: clamp(30px, 5vw, 54px);
+    font-size: clamp(30px, 4.8vw, 52px);
   }
   .hero-designed__pill {
-    font-size: clamp(16px, 2.5vw, 26px);
+    font-size: clamp(16px, 2.4vw, 25px);
   }
 }
 
-/* Phones in landscape (short screens): compact */
-@media (orientation: landscape) and (max-height: 500px) {
-  .hero-designed__content {
-    padding-top: 16px;
+/* Ultra-wide screens: slightly smaller text and lower image anchor so the couple's feet stay in frame */
+@media (orientation: landscape) and (min-aspect-ratio: 11/5) {
+  .hero-designed__bg {
+    object-position: 50% 62%;
   }
   .hero-designed__logo {
-    height: 44px;
+    height: clamp(44px, min(6.4vw, 7svh), 96px);
   }
   .hero-designed__title {
-    font-size: clamp(22px, 7.5svh, 34px);
-    margin-top: 8px;
+    font-size: clamp(24px, min(4vw, 6.1svh), 84px);
   }
   .hero-designed__subtitle {
-    font-size: clamp(18px, 5.5svh, 26px);
+    font-size: clamp(20px, min(2.9vw, 4.5svh), 60px);
   }
   .hero-designed__pill {
-    font-size: 13px;
-    margin-top: 12px;
+    font-size: clamp(12px, min(1.7vw, 2.7svh), 32px);
+  }
+}
+
+/* Phones sideways (short landscape screens) */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-designed__content {
+    padding-top: 14px;
+  }
+  .hero-designed__logo {
+    height: 40px;
+  }
+  .hero-designed__title {
+    font-size: clamp(20px, 6.6svh, 32px);
+    margin-top: 6px;
+  }
+  .hero-designed__subtitle {
+    font-size: clamp(16px, 4.8svh, 24px);
+  }
+  .hero-designed__pill {
+    font-size: 12px;
+    margin-top: 10px;
   }
 }
 
