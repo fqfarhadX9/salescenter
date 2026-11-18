@@ -39,7 +39,13 @@ jobs:
         env:
           VITE_LEAD_ENDPOINT: ${{ secrets.VITE_LEAD_ENDPOINT }}
 
+      - name: Check FTP settings
+        id: ftp
+        run: |
+          if [ -n "${{ secrets.FTP_SERVER }}" ]; then echo "ready=true" >> "$GITHUB_OUTPUT"; else echo "::notice::FTP secrets not set yet - build checked, upload skipped. Add FTP_SERVER, FTP_USERNAME, FTP_PASSWORD in repo Settings > Secrets."; fi
+
       - name: Upload to Hostinger (public_html)
+        if: steps.ftp.outputs.ready == 'true'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}

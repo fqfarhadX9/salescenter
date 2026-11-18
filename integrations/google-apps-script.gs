@@ -6,12 +6,17 @@
  *    submittedAt | project | name | phone | email | purpose | source | utm_source | utm_campaign | page
  * 2. Extensions → Apps Script → paste this file → Save.
  * 3. Deploy → New deployment → Web app. Execute as: Me, Who has access: Anyone.
- * 4. Copy the /exec URL into VITE_LEAD_ENDPOINT (.env or your host's env settings),
- *    then rebuild/redeploy the site.
+ * 4. Copy the /exec URL into leadEndpoint in src/config/site.js, then rebuild/redeploy the site.
+ *    Test: open the /exec URL in a browser - you should see "OK - DAMAC lead receiver is running".
  * To update later: Deploy → Manage deployments → edit → Version: New version (URL stays the same).
  */
 // All addresses go inside ONE pair of quotes, separated by commas
 const NOTIFY_EMAIL = 'mintaxmedia@gmail.com,fqqaunain@gmail.com';
+
+// Open the /exec URL in a browser to check the script is deployed and reachable.
+function doGet() {
+  return ContentService.createTextOutput('OK - DAMAC lead receiver is running. Leads go to the sheet and to: ' + NOTIFY_EMAIL);
+}
 
 function doPost(e) {
   const data = JSON.parse(e.postData.contents);
