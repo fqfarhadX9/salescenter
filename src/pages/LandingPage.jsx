@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from 'react'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import MobileCtaBar from '../components/layout/MobileCtaBar'
@@ -11,9 +12,28 @@ import Location from '../components/sections/Location'
 import WhyDubai from '../components/sections/WhyDubai'
 import Developer from '../components/sections/Developer'
 import FinalCta from '../components/sections/FinalCta'
+import EnquiryPopup from '../components/forms/EnquiryPopup'
 
 /** Project landing page. Content comes from a project config in src/config/projects/. */
 export default function LandingPage({ config }) {
+  // Any "#enquire" button (Book with just 10%, Book a Free Consultation, Know More,
+  // Get Floor Plan & Price…) opens the enquiry form in a pop-up instead of scrolling.
+  // Add data-no-popup to a link to keep the normal scroll behaviour.
+  const [popup, setPopup] = useState(null)
+  const closePopup = useCallback(() => setPopup(null), [])
+
+  useEffect(() => {
+    const onClick = (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+      const link = e.target.closest?.('a[href$="#enquire"]')
+      if (!link || link.hasAttribute('data-no-popup') || link.closest('#enquire')) return
+      e.preventDefault()
+      setPopup({ label: link.textContent.trim() })
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [])
+
   return (
     <>
       <a href="#main" className="sr-only z-[60] rounded bg-white px-4 py-2 text-navy-900 focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
@@ -40,6 +60,18 @@ export default function LandingPage({ config }) {
         hasMobileBar={config.mobileCtaBar !== false}
       />
       {config.mobileCtaBar !== false && <MobileCtaBar contact={config.contact} />}
+      <EnquiryPopup
+        open={!!popup}
+        onClose={closePopup}
+        form={config.form}
+        project={config.slug}
+        source={`${config.slug}-popup-${slugify(popup?.label)}`}
+      />
     </>
   )
+}
+
+/** "Book with just 10%" → "book-with-just-10" (shows which button the lead came from) */
+function slugify(text = '') {
+  return String(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'button'
 }
