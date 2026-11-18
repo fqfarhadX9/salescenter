@@ -134,7 +134,7 @@ const damacIsland = {
   form: {
     title: 'Get in Touch',
     subtitle: 'Leave your details and our property consultant will call you back.',
-    submitLabel: 'Request a Call Back',
+    submitLabel: 'Submit',
     // "Purpose" dropdown in the enquiry forms
     purposeOptions: ['For Investment', 'For Personal Use', 'Both'],
     consentText: 'By submitting, you agree to be contacted about this project.',
