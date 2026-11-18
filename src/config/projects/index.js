@@ -14,3 +14,8 @@ export const projects = [damacIsland]
 export function getProjectBySlug(slug) {
   return projects.find((p) => p.slug === slug)
 }
+
+/** Finds a project whose old address (alias) matches, so it can redirect to the current one. */
+export function getProjectByAlias(slug) {
+  return projects.find((p) => p.aliases?.includes(slug))
+}

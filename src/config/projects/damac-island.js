@@ -18,6 +18,8 @@ const unsplash = (id, w = 1600) =>
 const damacIsland = {
   // URL: offplansale.com/<slug>
   slug: 'damac-islands-2',
+  // Old addresses that redirect here (keeps existing ads / shared links working)
+  aliases: ['damac-island'],
 
   // Card shown on the home page project list
   card: {
