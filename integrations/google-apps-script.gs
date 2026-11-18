@@ -11,7 +11,7 @@
  * To update later: Deploy → Manage deployments → edit → Version: New version (URL stays the same).
  */
 // All addresses go inside ONE pair of quotes, separated by commas
-const NOTIFY_EMAIL = 'mintaxmedia@gmail.com,fqqaunain@gmail.com';
+const NOTIFY_EMAIL = 'mintaxmedia@gmail.com';
 
 // Open the /exec URL in a browser to check the script is deployed and reachable.
 function doGet() {
