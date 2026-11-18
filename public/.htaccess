@@ -9,6 +9,14 @@ DirectoryIndex index.html
   </IfModule>
 </FilesMatch>
 
+# Caching: HTML must always be fresh (it points to the current JS/CSS files);
+# hashed files in /assets/ never change (see assets/.htaccess — cached for a year).
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -19,7 +27,11 @@ DirectoryIndex index.html
   RewriteCond %{THE_REQUEST} ^[A-Z]+\s/(index\.html)?(\?\S*)?\s [NC]
   RewriteRule ^(index\.html)?$ api/auth/home-gate.php [L,QSA]
 
-  # 2) Single-page app routing: serve index.html for any URL that isn't a real file,
+  # 2) Missing files under /assets/, /images/ or /api/ must return a real 404
+  #    (never the app page — otherwise a missing JS file shows a blank screen).
+  RewriteRule ^(assets|images|api)/ - [L]
+
+  # 3) Single-page app routing: serve index.html for any URL that isn't a real file,
   #    so links like /damac-island work when opened directly or refreshed.
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
