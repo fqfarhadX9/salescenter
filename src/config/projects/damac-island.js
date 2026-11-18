@@ -154,7 +154,7 @@ const damacIsland = {
     imageBadge: { value: 'Handover', label: 'in June 2030' },
     items: [
       { icon: 'Home', title: '4 & 5 BR Waterfront Townhouses & Villas' },
-      { icon: 'Tag', title: 'Starting From AED 2.99M' },
+      { icon: 'Tag', title: 'Starting From USD 814K (AED 2.99M)' },
       { icon: 'Wallet', title: '10% to Book' },
       { icon: 'BadgePercent', title: '4% DLD Fee Waiver' },
       { icon: 'CalendarCheck', title: '75/25 Payment Plan' },
