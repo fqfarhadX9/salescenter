@@ -1,7 +1,7 @@
 /**
  * Lead submission.
  *
- * Posts enquiries as JSON to the endpoint in VITE_LEAD_ENDPOINT
+ * Posts enquiries as JSON to site.leadEndpoint (src/config/site.js) or VITE_LEAD_ENDPOINT
  * (e.g. your CRM webhook, Zapier/Make hook, or backend route).
  *
  * If no endpoint is configured the lead is NOT sent anywhere: in
@@ -9,7 +9,9 @@
  * tested; in production the form shows an error so leads are never
  * silently lost.
  */
-const ENDPOINT = import.meta.env.VITE_LEAD_ENDPOINT
+import { site } from '../config/site'
+
+const ENDPOINT = import.meta.env.VITE_LEAD_ENDPOINT || site.leadEndpoint
 
 export async function submitLead(data, { source = 'landing-page', project = '' } = {}) {
   const payload = {

@@ -9,6 +9,11 @@ export const site = {
     logoSrc: '', // optional logo image path, e.g. '/images/logo.svg'
   },
 
+  // Where enquiry forms send leads: your Google Apps Script web-app URL (ends in /exec).
+  // Leads are saved to the Google Sheet AND emailed (see integrations/google-apps-script.gs).
+  // Paste the URL between the quotes. (VITE_LEAD_ENDPOINT, if set at build time, takes priority.)
+  leadEndpoint: '',
+
   contact: {
     phone: '+971 4 000 0000',
     phoneHref: 'tel:+97140000000',
