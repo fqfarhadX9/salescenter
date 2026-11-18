@@ -4,8 +4,10 @@ import { ArrowRight } from 'lucide-react'
 import Button from '../ui/Button'
 import SmartImage from '../ui/SmartImage'
 import EnquiryForm from '../forms/EnquiryForm'
+import HeroDesigned from './HeroDesigned'
 
 export default function Hero({ hero, form, project, hideNavSpace = false }) {
+  if (hero.mode === 'designed') return <HeroDesigned hero={hero} />
   if (hero.mode === 'image') return <HeroImageOnly hero={hero} />
   const showForm = hero.showForm !== false
   const centered = hero.align === 'center'

@@ -93,6 +93,181 @@
   }
 }
 
+/* ===== Designed hero (matches the campaign creative) =====
+   Phone (portrait)   : stacked offer pill, portrait photo, text in the sky area
+   Tablet (portrait)  : larger type, single-row pill
+   Laptop / desktop   : full-screen, creative proportions; sizes scale with width AND height
+*/
+.hero-designed {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+.hero-designed__bg {
+  object-position: 50% 100%; /* keep villas + couple at the bottom */
+}
+.hero-designed__content {
+  max-width: 1720px;
+  padding-top: max(28px, 4.5svh);
+  padding-bottom: 40px;
+}
+.hero-designed__amp {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.74em;
+  font-style: normal;
+  margin: 0 0.02em;
+  vertical-align: 0.04em;
+}
+.hero-designed__logo {
+  height: clamp(54px, min(7.6vw, 9.5svh), 112px);
+}
+.hero-designed__rule {
+  display: block;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.75);
+}
+.hero-designed__logo .hero-designed__rule {
+  width: clamp(36px, 9vw, 170px);
+  margin: 0 clamp(14px, 2vw, 32px);
+}
+.hero-designed__title {
+  margin-top: clamp(10px, 1.6svh, 22px);
+  font-size: clamp(30px, min(4.35vw, 8.2svh), 92px);
+  line-height: 1.08;
+  letter-spacing: -0.005em;
+  text-shadow: 0 2px 18px rgba(0, 35, 90, 0.28);
+  text-wrap: balance;
+}
+.hero-designed__subtitle {
+  margin-top: clamp(4px, 0.8svh, 12px);
+  font-size: clamp(24px, min(3.2vw, 6svh), 66px);
+  line-height: 1.15;
+}
+.hero-designed__gold {
+  background: linear-gradient(180deg, #f6e1a8 0%, #e9c77b 55%, #d9ae5c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(0, 35, 90, 0.25));
+}
+.hero-designed__rule--gold {
+  flex: 0 1 clamp(28px, 10vw, 190px);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.8));
+}
+.hero-designed__rule--gold:last-child {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 70%, rgba(255, 255, 255, 0));
+}
+.hero-designed__pill {
+  margin-top: clamp(16px, 2.6svh, 34px);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 9999px;
+  box-shadow: 0 14px 34px -12px rgba(0, 35, 90, 0.45);
+  font-size: clamp(14px, min(1.9vw, 3.6svh), 36px);
+  line-height: 1.1;
+  color: #0b2a5a;
+}
+.hero-designed__pill-left,
+.hero-designed__pill-right {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.3em;
+  white-space: nowrap;
+  padding: 0.62em 1.15em;
+}
+.hero-designed__pill-left {
+  background: linear-gradient(90deg, #f3d99f, #ebc985);
+}
+.hero-designed__pill-right {
+  background: linear-gradient(90deg, #fbf6ea, #fffdf8);
+}
+.hero-designed__pill-left .font-display,
+.hero-designed__pill-right .font-display {
+  font-size: 1.32em;
+}
+
+/* Phones (portrait): stacked pill, portrait-friendly sizes */
+@media (max-width: 639px) {
+  .hero-designed__bg {
+    object-position: 60% 100%;
+  }
+  .hero-designed__content {
+    padding-top: max(24px, 5svh);
+  }
+  .hero-designed__logo {
+    height: clamp(50px, 15vw, 68px);
+  }
+  .hero-designed__logo .hero-designed__rule {
+    width: clamp(28px, 11vw, 60px);
+    margin: 0 12px;
+  }
+  .hero-designed__title {
+    font-size: clamp(28px, 8.6vw, 38px);
+    margin-top: 14px;
+  }
+  .hero-designed__subtitle {
+    font-size: clamp(22px, 6.6vw, 30px);
+  }
+  .hero-designed__rule--gold {
+    flex-basis: 34px;
+  }
+  .hero-designed__pill {
+    flex-direction: column;
+    border-radius: 18px;
+    width: min(100%, 340px);
+    font-size: clamp(12.5px, 4.1vw, 15px);
+    margin-top: 22px;
+  }
+  .hero-designed__pill-left,
+  .hero-designed__pill-right {
+    padding: 0.8em 0.7em;
+  }
+}
+
+/* Tablets (portrait): bigger type, single-row pill */
+@media (min-width: 640px) and (orientation: portrait) {
+  .hero-designed__bg {
+    object-position: 58% 100%;
+  }
+  .hero-designed__content {
+    padding-top: 6svh;
+  }
+  .hero-designed__logo {
+    height: clamp(70px, 11vw, 110px);
+  }
+  .hero-designed__title {
+    font-size: clamp(40px, 6.6vw, 72px);
+  }
+  .hero-designed__subtitle {
+    font-size: clamp(30px, 5vw, 54px);
+  }
+  .hero-designed__pill {
+    font-size: clamp(16px, 2.5vw, 26px);
+  }
+}
+
+/* Phones in landscape (short screens): compact */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-designed__content {
+    padding-top: 16px;
+  }
+  .hero-designed__logo {
+    height: 44px;
+  }
+  .hero-designed__title {
+    font-size: clamp(22px, 7.5svh, 34px);
+    margin-top: 8px;
+  }
+  .hero-designed__subtitle {
+    font-size: clamp(18px, 5.5svh, 26px);
+  }
+  .hero-designed__pill {
+    font-size: 13px;
+    margin-top: 12px;
+  }
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;

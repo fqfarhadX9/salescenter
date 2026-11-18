@@ -67,11 +67,26 @@ const damacIsland = {
   hero: {
     eyebrow: '', // small gold label above the headline (leave empty to hide)
     titleline: 'Waterfront Villas in the',
-    titleLine1: '4&5 BR Waterfront Villas',
+    titleLine1: '4&5-BR Waterfront Townhouses',
+    imageAlt: 'DAMAC Islands 2 waterfront townhouses beside a crystal lagoon',
     titleLine2: 'in the Middle of Dubai',
     // 'image' = show the hero creative as-is (it already contains logo + headline + offer),
     // always fully visible on every screen. Remove this line to use the text hero instead.
-    mode: 'image',
+    // 'designed' = hero built in code to match the campaign creative (recommended)
+    // 'image'    = show the creative image as-is
+    mode: 'designed',
+    background: {
+      image: '/images/hero/damac-islands-2-hero-2560.jpg',
+      srcSet: [
+        ['/images/hero/damac-islands-2-hero-1440.jpg', 1440],
+        ['/images/hero/damac-islands-2-hero-2560.jpg', 2560],
+      ],
+      portrait: '/images/hero/damac-islands-2-hero-portrait.jpg', // phones & upright tablets
+    },
+    offer: {
+      highlight: { value: '4%', text: 'DLD Fee Waiver' },
+      price: { prefix: 'Starting from', value: 'USD 814K', suffix: '( AED2.99M )' },
+    },
     imageWidth: 2560,
     imageHeight: 1136,
     // imageMobile: '/images/damac-island-cover-mobile.jpg', // optional portrait creative for phones

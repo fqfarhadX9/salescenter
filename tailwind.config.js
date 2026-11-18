@@ -31,6 +31,7 @@ export default {
       fontFamily: {
         display: ['Sora', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'Times New Roman', 'serif'],
       },
       borderRadius: {
         card: '14px',
