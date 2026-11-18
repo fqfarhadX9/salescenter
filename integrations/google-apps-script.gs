@@ -13,6 +13,18 @@
 // All addresses go inside ONE pair of quotes, separated by commas
 const NOTIFY_EMAIL = 'mintaxmedia@gmail.com,fqqaunain@gmail.com';
 
+// EMAIL NOT ARRIVING? In the Apps Script editor pick "testEmail" in the function
+// dropdown (top bar) and press Run. Allow access if asked, then check both inboxes
+// (and Spam). Any error shows in the Execution log at the bottom.
+function testEmail() {
+  MailApp.sendEmail({
+    to: NOTIFY_EMAIL,
+    subject: 'Test: DAMAC lead alerts are working',
+    htmlBody: '<p>If you can read this, new website leads will be emailed to: ' + NOTIFY_EMAIL + '</p>',
+  });
+  Logger.log('Test email sent to: ' + NOTIFY_EMAIL + ' | Emails left today: ' + MailApp.getRemainingDailyQuota());
+}
+
 // Open the /exec URL in a browser to check the script is deployed and reachable.
 function doGet() {
   return ContentService.createTextOutput('OK - DAMAC lead receiver is running. Leads go to the sheet and to: ' + NOTIFY_EMAIL);
@@ -60,12 +72,18 @@ function doPost(e) {
       </p>
     </div>`;
 
-  MailApp.sendEmail({
-    to: NOTIFY_EMAIL,
-    subject: `New Lead [${data.project || 'website'}]: ${data.name} – ${data.purpose}`,
-    htmlBody: html,
-    replyTo: data.email,
-  });
+  // The lead is already saved above, so an email problem never loses it.
+  // Errors show under Executions (left sidebar) in the Apps Script editor.
+  try {
+    MailApp.sendEmail({
+      to: NOTIFY_EMAIL,
+      subject: `New Lead [${data.project || 'website'}]: ${data.name} – ${data.purpose}`,
+      htmlBody: html,
+      replyTo: data.email,
+    });
+  } catch (err) {
+    console.error('Lead email failed: ' + err);
+  }
 
   return ContentService.createTextOutput(JSON.stringify({ ok: true })).setMimeType(ContentService.MimeType.JSON);
 }
