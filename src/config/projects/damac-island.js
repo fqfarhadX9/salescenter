@@ -95,6 +95,8 @@ const damacIsland = {
       highlight: { value: '4%', text: 'DLD Fee Waiver' },
       price: { prefix: 'Starting from', value: 'USD 814K', suffix: '( AED2.99M )' },
     },
+    // Button on the lagoon at the bottom of the hero (remove to hide)
+    bookCta: { label: 'Book with just 10%', href: '#enquire' },
     imageWidth: 2560,
     imageHeight: 1136,
     // imageMobile: '/images/damac-island-cover-mobile.jpg', // optional portrait creative for phones
