@@ -81,7 +81,8 @@ const damacIsland = {
         ['/images/hero/damac-islands-2-hero-1440.jpg', 1440],
         ['/images/hero/damac-islands-2-hero-2560.jpg', 2560],
       ],
-      portrait: '/images/hero/damac-islands-2-hero-portrait.jpg', // phones & upright tablets
+      portrait: '/images/hero/damac-islands-2-hero-portrait.jpg', // upright tablets
+      mobile: '/images/hero/damac-islands-2-hero-mobile.jpg', // phones: villa + couple at the bottom, text on blue above
     },
     offer: {
       highlight: { value: '4%', text: 'DLD Fee Waiver' },

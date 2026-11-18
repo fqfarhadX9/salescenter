@@ -187,6 +187,52 @@
   font-size: 1.32em;
 }
 
+/* Mobile photo is only used on phones in portrait */
+.hero-designed__mobile-photo {
+  display: none;
+}
+@media (max-width: 639px) and (orientation: portrait) {
+  .hero-designed {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #08347f 0%, #0a4fa6 38%, #0b6bc8 68%, #0c7cdb 100%);
+  }
+  .hero-designed__bg,
+  .hero-designed__shade {
+    display: none;
+  }
+  .hero-designed {
+    height: 100vh;
+    height: 100svh;
+    min-height: 520px;
+  }
+  /* Photo fills all space below the text (bigger couple on tall phones, fits short phones) */
+  .hero-designed__mobile-photo {
+    display: block;
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 64vw;
+    margin-top: 6px;
+    overflow: hidden;
+  }
+  .hero-designed__mobile-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 100%;
+    /* blend the photo's sky into the gradient */
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 30%);
+  }
+  .hero-designed__content {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 0;
+  }
+}
+
 /* Phones (portrait): stacked pill, portrait-friendly sizes */
 @media (max-width: 639px) {
   .hero-designed__bg {
