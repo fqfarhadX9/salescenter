@@ -25,3 +25,6 @@ dist-ssr
 
 .env
 .env.local
+
+# Owner login config (private — upload outside public_html, never commit)
+offplansale-owner-config.php
