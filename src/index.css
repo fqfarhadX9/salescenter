@@ -131,8 +131,9 @@
   margin: 0 clamp(14px, 2vw, 32px);
 }
 .hero-designed__title {
-  margin-top: clamp(8px, 1.3svh, 20px);
-  font-size: clamp(28px, min(4.25vw, 7.2svh), 92px);
+  margin-top: clamp(6px, 1svh, 16px);
+  font-size: clamp(30px, min(5vw, 8.3svh), 108px);
+  white-space: nowrap;
   line-height: 1.08;
   letter-spacing: -0.005em;
   text-shadow: 0 2px 18px rgba(0, 35, 90, 0.28);
@@ -284,8 +285,9 @@
     margin: 0 12px;
   }
   .hero-designed__title {
-    font-size: clamp(26px, 8.4vw, 37px);
+    font-size: clamp(28px, 9.3vw, 41px);
     margin-top: 12px;
+    white-space: normal;
   }
   .hero-designed__subtitle {
     font-size: clamp(21px, 6.4vw, 29px);
@@ -315,7 +317,7 @@
     height: clamp(70px, 10.5vw, 108px);
   }
   .hero-designed__title {
-    font-size: clamp(40px, 6.4vw, 70px);
+    font-size: clamp(44px, 7.3vw, 80px);
   }
   .hero-designed__subtitle {
     font-size: clamp(30px, 4.8vw, 52px);
@@ -339,7 +341,7 @@
     height: clamp(44px, min(6.4vw, 7svh), 96px);
   }
   .hero-designed__title {
-    font-size: clamp(24px, min(4vw, 6.1svh), 84px);
+    font-size: clamp(26px, min(4.7vw, 7.1svh), 98px);
   }
   .hero-designed__subtitle {
     font-size: clamp(20px, min(2.9vw, 4.5svh), 60px);
@@ -358,7 +360,7 @@
     height: 40px;
   }
   .hero-designed__title {
-    font-size: clamp(20px, 6.6svh, 32px);
+    font-size: clamp(22px, 7.6svh, 38px);
     margin-top: 6px;
   }
   .hero-designed__subtitle {
