@@ -30,8 +30,14 @@ export default function LandingPage({ config }) {
         <Developer data={config.developer} />
         <FinalCta data={config.finalCta} form={config.form} contact={config.contact} project={config.slug} />
       </main>
-      <Footer brand={config.brand} nav={config.nav} contact={config.contact} footer={config.footer} />
-      <MobileCtaBar contact={config.contact} />
+      <Footer
+        brand={config.brand}
+        nav={config.nav}
+        contact={config.contact}
+        footer={config.footer}
+        hasMobileBar={config.mobileCtaBar !== false}
+      />
+      {config.mobileCtaBar !== false && <MobileCtaBar contact={config.contact} />}
     </>
   )
 }

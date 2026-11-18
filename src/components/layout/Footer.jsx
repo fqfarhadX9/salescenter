@@ -3,11 +3,11 @@ import Logo from '../ui/Logo'
 
 const YEAR = new Date().getFullYear()
 
-export default function Footer({ brand, nav, contact, footer }) {
+export default function Footer({ brand, nav, contact, footer, hasMobileBar = false }) {
   // Logo + phone/email row (set footer.showBrand: false to hide)
   const showTop = footer?.showBrand !== false
   return (
-    <footer className={`bg-navy-950 pb-24 text-white/70 sm:pb-10 ${showTop ? 'pt-14' : 'pt-8'}`}>
+    <footer className={`bg-navy-950 text-white/70 sm:pb-10 ${hasMobileBar ? 'pb-24' : 'pb-8'} ${showTop ? 'pt-14' : 'pt-8'}`}>
       <div className="container-site">
         {showTop && (
           <div className="flex flex-col gap-10 border-b border-white/10 pb-10 lg:flex-row lg:items-center lg:justify-between">

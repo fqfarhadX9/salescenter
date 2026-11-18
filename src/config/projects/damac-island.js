@@ -37,6 +37,7 @@ const damacIsland = {
   },
 
   showNavbar: false, // top navigation bar on this page
+  mobileCtaBar: false, // sticky call / WhatsApp / Enquire Now bar at the bottom on phones
 
   seo: {
     title: 'DAMAC Islands | Luxury Villas for Sale in Dubai',
