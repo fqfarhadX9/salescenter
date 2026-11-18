@@ -80,9 +80,9 @@ export default function HeroDesigned({ hero }) {
 
       {/* Booking CTA on the lagoon */}
       {hero.bookCta?.label && (
-        <a href={hero.bookCta.href || '#enquire'} className="hero-designed__book group">
+        <a href={hero.bookCta.href || '#enquire'} className="hero-designed__book">
           <span>{hero.bookCta.label}</span>
-          <ArrowRight aria-hidden="true" className="hero-designed__book-icon transition-transform duration-300 group-hover:translate-x-1" />
+          <ArrowRight aria-hidden="true" className="hero-designed__book-icon" />
         </a>
       )}
 

@@ -211,11 +211,37 @@
   font-size: clamp(14px, min(1.85vw, 2.9svh), 42px); /* text size */
   letter-spacing: 0.01em;
   box-shadow: 0 14px 32px -10px rgba(0, 35, 90, 0.55);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+  isolation: isolate;
+  animation: book-pulse 2.4s ease-out infinite; /* soft ring around the button */
+}
+/* Gold shine that sweeps across the button */
+.hero-designed__book::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 45%;
+  background: linear-gradient(105deg, transparent 0%, rgba(233, 199, 123, 0.55) 50%, transparent 100%);
+  transform: translateX(-160%) skewX(-18deg);
+  animation: book-shine 3s ease-in-out infinite;
+}
+@keyframes book-shine {
+  0%, 35% { transform: translateX(-160%) skewX(-18deg); }
+  75%, 100% { transform: translateX(330%) skewX(-18deg); }
+}
+@keyframes book-pulse {
+  0% { box-shadow: 0 14px 32px -10px rgba(0, 35, 90, 0.55), 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70% { box-shadow: 0 14px 32px -10px rgba(0, 35, 90, 0.55), 0 0 0 16px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 14px 32px -10px rgba(0, 35, 90, 0.55), 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+@keyframes book-arrow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
 }
 .hero-designed__book:hover {
   transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 18px 38px -10px rgba(0, 35, 90, 0.65);
   background: #fbf6ea; /* button colour on hover */
 }
 .hero-designed__book:focus-visible {
@@ -226,6 +252,18 @@
   width: 1.1em;
   height: 1.1em;
   color: #c9a052; /* arrow colour */
+  animation: book-arrow 1.2s ease-in-out infinite; /* arrow moves left-right */
+}
+/* No animation for visitors who turned on "reduce motion" */
+@media (prefers-reduced-motion: reduce) {
+  .hero-designed__book,
+  .hero-designed__book::before,
+  .hero-designed__book-icon {
+    animation: none;
+  }
+  .hero-designed__book::before {
+    display: none;
+  }
 }
 
 /* ---------- Portrait: phones + upright tablets ---------- */
