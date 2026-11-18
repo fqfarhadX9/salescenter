@@ -81,3 +81,34 @@ src/
   hooks/                      # useInView, useLeadForm (validation + submit state)
   services/leadService.js     # POST to VITE_LEAD_ENDPOINT
 ```
+
+## Owner access (private homepage)
+
+| URL | Who | Behaviour |
+|---|---|---|
+| `/` | Owner only | Signed-in owner sees the homepage; everyone else is redirected to `/damac-island` (UTM tags kept) |
+| `/damac-island` | Everyone | Public landing page (redirects to the current slug) |
+| `/owner-login` | Owner | Sign-in page (not linked anywhere, `noindex`, disallowed in robots.txt) |
+| Log out | Owner | "Log out" pill on the homepage — clears the session |
+
+**How it works:** server-side PHP on Hostinger (`public/api/auth/`). `/.htaccess` routes `/` through
+`home-gate.php`, which checks an **HttpOnly, SameSite=Strict, Secure** session cookie before serving the homepage.
+Sessions last 8 h (configurable) and end after 2 h of inactivity. Failed logins are rate-limited
+(5 per 15 min per IP). The password is stored only as a salted **PBKDF2-SHA256** hash, in a config file
+**outside `public_html`** — nothing secret is in the website files or the browser bundle.
+
+**Set your credentials (once):**
+1. `npm run owner:hash` → enter a username and a strong password (12+ chars). This creates
+   `offplansale-owner-config.php` (git-ignored).
+2. Upload it with hPanel File Manager / FTP to the folder that **contains** `public_html`
+   (e.g. `/home/u123456789/domains/offplansale.com/`), **not inside** `public_html`. Delete the local copy.
+3. To change the password later, repeat both steps. Existing sessions stay valid until they expire (max 8 h);
+   use **Log out** on any device you're still signed in on.
+
+Alternative: set server environment variables `OWNER_USERNAME` and `OWNER_PASSWORD_HASH`
+(and optionally `OWNER_SESSION_HOURS`).
+
+**Local testing:** `php -S localhost:8000 -t public` in one terminal, then
+`OWNER_API_PROXY=http://localhost:8000 npm run dev`. (Without PHP, `/` simply redirects to the landing page.)
+
+> Note: Vercel/Netlify can't run these PHP files — this feature requires PHP hosting such as Hostinger.
