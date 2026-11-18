@@ -34,7 +34,7 @@ export default function Location({ data }) {
                 decoding="async"
                 className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.03]"
               />
-              <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-navy-900/75 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur transition-colors group-hover:bg-gold-500">
+              <span className="shine shine--strong absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-navy-900/75 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur transition-colors group-hover:bg-gold-500">
                 <Expand className="h-3.5 w-3.5" aria-hidden="true" /> View map
               </span>
             </a>
@@ -62,7 +62,8 @@ export default function Location({ data }) {
                 as="li"
                 key={item.name}
                 delay={i * 80}
-                className="group flex items-start gap-4 rounded-card border border-white/15 bg-white/[0.04] p-5 transition-colors duration-300 hover:border-gold-300/60 hover:bg-white/[0.07]"
+                style={{ '--shine-delay': `${i * 0.5}s` }}
+                className="shine group relative flex items-start gap-4 rounded-card border border-white/15 bg-white/[0.04] p-5 transition-colors duration-300 hover:border-gold-300/60 hover:bg-white/[0.07]"
               >
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gold-400/15 text-gold-300 ring-1 ring-gold-300/30">
                   <Icon name={item.icon} className="h-5 w-5" />
