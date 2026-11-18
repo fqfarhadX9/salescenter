@@ -207,8 +207,8 @@
   background: #ffffff; /* button colour */
   color: #0b2a5a; /* text colour */
   font-family: 'Manrope', system-ui, sans-serif;
-  font-weight: 1000; /* boldness: 700 = bold, 800 = extra bold */
-  font-size: clamp(14px, min(1.65vw, 2.7svh), 32px); /* text size */
+  font-weight: 800; /* boldness: 700 = bold, 800 = extra bold */
+  font-size: clamp(14px, min(1.85vw, 2.9svh), 42px); /* text size */
   letter-spacing: 0.01em;
   box-shadow: 0 14px 32px -10px rgba(0, 35, 90, 0.55);
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
