@@ -204,19 +204,19 @@
   white-space: nowrap;
   padding: 0.85em 1.7em;
   border-radius: 9999px;
-  background: linear-gradient(180deg, #f6e1a8 0%, #ebc985 55%, #ddb466 100%);
-  color: #0b2a5a;
+  background: #ffffff; /* button colour */
+  color: #0b2a5a; /* text colour */
   font-family: 'Manrope', system-ui, sans-serif;
-  font-weight: 800;
-  font-size: clamp(14px, min(1.35vw, 2.4svh), 24px);
+  font-weight: 800; /* boldness: 700 = bold, 800 = extra bold */
+  font-size: clamp(14px, min(1.35vw, 2.4svh), 24px); /* text size */
   letter-spacing: 0.01em;
-  box-shadow: 0 14px 32px -10px rgba(0, 35, 90, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 0 14px 32px -10px rgba(0, 35, 90, 0.55);
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 .hero-designed__book:hover {
   transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 18px 38px -10px rgba(0, 35, 90, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  filter: brightness(1.04);
+  box-shadow: 0 18px 38px -10px rgba(0, 35, 90, 0.65);
+  background: #fbf6ea; /* button colour on hover */
 }
 .hero-designed__book:focus-visible {
   outline: 3px solid #fff;
@@ -225,6 +225,7 @@
 .hero-designed__book-icon {
   width: 1.1em;
   height: 1.1em;
+  color: #c9a052; /* arrow colour */
 }
 
 /* ---------- Portrait: phones + upright tablets ---------- */
