@@ -10,9 +10,43 @@
     />
     <meta name="theme-color" content="#0B1B33" />
     <link rel="icon" type="image/png" href="/images/damac-islands-2-logo.png" />
+    <script>
+      // Safety net: if a JS/CSS file fails to load (e.g. an old cached page pointing to files that were
+      // replaced in a new upload), reload once with a cache-busting parameter, then tidy the URL.
+      ;(function () {
+        var KEY = 'ops-asset-retry'
+        window.addEventListener(
+          'error',
+          function (e) {
+            var t = e.target
+            if (!t || (t.tagName !== 'SCRIPT' && t.tagName !== 'LINK')) return
+            if (sessionStorage.getItem(KEY)) return
+            sessionStorage.setItem(KEY, '1')
+            var u = new URL(location.href)
+            u.searchParams.set('_v', Date.now())
+            location.replace(u.toString())
+          },
+          true,
+        )
+        window.addEventListener('load', function () {
+          var u = new URL(location.href)
+          if (u.searchParams.has('_v')) {
+            u.searchParams.delete('_v')
+            history.replaceState(null, '', u.pathname + u.search + u.hash)
+          }
+          setTimeout(function () { sessionStorage.removeItem(KEY) }, 10000)
+        })
+      })()
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0b1b33;color:#fff;font-family:system-ui,sans-serif;text-align:center;padding:24px">
+        <noscript>Please enable JavaScript to view this page.</noscript>
+        <p id="boot-msg" style="opacity:0;transition:opacity .3s">Loading… If this takes long, please refresh the page.</p>
+      </div>
+    </div>
+    <script>setTimeout(function(){var m=document.getElementById('boot-msg');if(m)m.style.opacity=1},4000)</script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

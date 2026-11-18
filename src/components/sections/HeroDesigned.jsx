@@ -1,3 +1,4 @@
+import { ArrowRight } from 'lucide-react'
 import assetUrl from '../../utils/assetUrl'
 
 /**
@@ -76,6 +77,14 @@ export default function HeroDesigned({ hero }) {
           </div>
         )}
       </div>
+
+      {/* Booking CTA on the lagoon */}
+      {hero.bookCta?.label && (
+        <a href={hero.bookCta.href || '#enquire'} className="hero-designed__book group">
+          <span>{hero.bookCta.label}</span>
+          <ArrowRight aria-hidden="true" className="hero-designed__book-icon transition-transform duration-300 group-hover:translate-x-1" />
+        </a>
+      )}
 
       {/* Phones + upright tablets: whole villa + couple photo at the bottom, fading into the blue gradient */}
       {bg.mobile && (

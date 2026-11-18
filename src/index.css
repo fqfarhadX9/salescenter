@@ -131,8 +131,9 @@
   margin: 0 clamp(14px, 2vw, 32px);
 }
 .hero-designed__title {
-  margin-top: clamp(8px, 1.3svh, 20px);
-  font-size: clamp(28px, min(4.25vw, 7.2svh), 92px);
+  margin-top: clamp(6px, 1svh, 16px);
+  font-size: clamp(30px, min(5vw, 8.3svh), 108px);
+  white-space: nowrap;
   line-height: 1.08;
   letter-spacing: -0.005em;
   text-shadow: 0 2px 18px rgba(0, 35, 90, 0.28);
@@ -190,6 +191,41 @@
 .hero-designed__mobile-photo {
   display: none;
 }
+/* "Book with just 10%" button, sitting on the lagoon */
+.hero-designed__book {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 9%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  white-space: nowrap;
+  padding: 0.85em 1.7em;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #f6e1a8 0%, #ebc985 55%, #ddb466 100%);
+  color: #0b2a5a;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(14px, min(1.35vw, 2.4svh), 24px);
+  letter-spacing: 0.01em;
+  box-shadow: 0 14px 32px -10px rgba(0, 35, 90, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+.hero-designed__book:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 18px 38px -10px rgba(0, 35, 90, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  filter: brightness(1.04);
+}
+.hero-designed__book:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+.hero-designed__book-icon {
+  width: 1.1em;
+  height: 1.1em;
+}
 
 /* ---------- Portrait: phones + upright tablets ---------- */
 @media (orientation: portrait) and (max-width: 1100px) {
@@ -235,6 +271,12 @@
 
 /* Phones (portrait) */
 @media (orientation: portrait) and (max-width: 639px) {
+  .hero-designed__book {
+    left: 36%;
+    bottom: 4.5%;
+    font-size: 15px;
+    padding: 0.8em 1.45em;
+  }
   .hero-designed__logo {
     height: clamp(48px, 14.5vw, 66px);
   }
@@ -243,8 +285,9 @@
     margin: 0 12px;
   }
   .hero-designed__title {
-    font-size: clamp(26px, 8.4vw, 37px);
+    font-size: clamp(28px, 9.3vw, 41px);
     margin-top: 12px;
+    white-space: normal;
   }
   .hero-designed__subtitle {
     font-size: clamp(21px, 6.4vw, 29px);
@@ -274,13 +317,18 @@
     height: clamp(70px, 10.5vw, 108px);
   }
   .hero-designed__title {
-    font-size: clamp(40px, 6.4vw, 70px);
+    font-size: clamp(44px, 7.3vw, 80px);
   }
   .hero-designed__subtitle {
     font-size: clamp(30px, 4.8vw, 52px);
   }
   .hero-designed__pill {
     font-size: clamp(16px, 2.4vw, 25px);
+  }
+  .hero-designed__book {
+    left: 38%;
+    bottom: 6%;
+    font-size: clamp(17px, 2.3vw, 22px);
   }
 }
 
@@ -293,7 +341,7 @@
     height: clamp(44px, min(6.4vw, 7svh), 96px);
   }
   .hero-designed__title {
-    font-size: clamp(24px, min(4vw, 6.1svh), 84px);
+    font-size: clamp(26px, min(4.7vw, 7.1svh), 98px);
   }
   .hero-designed__subtitle {
     font-size: clamp(20px, min(2.9vw, 4.5svh), 60px);
@@ -312,7 +360,7 @@
     height: 40px;
   }
   .hero-designed__title {
-    font-size: clamp(20px, 6.6svh, 32px);
+    font-size: clamp(22px, 7.6svh, 38px);
     margin-top: 6px;
   }
   .hero-designed__subtitle {
@@ -321,6 +369,10 @@
   .hero-designed__pill {
     font-size: 12px;
     margin-top: 10px;
+  }
+  .hero-designed__book {
+    font-size: 13px;
+    bottom: 6%;
   }
 }
 
