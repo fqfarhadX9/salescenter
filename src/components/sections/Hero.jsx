@@ -225,14 +225,17 @@ function HeroBadges({ badges, centered }) {
 function HeroImageOnly({ hero }) {
   const srcSet = hero.imageSrcSet?.map(([u, w]) => `${assetUrl(u)} ${w}w`).join(', ')
   const alt = hero.imageAlt || 'DAMAC Islands 2 waterfront villas in Dubai'
+  const blurSrc = assetUrl(hero.imageSrcSet?.[0]?.[0] || hero.image)
   return (
-    <section id="top" className="relative bg-navy-950" aria-labelledby="hero-title">
+    <section id="top" className="hero-creative" aria-labelledby="hero-title">
       {/* Headline for search engines and screen readers (the text is part of the image) */}
       <h1 id="hero-title" className="sr-only">
         {[hero.titleLine1, hero.titleLine2].filter(Boolean).join(' ')}
       </h1>
+      {/* Soft blurred copy fills any space around the image on squarer screens */}
+      <img src={blurSrc} alt="" aria-hidden="true" className="hero-creative__blur" decoding="async" />
       <picture>
-        {hero.imageMobile && <source media="(max-width: 639px)" srcSet={assetUrl(hero.imageMobile)} />}
+        {hero.imageMobile && <source media="(max-width: 639px) and (orientation: portrait)" srcSet={assetUrl(hero.imageMobile)} />}
         <img
           src={assetUrl(hero.image)}
           srcSet={srcSet}
@@ -242,7 +245,7 @@ function HeroImageOnly({ hero }) {
           height={hero.imageHeight || 1136}
           fetchPriority="high"
           decoding="async"
-          className="block h-auto w-full animate-fade-in select-none"
+          className="hero-creative__img animate-fade-in select-none"
           draggable="false"
         />
       </picture>
