@@ -207,7 +207,7 @@ const damacIsland = {
     title: 'Floor Plans',
     description: 'Thoughtfully designed waterfront townhouses for modern family living. Select a unit type to preview its layout.',
     lockPlans: true, // blur plans behind an "unlock" card that leads to the enquiry form
-    sizeLabel: 'Size',
+    sizeLabel: 'Size From',
     plans: [
       {
         id: '4br-townhouse',
