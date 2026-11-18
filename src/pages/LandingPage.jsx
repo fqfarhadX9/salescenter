@@ -7,6 +7,7 @@ import Amenities from '../components/sections/Amenities'
 import Destinations from '../components/sections/Destinations'
 import FloorPlans from '../components/sections/FloorPlans'
 import Gallery from '../components/sections/Gallery'
+import Location from '../components/sections/Location'
 import WhyDubai from '../components/sections/WhyDubai'
 import Developer from '../components/sections/Developer'
 import FinalCta from '../components/sections/FinalCta'
@@ -26,6 +27,7 @@ export default function LandingPage({ config }) {
         <Destinations data={config.destinations} />
         <FloorPlans data={config.floorPlans} />
         <Gallery data={config.gallery} />
+        <Location data={config.location} />
         <WhyDubai data={config.whyDubai} />
         <Developer data={config.developer} />
         <FinalCta data={config.finalCta} form={config.form} contact={config.contact} project={config.slug} />

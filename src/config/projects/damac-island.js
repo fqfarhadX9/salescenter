@@ -245,6 +245,23 @@ const damacIsland = {
     ],
   },
 
+  // Location section (after the gallery): map on the left, travel times on the right
+  location: {
+    eyebrow: 'Location',
+    title: 'Conveniently Located in Dubailand',
+    description:
+      'DAMAC Islands is located in Dubailand, with access to major roads connecting the community to key destinations across Dubai.',
+    map: '/images/location/damac-islands-2-location-map.jpg',
+    mapAlt: 'Map of Dubai showing DAMAC Islands in Dubailand near Al Qudra Road and Emirates Road, with nearby landmarks',
+    items: [
+      { icon: 'MapPin', name: 'Sports City, Motor City & DAMAC Hills', time: '15+ min' },
+      { icon: 'Plane', name: 'Dubai International Airport', time: '20+ min' },
+      { icon: 'Building2', name: 'Dubai Investment Park', time: '20+ min' },
+      { icon: 'Landmark', name: 'Burj Al Arab', time: '30+ min' },
+    ],
+    note: 'Travel times are approximate and may vary depending on route, traffic and time of day.',
+  },
+
   whyDubai: {
     eyebrow: 'Invest With Confidence',
     title: 'Why Dubai?',
