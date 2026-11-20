@@ -19,7 +19,7 @@ const ps = (name) => `${PS_IMG}/renders/palm-springs-${name}.webp`
 
 const palmSprings = {
   // URL: offplansale.com/<slug>
-  slug: 'palmsprings',
+  slug: 'palm-springs',
   // Other addresses that redirect here
   aliases: ['palm-springs', 'palm-springs-by-nakheel'],
 
