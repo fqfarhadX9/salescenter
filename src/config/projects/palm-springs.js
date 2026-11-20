@@ -220,7 +220,7 @@ const palmSprings = {
     title: 'Gallery',
     description: 'Explore the architecture, interiors, parks and lifestyle of Nakheel’s newest community.',
     images: [
-      { src: ps('5-bed-villa-5br-villa-ext-01'), alt: 'Rancho 5-bedroom villa with garden frontage', category: 'Exterior' },
+      { src: '/images/palm-springs/gallery-exterior-01.jpg', alt: 'Palm-lined park with cascading pools, children playing in the water and townhouses beyond', category: 'Exterior' },
       { src: ps('5-bedroom-villa-int-5br-mbr-01'), alt: '5-bedroom villa master bedroom', category: 'Interior' },
       { src: ps('4-plex-townhouses-th-ext-02'), alt: 'Aliso 4-plex townhouses along a landscaped street', category: 'Exterior' },
       { src: ps('5-bedroom-villa-int-5br-bh-01'), alt: '5-bedroom villa bathroom', category: 'Interior' },
