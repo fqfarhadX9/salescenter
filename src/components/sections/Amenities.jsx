@@ -5,7 +5,11 @@ import SmartImage from '../ui/SmartImage'
 
 export default function Amenities({ data }) {
   return (
-    <section id="amenities" className="bg-cream-100 py-20 sm:py-24 lg:py-28" aria-labelledby="amenities-title">
+    <section
+      id="amenities"
+      className={`bg-cream-100 pt-20 sm:pt-24 lg:pt-28 ${data.compactBottom ? 'pb-12 sm:pb-14 lg:pb-16' : 'pb-20 sm:pb-24 lg:pb-28'}`}
+      aria-labelledby="amenities-title"
+    >
       <div className="container-site">
         <SectionHeading id="amenities-title" align="center" eyebrow={data.eyebrow} title={data.title} description={data.description} />
 
