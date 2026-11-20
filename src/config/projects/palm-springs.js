@@ -65,8 +65,8 @@ const palmSprings = {
   hero: {
     mode: 'designed',
     // titleLine1: '3, 4 & 5-BR Townhouses & Villas',
-    titleLine1: 'Ultra Luxury Townhouses & Villas Located at Sheikh Zayed Road',
-    titleLine2: 'Next to Palm Jebel Ali',
+    titleLine1: 'Ultra Luxury Townhouses & Villas By Nakheel',
+    titleLine2: 'Next to Palm Jebel Ali On Sheikh Zayed Road',
     imageAlt: 'Palm Springs by Nakheel townhouses and villas among palm trees, beside Sheikh Zayed Road with Palm Jebel Ali and the sea beyond',
     background: {
       // Hero photo: Palm Springs with Palm Jebel Ali and the sea behind (supplied by the client, 1600×750)
