@@ -1,4 +1,8 @@
 import {
+  UtensilsCrossed,
+  Sprout,
+  Map,
+  Bike,
   Award,
   BadgePercent,
   Baby,
@@ -36,6 +40,10 @@ import {
  * stays plain data. Add new icons here when you reference them in config.
  */
 const ICONS = {
+  UtensilsCrossed,
+  Sprout,
+  Map,
+  Bike,
   Award,
   BadgePercent,
   Baby,

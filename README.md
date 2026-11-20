@@ -30,7 +30,8 @@ Also included: a sticky navbar with a mobile menu, a mobile bottom CTA bar, a fo
 | URL | Page |
 |---|---|
 | `/` | Home page: a card for every project |
-| `/damac-island` | DAMAC Islands landing page |
+| `/damac-islands-2` | DAMAC Islands 2 landing page (`/damac-island` redirects here) |
+| `/palmsprings` | Palm Springs by Nakheel landing page (`/palm-springs` redirects here) |
 | anything else | 404 page |
 
 **To add a project:** copy `src/config/projects/damac-island.js` to a new file (e.g. `emaar-south.js`), change its `slug`, `card` and content, then add it to the `projects` array in `src/config/projects/index.js`. It appears on the home page and lives at `/<slug>`.

@@ -32,10 +32,15 @@ export default function HeroDesigned({ hero }) {
           fetchPriority="high"
           decoding="async"
           className="hero-designed__bg absolute inset-0 -z-10 h-full w-full object-cover"
+          style={bg.position ? { objectPosition: bg.position } : undefined}
         />
       </picture>
       {/* Very light top shade keeps white text crisp on the bright sky (keeps the photo's colours) */}
-      <div aria-hidden="true" className="hero-designed__shade absolute inset-x-0 top-0 -z-10 h-[62%] bg-gradient-to-b from-[#0b3d86]/25 via-[#0b3d86]/10 to-transparent" />
+      <div
+        aria-hidden="true"
+        className="hero-designed__shade absolute inset-x-0 top-0 -z-10 h-[62%] bg-gradient-to-b from-[#0b3d86]/25 via-[#0b3d86]/10 to-transparent"
+        style={bg.shade ? { backgroundImage: bg.shade } : undefined}
+      />
 
       <div className="hero-designed__content container-site flex flex-col items-center text-center text-white">
         {/* Project logo with side lines (aligned to the "ISLANDS 2" row) */}

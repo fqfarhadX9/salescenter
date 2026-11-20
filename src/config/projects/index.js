@@ -8,8 +8,9 @@
  * It then appears as a card on the home page and lives at /<slug>.
  */
 import damacIsland from './damac-island.js'
+import palmSprings from './palm-springs.js'
 
-export const projects = [damacIsland]
+export const projects = [damacIsland, palmSprings]
 
 export function getProjectBySlug(slug) {
   return projects.find((p) => p.slug === slug)
