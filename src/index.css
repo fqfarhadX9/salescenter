@@ -652,3 +652,13 @@
   .animate-ctas .cta-anim .lucide-arrow-right { animation: none; }
   .animate-ctas .cta-anim::after { display: none; }
 }
+
+/* Long layout: "Book with just 10%" gets a gold outline (same colour as its arrow) and is centred on portrait screens */
+.hero-designed--long .hero-designed__book {
+  border: 2px solid #c9a052;
+}
+@media (orientation: portrait) and (max-width: 1100px) {
+  .hero-designed--long .hero-designed__book {
+    left: 50%;
+  }
+}
