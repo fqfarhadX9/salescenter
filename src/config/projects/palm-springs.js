@@ -267,19 +267,21 @@ const palmSprings = {
   },
 
   developer: {
-    eyebrow: 'About the Developer',
+    eyebrow: 'The Developer',
     name: 'Nakheel',
     logoSrc: `${PS_IMG}/logo-palm-springs.webp`,
-    intro: 'WHY NAKHEEL?',
-    body: 'Nakheel is one of Dubai’s leading master developers and the name behind Palm Jumeirah. Its landmark communities, from Palm Jebel Ali and Dubai Islands to Jumeirah Park, Jumeirah Islands and Al Furjan, are known for green spaces, waterfront living and lasting value.',
-    // Landmark communities (the developer's site publishes no headline figures)
+    intro: 'Nakheel: A Legacy of Landmark Communities',
+    body: [
+      'Nakheel is one of Dubai’s leading master developers, shaping the city’s skyline and lifestyle through visionary residential communities.',
+      'Each project is thoughtfully designed to offer a harmonious balance of comfort, nature and well-being, with integrated green spaces, waterfront living and seamless access to world-class amenities. Palm Springs is the next chapter in that story.',
+    ],
+    // "A Landmark Legacy"
     stats: [
       { icon: 'Palmtree', value: 'Palm Jumeirah', label: 'Delivered' },
-      { icon: 'Waves', value: 'Palm Jebel Ali', label: 'In progress' },
       { icon: 'Landmark', value: 'Dubai Islands', label: 'In progress' },
-      { icon: 'Trees', value: 'Jumeirah Park', label: 'Delivered' },
+      { icon: 'Waves', value: 'Palm Jebel Ali', label: 'In progress' },
     ],
-    statsNote: 'Selected Nakheel communities.',
+    statsNote: 'A landmark legacy: selected Nakheel communities.',
     pillars: [],
   },
 

@@ -27,14 +27,19 @@ export default function Developer({ data }) {
             <h2 id="developer-title" className="text-2xl font-semibold leading-snug text-navy-900 sm:text-3xl lg:text-4xl lg:leading-tight">
               {data.intro}
             </h2>
-            {data.body && <p className="mt-5 max-w-3xl text-base leading-relaxed text-ink/70 sm:text-lg">{data.body}</p>}
+            {/* body: a string, or an array of paragraphs */}
+            {[].concat(data.body || []).map((para) => (
+              <p key={para} className="mt-5 max-w-3xl text-base leading-relaxed text-ink/70 sm:text-lg">
+                {para}
+              </p>
+            ))}
           </Reveal>
         </div>
 
         {/* Key figures with icons */}
         {data.stats?.length > 0 && (
           <>
-            <dl className="mt-12 grid grid-cols-2 gap-4 sm:gap-5 lg:mt-16 lg:grid-cols-4">
+            <dl className={`mt-12 grid grid-cols-2 gap-4 sm:gap-5 lg:mt-16 max-sm:[&>*:last-child:nth-child(odd)]:col-span-2 ${data.stats.length === 3 ? 'sm:grid-cols-3' : 'lg:grid-cols-4'}`}>
               {data.stats.map((s, i) => (
                 <Reveal
                   key={s.label}
