@@ -46,7 +46,7 @@ const inputClass = (error) =>
 /**
  * Lead enquiry form.
  * layout="stacked" — single column (hero card)
- * layout="grid"    — two columns on sm+ (final CTA)
+ * layout="grid"    — one field per row with roomier spacing (final CTA, pop-up)
  */
 export default function EnquiryForm({ config, source, project, layout = 'stacked', className = '' }) {
   const uid = useId()
@@ -84,7 +84,7 @@ export default function EnquiryForm({ config, source, project, layout = 'stacked
 
   return (
     <form noValidate onSubmit={onSubmit} className={className} aria-label="Enquiry form">
-      <div className={grid ? 'grid gap-4 sm:grid-cols-2' : 'space-y-3.5'}>
+      <div className={grid ? 'grid gap-4' : 'space-y-3.5'}>
         <Field id={ids.name} label="Full name" icon={User} error={errors.name}>
           <input type="text" autoComplete="name" placeholder="Full Name" value={values.name} className={inputClass(errors.name)} {...a11y('name')} />
         </Field>
