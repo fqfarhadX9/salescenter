@@ -232,6 +232,7 @@ const palmSprings = {
   },
 
   location: {
+    layout: 'centered', // heading + text centred on top; map left, travel times right
     eyebrow: 'Location',
     title: 'At the Gateway to Palm Jebel Ali',
     description:

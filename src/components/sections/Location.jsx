@@ -9,11 +9,29 @@ import Reveal from '../ui/Reveal'
  */
 export default function Location({ data }) {
   if (!data) return null
+  const centered = data.layout === 'centered' // heading + text centred on top; map left, travel times right
+
+  const header = (
+    <Reveal className={centered ? 'mx-auto max-w-3xl text-center' : undefined}>
+      {data.eyebrow && (
+        <div className={`mb-4 flex items-center gap-4 ${centered ? 'justify-center' : ''}`}>
+          <span className="gold-rule" />
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-gold-300">{data.eyebrow}</span>
+          {centered && <span className="gold-rule" />}
+        </div>
+      )}
+      <h2 id="location-title" className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-[42px]">
+        {data.title}
+      </h2>
+      {data.description && <p className="mt-5 text-base leading-relaxed text-white/75 sm:text-lg">{data.description}</p>}
+    </Reveal>
+  )
   return (
     <section id="location" className="relative overflow-hidden bg-navy-900 py-20 text-white sm:py-24 lg:py-28" aria-labelledby="location-title">
       {/* Soft gold glow for depth */}
       <div aria-hidden="true" className="pointer-events-none absolute -right-40 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-gold-400/10 blur-3xl" />
 
+      {centered && <div className="container-site relative mb-12 lg:mb-14">{header}</div>}
       <div className="container-site relative grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
         {/* Map */}
         {data.map && (
@@ -43,20 +61,9 @@ export default function Location({ data }) {
 
         {/* Content */}
         <div>
-          <Reveal>
-            {data.eyebrow && (
-              <div className="mb-4 flex items-center gap-4">
-                <span className="gold-rule" />
-                <span className="text-xs font-semibold uppercase tracking-[0.25em] text-gold-300">{data.eyebrow}</span>
-              </div>
-            )}
-            <h2 id="location-title" className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-[42px]">
-              {data.title}
-            </h2>
-            {data.description && <p className="mt-5 text-base leading-relaxed text-white/75 sm:text-lg">{data.description}</p>}
-          </Reveal>
+          {!centered && header}
 
-          <ul className="mt-9 grid gap-4 sm:grid-cols-2">
+          <ul className={`grid gap-4 sm:grid-cols-2 ${centered ? '' : 'mt-9'}`}>
             {data.items.map((item, i) => (
               <Reveal
                 as="li"
