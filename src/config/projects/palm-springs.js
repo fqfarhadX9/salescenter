@@ -67,18 +67,19 @@ const palmSprings = {
     // titleLine1: '3, 4 & 5-BR Townhouses & Villas',
     titleLine1: 'Ultra Luxury Townhouses & Villas Located at Sheikh Zayed Road',
     titleLine2: 'Next to Palm Jebel Ali',
-    imageAlt: 'Aerial view of the Palm Springs by Nakheel community with townhouses, villas and green parks',
+    imageAlt: 'Palm Springs by Nakheel townhouses and villas among palm trees, beside Sheikh Zayed Road with Palm Jebel Ali and the sea beyond',
     background: {
-      image: ps('community-01'),
-      position: '50% 55%',
-      // Slightly deeper shade than DAMAC Islands: the aerial photo is brighter and busier behind the text
-      shade: 'linear-gradient(180deg, rgba(10,26,48,0.55) 0%, rgba(10,26,48,0.28) 55%, rgba(10,26,48,0) 100%)',
-      // Phones + upright tablets: photo anchored at the bottom, fading into this gradient
-      mobile: ps('4-plex-townhouses-th-ext-01'),
-      mobileWidth: 1600,
-      mobileHeight: 900,
-      skyTop: '#0f2740',
-      skyBottom: '#2f5d7c',
+      // Hero photo: Palm Springs with Palm Jebel Ali and the sea behind (supplied by the client, 1600×750)
+      image: '/images/palm-springs/hero.jpg',
+      position: '50% 40%', // keeps the sky behind the headline and the homes in view
+      // Deeper blue shade behind the text so the gold line stays readable over the bright horizon
+      shade: 'linear-gradient(180deg, rgba(4,38,84,0.55) 0%, rgba(4,38,84,0.38) 55%, rgba(4,38,84,0) 100%)',
+      // Phones + upright tablets: same photo anchored at the bottom, its sky fading into this gradient
+      mobile: '/images/palm-springs/hero-mobile.jpg',
+      mobileWidth: 1080,
+      mobileHeight: 1177, // portrait crop (homes + Palm Jebel Ali) of the same photo
+      skyTop: '#05356a',
+      skyBottom: '#0a4f97', // matches the top of the photo's sky
     },
     offer: {
       highlight: { value: '60/40', text: 'Payment Plan' },
