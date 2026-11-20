@@ -481,7 +481,7 @@
   padding-top: max(28px, 5svh);
 }
 .hero-designed--long .hero-designed__logo {
-  height: clamp(48px, min(5.6vw, 8svh), 96px);
+  height: clamp(58px, min(6.8vw, 9.8svh), 116px);
 }
 .hero-designed--long .hero-designed__title {
   margin-top: clamp(14px, 2.6svh, 32px);
@@ -503,7 +503,7 @@
     padding-top: max(28px, 5svh);
   }
   .hero-designed--long .hero-designed__logo {
-    height: clamp(50px, 14vw, 64px);
+    height: clamp(60px, 17vw, 78px);
   }
   .hero-designed--long .hero-designed__title {
     margin-top: 18px;
@@ -538,7 +538,7 @@
     padding-top: 6svh;
   }
   .hero-designed--long .hero-designed__logo {
-    height: clamp(64px, 9vw, 96px);
+    height: clamp(78px, 11vw, 116px);
   }
   .hero-designed--long .hero-designed__title {
     margin-top: 26px;
