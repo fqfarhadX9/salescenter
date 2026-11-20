@@ -59,7 +59,9 @@ Forms validate name, phone, email and property type, and show loading, success a
 cp .env.example .env   # then set VITE_LEAD_ENDPOINT
 ```
 
-Payload: `project, name, phone, email, propertyType, source (e.g. damac-island-hero-form), page, submittedAt`, plus any `utm_*`, `fbclid` and `gclid` parameters from the URL.
+Payload: `project, name, phone, phoneCountry, email, purpose, source (e.g. damac-island-hero-form), page, submittedAt`, plus any `utm_*`, `fbclid` and `gclid` parameters from the URL.
+
+**Phone numbers:** the phone field has a searchable country picker (flags + dialling codes, UAE +971 by default) and validates each country's number rules with `libphonenumber-js`. `phone` is always sent in E.164 format (e.g. `+971501234567`, `+919876543210`, `+447911123456`) and `phoneCountry` is the ISO country code (e.g. `AE`).
 
 - **No endpoint in development:** the lead is logged to the browser console and the form shows success, so you can test the flow.
 - **No endpoint in production:** the form shows an error, so leads are never silently lost.

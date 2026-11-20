@@ -1,7 +1,9 @@
-import { useId } from 'react'
-import { ChevronDown, CircleAlert, CircleCheck, LoaderCircle, Mail, Phone, Target, User } from 'lucide-react'
+import { lazy, Suspense, useId } from 'react'
+import { ChevronDown, CircleAlert, CircleCheck, LoaderCircle, Mail, Target, User } from 'lucide-react'
 import useLeadForm from '../../hooks/useLeadForm'
 import Button from '../ui/Button'
+
+const PhoneNumberInput = lazy(() => import('./PhoneNumberInput'))
 
 function Field({ id, label, icon: IconCmp, error, children }) {
   return (
@@ -10,13 +12,15 @@ function Field({ id, label, icon: IconCmp, error, children }) {
         {label}
       </label>
       <div className="relative">
-        <IconCmp
-          aria-hidden="true"
-          strokeWidth={1.6}
-          className={`pointer-events-none absolute left-4 top-1/2 h-[18px] w-[18px] -translate-y-1/2 ${
-            error ? 'text-red-500' : 'text-navy-700/60'
-          }`}
-        />
+        {IconCmp && (
+          <IconCmp
+            aria-hidden="true"
+            strokeWidth={1.6}
+            className={`pointer-events-none absolute left-4 top-1/2 h-[18px] w-[18px] -translate-y-1/2 ${
+              error ? 'text-red-500' : 'text-navy-700/60'
+            }`}
+          />
+        )}
         {children}
       </div>
       {error && (
@@ -84,8 +88,20 @@ export default function EnquiryForm({ config, source, project, layout = 'stacked
         <Field id={ids.name} label="Full name" icon={User} error={errors.name}>
           <input type="text" autoComplete="name" placeholder="Full Name" value={values.name} className={inputClass(errors.name)} {...a11y('name')} />
         </Field>
-        <Field id={ids.phone} label="Phone number" icon={Phone} error={errors.phone}>
-          <input type="tel" inputMode="tel" autoComplete="tel" placeholder="Phone Number" value={values.phone} className={inputClass(errors.phone)} {...a11y('phone')} />
+        <Field id={ids.phone} label="Phone number" error={errors.phone}>
+          <Suspense fallback={<div className={`${inputClass(errors.phone)} flex items-center !pl-4 text-ink/45`}>+971 Phone Number</div>}>
+            <PhoneNumberInput
+              id={ids.phone}
+              value={values.phone}
+              defaultCountry={values.phoneCountry || undefined}
+              error={errors.phone}
+              onChange={(value) => onChange({ target: { name: 'phone', value: value || '' } })}
+              onCountryChange={(country) => onChange({ target: { name: 'phoneCountry', value: country || '' } })}
+              onBlur={onBlur}
+              aria-invalid={errors.phone ? 'true' : 'false'}
+              aria-describedby={errors.phone ? `${ids.phone}-error` : undefined}
+            />
+          </Suspense>
         </Field>
         <Field id={ids.email} label="Email address" icon={Mail} error={errors.email}>
           <input type="email" autoComplete="email" placeholder="Email Address" value={values.email} className={inputClass(errors.email)} {...a11y('email')} />

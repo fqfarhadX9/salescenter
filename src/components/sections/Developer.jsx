@@ -42,7 +42,7 @@ export default function Developer({ data }) {
             <dl className={`mt-12 grid grid-cols-2 gap-4 sm:gap-5 lg:mt-16 max-sm:[&>*:last-child:nth-child(odd)]:col-span-2 ${data.stats.length === 3 ? 'sm:grid-cols-3' : 'lg:grid-cols-4'}`}>
               {data.stats.map((s, i) => (
                 <Reveal
-                  key={s.label}
+                  key={`${s.value}-${s.label}`}
                   delay={i * 80}
                   className="flex flex-col items-center rounded-card bg-white px-4 py-8 text-center shadow-soft ring-1 ring-navy-900/5 sm:py-10"
                 >

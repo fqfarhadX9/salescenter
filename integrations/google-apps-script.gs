@@ -4,6 +4,8 @@
  * Setup:
  * 1. Create a Google Sheet. Row 1 headers:
  *    submittedAt | project | name | phone | email | purpose | source | utm_source | utm_campaign | page
+ *    Optional extra columns: phoneCountry (e.g. AE, IN, GB) | phoneValid (yes / CHECK)
+ *    Phone numbers arrive in E.164 format (e.g. +971501234567) and are saved as text so the "+" is kept.
  * 2. Extensions → Apps Script → paste this file → Save.
  * 3. Deploy → New deployment → Web app. Execute as: Me, Who has access: Anyone.
  * 4. Copy the /exec URL into leadEndpoint in src/config/site.js, then rebuild/redeploy the site.
@@ -30,20 +32,38 @@ function doGet() {
   return ContentService.createTextOutput('OK - DAMAC lead receiver is running. Leads go to the sheet and to: ' + NOTIFY_EMAIL);
 }
 
+// E.164: "+", country code, national number, 8 to 15 digits in total
+function normalizePhone(value) {
+  let phone = String(value || '').trim().replace(/[\s\-().]/g, '');
+  if (phone.startsWith('00')) phone = '+' + phone.slice(2);
+  if (phone && !phone.startsWith('+')) phone = '+' + phone;
+  return { phone, valid: /^\+[1-9]\d{7,14}$/.test(phone) };
+}
+
+// Values starting with + = - @ are stored as plain text (keeps the "+" and blocks spreadsheet formulas)
+function asText(value) {
+  const v = value === undefined || value === null ? '' : String(value);
+  return /^[+=\-@]/.test(v) ? "'" + v : v;
+}
+
 function doPost(e) {
   const data = JSON.parse(e.postData.contents);
+  const checked = normalizePhone(data.phone);
+  data.phone = checked.phone;
+  data.phoneValid = checked.valid ? 'yes' : 'CHECK';
 
   // 1. Save to sheet (columns follow the header row, so you can reorder/add columns)
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
   const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
-  sheet.appendRow(headers.map((h) => data[h] || ''));
+  sheet.appendRow(headers.map((h) => asText(data[h])));
 
   // 2. Email alert
   const esc = (v) => String(v || '—').replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' })[c]);
   const rows = [
     ['Project', data.project],
     ['Name', data.name],
-    ['Phone', data.phone],
+    ['Phone', checked.valid ? data.phone : data.phone + '  (please check: not a valid international number)'],
+    ['Country', data.phoneCountry],
     ['Email', data.email],
     ['Purpose', data.purpose],
     ['Form', data.source],
@@ -77,7 +97,7 @@ function doPost(e) {
   try {
     MailApp.sendEmail({
       to: NOTIFY_EMAIL,
-      subject: `New Lead [${data.project || 'website'}]: ${data.name} – ${data.purpose}`,
+      subject: `${checked.valid ? '' : '[Check phone] '}New Lead [${data.project || 'website'}]: ${data.name} – ${data.purpose}`,
       htmlBody: html,
       replyTo: data.email,
     });

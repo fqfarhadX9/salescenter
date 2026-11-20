@@ -1,22 +1,34 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getExampleNumber, isValidPhoneNumber, validatePhoneNumberLength } from 'libphonenumber-js'
+import examples from 'libphonenumber-js/mobile/examples'
+import countryNames from 'react-phone-number-input/locale/en'
 import { submitLead } from '../services/leadService'
 
-const INITIAL = { name: '', phone: '', email: '', purpose: '' }
+const INITIAL = { name: '', phone: '', phoneCountry: 'AE', email: '', purpose: '' }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
-const PHONE_RE = /^\+?[0-9\s\-()]{7,20}$/
 
 export function validateLead(values) {
   const errors = {}
   if (!values.name.trim() || values.name.trim().length < 2) errors.name = 'Please enter your full name.'
-  const digits = values.phone.replace(/\D/g, '')
-  if (!values.phone.trim()) errors.phone = 'Please enter your phone number.'
-  else if (!PHONE_RE.test(values.phone.trim()) || digits.length < 7 || digits.length > 15)
-    errors.phone = 'Please enter a valid phone number.'
+  const phoneError = validatePhone(values.phone, values.phoneCountry)
+  if (phoneError) errors.phone = phoneError
   if (!values.email.trim()) errors.email = 'Please enter your email address.'
   else if (!EMAIL_RE.test(values.email.trim())) errors.email = 'Please enter a valid email address.'
   if (!values.purpose) errors.purpose = 'Please choose your purpose.'
   return errors
+}
+
+function validatePhone(phone, country) {
+  if (!phone || phone.replace(/\D/g, '').length === 0) return 'Please enter your phone number.'
+  if (isValidPhoneNumber(phone)) return ''
+  const name = countryNames[country] || ''
+  const example = country ? getExampleNumber(country, examples)?.formatNational() : ''
+  const hint = example ? ` e.g. ${example}` : ''
+  const length = validatePhoneNumberLength(phone, country)
+  if (length === 'TOO_SHORT') return `Number is too short.${hint}`
+  if (length === 'TOO_LONG') return `Number is too long.${hint}`
+  return `Enter a valid ${name ? `${name} ` : ''}number.${hint}`
 }
 
 /** Form state, validation and submit lifecycle: idle → submitting → success | error. */
@@ -29,10 +41,12 @@ export default function useLeadForm({ source, project }) {
 
   const onChange = (e) => {
     const { name, value } = e.target
-    const next = { ...values, [name]: value }
-    setValues(next)
-    if (touched[name]) setErrors(validateLead(next))
+    setValues((prev) => ({ ...prev, [name]: value }))
   }
+
+  useEffect(() => {
+    if (Object.keys(touched).length) setErrors(validateLead(values))
+  }, [values, touched])
 
   const onBlur = (e) => {
     const { name } = e.target
@@ -56,7 +70,8 @@ export default function useLeadForm({ source, project }) {
       await submitLead(
         {
           name: values.name.trim(),
-          phone: values.phone.trim(),
+          phone: values.phone,
+          phoneCountry: values.phoneCountry,
           email: values.email.trim(),
           purpose: values.purpose,
         },
