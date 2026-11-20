@@ -65,7 +65,7 @@ export default function HeroDesigned({ hero }) {
         )}
 
         {(offer.highlight || offer.price) && (
-          <div className="hero-designed__pill">
+          <div className={`hero-designed__pill ${offer.shine ? 'hero-designed__pill--shine' : ''}`}>
             {offer.highlight && (
               <div className="hero-designed__pill-left">
                 <span className="font-display font-bold">{offer.highlight.value}</span>{' '}

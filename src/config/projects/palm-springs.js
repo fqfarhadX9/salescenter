@@ -84,6 +84,7 @@ const palmSprings = {
       skyBottom: '#0a4f97', // matches the top of the photo's sky
     },
     offer: {
+      shine: true, // same moving shine + soft pulse as the "Book with just 10%" button
       highlight: { value: '60/40', text: 'Payment Plan' },
       price: { prefix: 'Starting from', value: 'AED 3.8M', suffix: '( USD 1.03M )' },
     },
