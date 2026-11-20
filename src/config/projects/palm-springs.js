@@ -161,8 +161,7 @@ const palmSprings = {
       { name: '382 Hectares', sub: 'Masterplan', iconName: 'Map' },
     ],
     paragraphs: [
-      'Palm Springs brings together eleven Aliso townhouse neighbourhoods and four Rancho villa neighbourhoods, all set around Canyon Park, a green spine of sensory gardens, waterways and shaded walks.',
-      'Homes open onto private courtyards and gardens, with two signature clubs and planned schools, shops and transport links within the masterplan.',
+      'Palm Springs is a masterplanned community of eleven Aliso townhouse neighbourhoods and four Rancho villa neighbourhoods, all arranged around Canyon Park, a green spine of sensory gardens, flowing waterways and shaded walking trails. Each home opens onto its own private courtyard or garden, and residents have two signature clubs, with schools, shops and transport links planned within the community.',
     ],
     cta: { label: 'Know More', href: '#enquire' },
   },

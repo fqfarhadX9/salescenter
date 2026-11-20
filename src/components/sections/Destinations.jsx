@@ -22,6 +22,13 @@ export default function Destinations({ data }) {
         </span>
       </h2>
       {centered && <span aria-hidden="true" className="mx-auto mt-5 block h-px w-24 bg-gold-300/80 lg:mt-6" />}
+      {centered && data.paragraphs?.length > 0 && (
+        <div className="mx-auto mt-6 max-w-3xl space-y-4 text-[15px] leading-relaxed text-white/85 sm:text-base lg:mt-7 lg:text-[17px]">
+          {data.paragraphs.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </div>
+      )}
     </Reveal>
   )
   return (
@@ -119,15 +126,17 @@ export default function Destinations({ data }) {
           </Reveal>
 
           <Reveal delay={180} className={centered ? 'max-lg:text-center' : undefined}>
+            {!centered && (
             <div className="mt-8 max-w-[640px] max-lg:mx-auto space-y-4 text-[15px] leading-relaxed text-white sm:text-base lg:mt-[clamp(20px,3.6vh,40px)] lg:space-y-[clamp(8px,1.6vh,16px)] lg:text-[clamp(14px,1vw,18px)]">
               {data.paragraphs?.map((p) => (
                 <p key={p}>{p}</p>
               ))}
             </div>
+            )}
             {data.cta && (
               <a
                 href={data.cta.href}
-                className="mt-8 inline-flex h-[52px] min-w-[240px] items-center justify-center rounded-full border border-white px-10 text-[15px] font-medium uppercase tracking-[0.12em] text-white transition-colors duration-300 hover:bg-white hover:text-[#0a74b5] lg:mt-[clamp(20px,3.6vh,36px)] lg:h-[clamp(44px,6vh,56px)]"
+                className="mt-10 inline-flex h-[52px] min-w-[240px] items-center justify-center rounded-full border border-white px-10 text-[15px] font-medium uppercase tracking-[0.12em] text-white transition-colors duration-300 hover:bg-white hover:text-[#0a74b5] lg:mt-[clamp(20px,3.6vh,36px)] lg:h-[clamp(44px,6vh,56px)]"
               >
                 {data.cta.label}
               </a>
