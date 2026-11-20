@@ -136,7 +136,7 @@ export default function Destinations({ data }) {
             {data.cta && (
               <a
                 href={data.cta.href}
-                className="mt-10 inline-flex h-[52px] min-w-[240px] items-center justify-center rounded-full border border-white px-10 text-[15px] font-medium uppercase tracking-[0.12em] text-white transition-colors duration-300 hover:bg-white hover:text-[#0a74b5] lg:mt-[clamp(20px,3.6vh,36px)] lg:h-[clamp(44px,6vh,56px)]"
+                className="cta-anim cta-anim--light mt-10 inline-flex h-[52px] min-w-[240px] items-center justify-center rounded-full border border-white px-10 text-[15px] font-medium uppercase tracking-[0.12em] text-white transition-colors duration-300 hover:bg-white hover:text-[#0a74b5] lg:mt-[clamp(20px,3.6vh,36px)] lg:h-[clamp(44px,6vh,56px)]"
               >
                 {data.cta.label}
               </a>

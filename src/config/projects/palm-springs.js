@@ -39,6 +39,7 @@ const palmSprings = {
   },
 
   showNavbar: false,
+  animatedButtons: true, // shine + pulse on all CTA buttons (same as "Book with just 10%")
   mobileCtaBar: false,
 
   seo: {

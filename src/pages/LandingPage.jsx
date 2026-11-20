@@ -20,6 +20,13 @@ export default function LandingPage({ config }) {
   // Get Floor Plan & Price…) opens the enquiry form in a pop-up instead of scrolling.
   // Add data-no-popup to a link to keep the normal scroll behaviour.
   const [popup, setPopup] = useState(null)
+
+  // Animated buttons (shine + pulse like "Book with just 10%"): config.animatedButtons: true
+  useEffect(() => {
+    if (!config.animatedButtons) return
+    document.documentElement.classList.add('animate-ctas')
+    return () => document.documentElement.classList.remove('animate-ctas')
+  }, [config.animatedButtons])
   const closePopup = useCallback(() => setPopup(null), [])
 
   useEffect(() => {

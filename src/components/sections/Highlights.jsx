@@ -45,7 +45,7 @@ export default function Highlights({ data }) {
                   href={cta.href}
                   variant={i === 0 ? 'gold' : 'outlineDark'}
                   size="md"
-                  className={`group w-full sm:w-auto sm:min-w-[200px] ${i === 0 ? '' : 'bg-white'}`}
+                  className={`cta-anim group w-full sm:w-auto sm:min-w-[200px] ${i === 0 ? '' : 'bg-white'}`}
                 >
                   {cta.label}
                   {i === 0 && <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />}

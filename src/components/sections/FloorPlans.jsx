@@ -138,7 +138,7 @@ export default function FloorPlans({ data }) {
               )}
             </div>
 
-            <Button href="#enquire" variant="gold" className="group relative mt-8 w-full lg:mt-auto">
+            <Button href="#enquire" variant="gold" className="cta-anim group relative mt-8 w-full lg:mt-auto">
               Get Floor Plan &amp; Price
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </Button>

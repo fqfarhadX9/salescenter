@@ -116,7 +116,7 @@ export default function EnquiryForm({ config, source, project, layout = 'stacked
         </p>
       )}
 
-      <Button type="submit" variant="gold" size="md" className="mt-5 w-full !rounded-lg" disabled={status === 'submitting'}>
+      <Button type="submit" variant="gold" size="md" className="cta-anim mt-5 w-full !rounded-lg" disabled={status === 'submitting'}>
         {status === 'submitting' ? (
           <>
             <LoaderCircle className="h-5 w-5 animate-spin" aria-hidden="true" />

@@ -605,3 +605,50 @@
     mask-image: linear-gradient(180deg, transparent 0%, transparent 12%, #000 42%);
   }
 }
+
+/* ---------- Animated CTA buttons (project config: animatedButtons: true) ----------
+   Same moving shine + soft pulse ring as the hero "Book with just 10%" button.
+   Add class "cta-anim" to a button; "cta-anim--light" for outline buttons on dark backgrounds. */
+.animate-ctas .cta-anim {
+  --cta-ring: rgba(201, 160, 82, 0.55);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  animation: cta-pulse 2.4s ease-out infinite;
+}
+.animate-ctas .cta-anim--light {
+  --cta-ring: rgba(255, 255, 255, 0.5);
+}
+.animate-ctas .cta-anim::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 40%;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+  transform: translateX(-160%) skewX(-18deg);
+  animation: book-shine 3s ease-in-out infinite;
+}
+.animate-ctas .cta-anim--light::after {
+  background: linear-gradient(105deg, transparent 0%, rgba(233, 199, 123, 0.5) 50%, transparent 100%);
+}
+.animate-ctas .cta-anim .lucide-arrow-right {
+  animation: book-arrow 1.2s ease-in-out infinite;
+}
+.animate-ctas .cta-anim:disabled {
+  animation: none;
+}
+.animate-ctas .cta-anim:disabled::after {
+  display: none;
+}
+@keyframes cta-pulse {
+  0% { box-shadow: 0 10px 24px -12px rgba(0, 35, 90, 0.35), 0 0 0 0 var(--cta-ring); }
+  70% { box-shadow: 0 10px 24px -12px rgba(0, 35, 90, 0.35), 0 0 0 12px rgba(0, 0, 0, 0); }
+  100% { box-shadow: 0 10px 24px -12px rgba(0, 35, 90, 0.35), 0 0 0 0 rgba(0, 0, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-ctas .cta-anim,
+  .animate-ctas .cta-anim .lucide-arrow-right { animation: none; }
+  .animate-ctas .cta-anim::after { display: none; }
+}
