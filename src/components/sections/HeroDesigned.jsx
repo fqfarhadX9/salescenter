@@ -16,7 +16,7 @@ export default function HeroDesigned({ hero }) {
   return (
     <section
       id="top"
-      className="hero-designed relative isolate overflow-hidden bg-[#1b6fc4]"
+      className={`hero-designed relative isolate overflow-hidden bg-[#1b6fc4] ${hero.layout === 'long' ? 'hero-designed--long' : ''}`}
       aria-labelledby="hero-title"
       style={{ '--hero-sky-top': bg.skyTop, '--hero-sky-bottom': bg.skyBottom }}
     >

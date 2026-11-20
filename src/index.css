@@ -472,3 +472,86 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- Hero: "long" layout (hero.layout: 'long') ----------
+   For longer headlines / gold lines (e.g. Palm Springs). Smaller, calmer type with
+   more air between logo, headline, gold line and offer; lines wrap neatly on portrait screens.
+   Two-class selectors so these win over the default hero rules above. */
+.hero-designed--long .hero-designed__content {
+  padding-top: max(28px, 5svh);
+}
+.hero-designed--long .hero-designed__logo {
+  height: clamp(48px, min(5.6vw, 8svh), 96px);
+}
+.hero-designed--long .hero-designed__title {
+  margin-top: clamp(14px, 2.6svh, 32px);
+  font-size: clamp(28px, min(4.15vw, 7.6svh), 88px);
+  line-height: 1.1;
+}
+.hero-designed--long .hero-designed__subtitle {
+  margin-top: clamp(8px, 1.4svh, 16px);
+  font-size: clamp(18px, min(2.25vw, 4.1svh), 46px);
+}
+.hero-designed--long .hero-designed__pill {
+  margin-top: clamp(22px, 4svh, 48px);
+  font-size: clamp(12px, min(1.3vw, 2.35svh), 26px);
+}
+
+/* Portrait: phones + upright tablets — headline and gold line wrap in balanced lines */
+@media (orientation: portrait) and (max-width: 1100px) {
+  .hero-designed--long .hero-designed__content {
+    padding-top: max(28px, 5svh);
+  }
+  .hero-designed--long .hero-designed__logo {
+    height: clamp(50px, 14vw, 64px);
+  }
+  .hero-designed--long .hero-designed__title {
+    margin-top: 18px;
+    max-width: 15ch;
+    font-size: clamp(30px, 8.6vw, 40px);
+    line-height: 1.12;
+    white-space: normal;
+    text-wrap: balance;
+  }
+  .hero-designed--long .hero-designed__subtitle {
+    margin-top: 12px;
+    max-width: 20ch;
+    font-size: clamp(19px, 5.6vw, 26px);
+    line-height: 1.25;
+  }
+  .hero-designed--long .hero-designed__gold {
+    white-space: normal;
+    text-wrap: balance;
+    padding: 0;
+  }
+  .hero-designed--long .hero-designed__subtitle .hero-designed__rule--gold {
+    display: none; /* side lines only make sense on a single line */
+  }
+  .hero-designed--long .hero-designed__pill {
+    margin-top: 24px;
+  }
+}
+
+/* Portrait tablets */
+@media (orientation: portrait) and (min-width: 640px) and (max-width: 1100px) {
+  .hero-designed--long .hero-designed__content {
+    padding-top: 6svh;
+  }
+  .hero-designed--long .hero-designed__logo {
+    height: clamp(64px, 9vw, 96px);
+  }
+  .hero-designed--long .hero-designed__title {
+    margin-top: 26px;
+    max-width: 22ch; /* two balanced lines */
+    font-size: clamp(42px, 6.4vw, 70px);
+  }
+  .hero-designed--long .hero-designed__subtitle {
+    margin-top: 16px;
+    max-width: 30ch;
+    font-size: clamp(22px, 3.25vw, 34px);
+  }
+  .hero-designed--long .hero-designed__pill {
+    margin-top: 32px;
+    font-size: clamp(15px, 2.1vw, 22px);
+  }
+}

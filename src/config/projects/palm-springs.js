@@ -64,6 +64,8 @@ const palmSprings = {
 
   hero: {
     mode: 'designed',
+    // 'long' = type sizes and spacing tuned for longer headline + gold line (wraps neatly on phones/tablets)
+    layout: 'long',
     // titleLine1: '3, 4 & 5-BR Townhouses & Villas',
     titleLine1: 'Ultra Luxury Townhouses & Villas By Nakheel',
     titleLine2: 'Next to Palm Jebel Ali On Sheikh Zayed Road',
