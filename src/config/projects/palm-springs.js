@@ -64,7 +64,8 @@ const palmSprings = {
 
   hero: {
     mode: 'designed',
-    titleLine1: '3, 4 & 5-BR Townhouses & Villas',
+    // titleLine1: '3, 4 & 5-BR Townhouses & Villas',
+    titleLine1: 'Ultra Luxury Townhouses & Villas Located at Sheikh Zayed Road',
     titleLine2: 'Next to Palm Jebel Ali',
     imageAlt: 'Aerial view of the Palm Springs by Nakheel community with townhouses, villas and green parks',
     background: {
@@ -165,7 +166,7 @@ const palmSprings = {
     description:
       'Aliso townhouses and Rancho villas with panoramic windows and private courtyards. Select a unit type to preview its layout.',
     lockPlans: true,
-    sizeLabel: 'Built-up Area From',
+    sizeLabel: 'Size From',
     plans: [
       {
         id: '3br-townhouse',
