@@ -136,6 +136,7 @@ const palmSprings = {
 
   // "Destinations"-style section after Amenities: the masterplan and its neighbourhoods
   destinations: {
+    layout: 'centered', // heading centred on top; masterplan left, highlights + text right
     titleBold: '15 Neighbourhoods,',
     titleLight: 'One Nature-Led Community',
     background: ps('community-05'),
