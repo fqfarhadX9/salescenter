@@ -1,4 +1,5 @@
 import assetUrl from '../../utils/assetUrl'
+import Icon from '../ui/Icon'
 import Reveal from '../ui/Reveal'
 
 /**
@@ -9,8 +10,14 @@ import Reveal from '../ui/Reveal'
  */
 export default function Destinations({ data }) {
   if (!data) return null
+  const tint = data.tint || {} // optional colour overrides (default = blue island tint)
   return (
-    <section id="destinations" className="relative isolate overflow-hidden bg-[#0a86c9]" aria-labelledby="destinations-title">
+    <section
+      id="destinations"
+      className="relative isolate overflow-hidden bg-[#0a86c9]"
+      style={tint.base ? { backgroundColor: tint.base } : undefined}
+      aria-labelledby="destinations-title"
+    >
       {/* Background + brochure-style blue tint */}
       <img
         src={assetUrl(data.background)}
@@ -19,10 +26,15 @@ export default function Destinations({ data }) {
         loading="lazy"
         className="absolute inset-0 -z-20 h-full w-full object-cover object-top"
       />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[#0b78bd]/60 mix-blend-multiply" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[#0b78bd]/60 mix-blend-multiply"
+        style={tint.multiply ? { backgroundColor: tint.multiply } : undefined}
+      />
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,110,175,0)_0%,rgba(4,150,215,0.25)_55%,rgba(0,172,236,0.9)_100%)]"
+        style={tint.gradient ? { backgroundImage: tint.gradient } : undefined}
       />
 
       <div className="container-site grid items-center gap-10 py-16 sm:py-20 lg:min-h-[min(100svh,860px)] lg:grid-cols-[0.85fr_1.15fr] lg:gap-12 lg:py-[clamp(40px,6vh,80px)]">
@@ -31,9 +43,13 @@ export default function Destinations({ data }) {
           <Reveal className="hidden justify-center lg:flex">
             <img
               src={assetUrl(data.map)}
-              alt="DAMAC Islands 2 masterplan with eight island destinations"
+              alt={data.mapAlt || 'DAMAC Islands 2 masterplan with eight island destinations'}
               loading="lazy"
-              className="h-[min(80svh,700px)] w-auto max-w-full object-contain drop-shadow-[0_18px_30px_rgba(0,40,80,0.18)]"
+              className={
+                data.mapFramed
+                  ? 'h-auto max-h-[min(80svh,700px)] w-full rounded-card object-contain shadow-lift ring-1 ring-white/25'
+                  : 'h-[min(80svh,700px)] w-auto max-w-full object-contain drop-shadow-[0_18px_30px_rgba(0,40,80,0.18)]'
+              }
             />
           </Reveal>
         )}
@@ -52,21 +68,26 @@ export default function Destinations({ data }) {
             <ul className="mt-8 grid grid-cols-2 gap-y-7 sm:grid-cols-4 lg:mt-[clamp(20px,3.6vh,44px)] lg:gap-y-[clamp(16px,3vh,36px)]">
               {data.items.map((d, i) => (
                 <li
-                  key={d.name}
+                  key={d.name + (d.sub || '')}
                   className={`flex flex-col items-center justify-end px-2 text-center ${
                     i % 4 !== 0 ? 'sm:border-l sm:border-white/50' : ''
                   } ${i % 2 !== 0 ? 'max-sm:border-l max-sm:border-white/50' : ''}`}
                 >
-                  <img
-                    src={assetUrl(d.icon)}
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    className="h-11 w-auto max-w-[92px] object-contain sm:h-12 lg:h-[clamp(36px,5.2vh,56px)]"
-                  />
+                  {d.iconName ? (
+                    <Icon name={d.iconName} strokeWidth={1.3} className="h-11 w-11 text-gold-200 sm:h-12 sm:w-12 lg:h-[clamp(36px,5.2vh,52px)] lg:w-[clamp(36px,5.2vh,52px)]" />
+                  ) : (
+                    <img
+                      src={assetUrl(d.icon)}
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
+                      className="h-11 w-auto max-w-[92px] object-contain sm:h-12 lg:h-[clamp(36px,5.2vh,56px)]"
+                    />
+                  )}
                   <span className="mt-2.5 text-[13px] font-semibold uppercase tracking-[0.06em] sm:text-sm lg:text-[clamp(13px,1vw,19px)]">
                     {d.name}
                   </span>
+                  {d.sub && <span className="mt-0.5 text-[12px] text-white/75 sm:text-[13px] lg:text-[clamp(12px,0.85vw,15px)]">{d.sub}</span>}
                 </li>
               ))}
             </ul>
