@@ -74,8 +74,10 @@ const palmSprings = {
       // Hero photo: Palm Springs with Palm Jebel Ali and the sea behind (supplied by the client, 1600×750)
       image: '/images/palm-springs/hero.jpg',
       position: '50% 40%', // keeps the sky behind the headline and the homes in view
-      // Deeper blue shade behind the text so the gold line stays readable over the bright horizon
-      shade: 'linear-gradient(180deg, rgba(4,38,84,0.55) 0%, rgba(4,38,84,0.38) 55%, rgba(4,38,84,0) 100%)',
+      // Dark shade behind the text block (soft spotlight + top fade) so all hero text reads clearly
+      shade:
+        'radial-gradient(ellipse 62% 78% at 50% 48%, rgba(3,18,44,0.5) 0%, rgba(3,18,44,0.3) 55%, rgba(3,18,44,0) 100%), ' +
+        'linear-gradient(180deg, rgba(3,22,52,0.62) 0%, rgba(3,22,52,0.42) 55%, rgba(3,22,52,0) 100%)',
       // Phones + upright tablets: same photo anchored at the bottom, its sky fading into this gradient
       mobile: '/images/palm-springs/hero-mobile.jpg',
       mobileWidth: 1080,
