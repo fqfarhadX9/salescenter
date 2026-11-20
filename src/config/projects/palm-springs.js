@@ -122,7 +122,6 @@ const palmSprings = {
   },
 
   amenities: {
-    compactBottom: true, // less empty space before the "15 Neighbourhoods" section
     eyebrow: 'Nature-Led Living',
     title: 'Amenities',
     description:

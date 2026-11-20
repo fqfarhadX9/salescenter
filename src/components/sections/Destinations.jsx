@@ -50,11 +50,11 @@ export default function Destinations({ data }) {
         style={tint.gradient ? { backgroundImage: tint.gradient } : undefined}
       />
 
-      {centered && <div className="container-site pt-16 text-white sm:pt-20 lg:pt-[clamp(48px,8vh,96px)]">{heading}</div>}
+      {centered && <div className="container-site pt-20 text-white sm:pt-24 lg:pt-28">{heading}</div>}
       <div
         className={
           centered
-            ? 'container-site grid items-center gap-10 pb-16 pt-10 sm:pb-20 sm:pt-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12 lg:pb-[clamp(48px,8vh,96px)] lg:pt-[clamp(32px,5vh,56px)] xl:gap-16'
+            ? 'container-site grid items-center gap-10 pb-20 pt-10 sm:pb-24 sm:pt-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12 lg:pb-28 lg:pt-14 xl:gap-16'
             : 'container-site grid items-center gap-10 py-16 sm:py-20 lg:min-h-[min(100svh,860px)] lg:grid-cols-[0.85fr_1.15fr] lg:gap-12 lg:py-[clamp(40px,6vh,80px)]'
         }
       >
